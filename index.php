@@ -47,7 +47,7 @@ if (WEB_ALLOW_AUTHORIZATION && !WEB_UNDER_CONSTRUCTION) {
 
             if ($auth->authorize($accountInfo['id'], $_COOKIE['user_password'])) {
 
-                auth::setSession($accountInfo['id'], $accountInfo['username'], $accountInfo['fullname'], $accountInfo['lowPhotoUrl'], $accountInfo['verify'], 0, $_COOKIE['user_password']);
+                auth::setSession($accountInfo['id'], $accountInfo['username'], $accountInfo['fullname'], $accountInfo['lowPhotoUrl'], $accountInfo['verify'], 0, $_COOKIE['user_password'], $accountInfo['typeuser']);
 
                 // Last notifications view | for new notifications counter
                 auth::setCurrentLastNotifyView($accountInfo['lastNotifyView']);

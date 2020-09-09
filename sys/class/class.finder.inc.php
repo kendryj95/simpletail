@@ -37,7 +37,7 @@ class finder extends db_connect
 
     }
 
-    public function getItems($queryText = '', $pageId = 0, $sortType = 0, $lat = 0.000000, $lng = 0.000000, $distance = 30)
+    public function getItems($queryText = '', $pageId = 0, $sortType = 0, $lat = 0.000000, $lng = 0.000000, $distance = 30, $search_by = null)
     {
 
         if (strlen($queryText) != 0 && $pageId == 0 && $this->getRequestFromApp() != 0) {
@@ -49,7 +49,7 @@ class finder extends db_connect
 
         $itemsCount = 0;
 
-        if ($pageId == 0) $itemsCount = $this->getItemsCount($queryText, $lat, $lng, $distance);
+        if ($pageId == 0) $itemsCount = $this->getItemsCount($queryText, $lat, $lng, $distance, $search_by);
 
         $result = array("error" => false,
                         "error_code" => ERROR_SUCCESS,
@@ -92,7 +92,7 @@ class finder extends db_connect
             case 0: {
 
                 // usually sort by date from new to old
-                $sortSql = " ORDER BY id DESC";
+                $sortSql = " ORDER BY {$this->tableName}.id DESC";
 
                 break;
             }
@@ -100,7 +100,7 @@ class finder extends db_connect
             case 1: {
 
                 // sort by date from old to new
-                $sortSql = " ORDER BY id ASC";
+                $sortSql = " ORDER BY {$this->tableName}.id ASC";
 
                 break;
             }
@@ -133,7 +133,28 @@ class finder extends db_connect
 
         if (strlen($queryText) > 0) {
 
-            $searchSql = " AND (itemTitle LIKE (:query) OR itemDesc LIKE (:query) OR itemContent LIKE (:query))";
+            switch ($search_by) {
+                case 1:
+                    $searchSql = " AND itemTitle LIKE (:query)";
+                    break;
+                case 2:
+                    $searchSql = " AND keywordsProduct LIKE (:query)";
+                    break;
+                case 3:
+                    $searchSql = " AND c.name LIKE (:query)";
+                    break;
+                case 4:
+                    list($price1, $price2) = explode("-", $queryText);
+                    if ($price1 && $price2) {
+                        $searchSql = " AND (price BETWEEN $price1 AND $price2)";
+                    } else {
+                        $searchSql = "";
+                    }
+                    break;
+                default:
+                    $searchSql = "";
+                    break;
+            }
 
         } else {
 
@@ -147,7 +168,7 @@ class finder extends db_connect
 
         if ($lat == 0.000000 && $lng == 0.000000) {
 
-            $sql = "SELECT * FROM $this->tableName WHERE removeAt = 0".$searchSql.$profileSql.$this->getInactiveSql().$this->getModerationSql().$categorySql.$currencySql.$sortSql.$limitSql;
+            $sql = "SELECT * FROM {$this->tableName} LEFT JOIN countries c ON c.id = {$this->tableName}.countryId WHERE removeAt = 0".$searchSql.$profileSql.$this->getInactiveSql().$this->getModerationSql().$categorySql.$currencySql.$sortSql.$limitSql;
 
         } else {
 
@@ -198,7 +219,7 @@ class finder extends db_connect
         return $result;
     }
 
-    public function getItemsCount($queryText = '', $lat = 0.000000, $lng = 0.000000, $distance = 30)
+    public function getItemsCount($queryText = '', $lat = 0.000000, $lng = 0.000000, $distance = 30, $search_by = null)
     {
         if ($this->getCurrencyFilter() > 0) {
 
@@ -229,7 +250,28 @@ class finder extends db_connect
 
         if (strlen($queryText) > 0) {
 
-            $searchSql = " AND (itemTitle LIKE (:query) OR itemDesc LIKE (:query) OR itemContent LIKE (:query))";
+            switch ($search_by) {
+                case 1:
+                    $searchSql = " AND itemTitle LIKE (:query)";
+                    break;
+                case 2:
+                    $searchSql = " AND keywordsProduct LIKE (:query)";
+                    break;
+                case 3:
+                    $searchSql = " AND c.name LIKE (:query)";
+                    break;
+                case 4:
+                    list($price1, $price2) = explode("-", $queryText);
+                    if ($price1 && $price2) {
+                        $searchSql = " AND (price BETWEEN $price1 AND $price2)";
+                    } else {
+                        $searchSql = "";
+                    }
+                    break;
+                default:
+                    $searchSql = "";
+                    break;
+            }
 
         } else {
 
@@ -242,7 +284,7 @@ class finder extends db_connect
 
         if ($lat == 0.000000 && $lng == 0.000000) {
 
-            $sql = "SELECT count(*) FROM $this->tableName WHERE removeAt = 0".$searchSql.$profileSql.$this->getInactiveSql().$this->getModerationSql().$categorySql.$currencySql;
+            $sql = "SELECT count(*) FROM $this->tableName LEFT JOIN countries c ON c.id = {$this->tableName}.countryId WHERE removeAt = 0".$searchSql.$profileSql.$this->getInactiveSql().$this->getModerationSql().$categorySql.$currencySql;
 
         } else {
 

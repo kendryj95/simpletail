@@ -80,6 +80,7 @@
                 $account_fullname = $access_data['fullname'];
                 $account_photo_url = $access_data['photoUrl'];
                 $account_verified = $access_data['verified'];
+                $account_typeuser = $access_data['typeuser'];
                 $account_last_notify_view = $access_data['lastNotifyView'];
 
                 switch ($account_state) {
@@ -108,7 +109,7 @@
 
                         if ($access_data['error'] === false) {
 
-                            auth::setSession($account_id, $account_username, $account_fullname, $account_photo_url, $account_verified, 0, $access_data['accessToken']);
+                            auth::setSession($account_id, $account_username, $account_fullname, $account_photo_url, $account_verified, 0, $access_data['accessToken'], $account_typeuser);
 
                             // Last notifications view | for new notifications counter
                             auth::setCurrentLastNotifyView($account_last_notify_view);

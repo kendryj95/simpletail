@@ -89,6 +89,7 @@ if (!defined("APP_SIGNATURE")) {
     <link rel="stylesheet" href="/css/bootstrap-grid.css" type="text/css" media="screen">
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" media="screen">
     <link rel="stylesheet" href="/css/main.css?x=5" type="text/css" media="screen">
+    <link rel="stylesheet" href="/js/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" type="text/css" media="screen">
 
     <?php
     foreach($css_files as $css): ?>

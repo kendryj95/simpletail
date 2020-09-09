@@ -5140,7 +5140,7 @@ h4, .h4 {
   padding: 0;
 }
 
-.field-signup-form-username i, .field-signup-form-fullname i, .field-signup-form-password i, .field-signup-form-email i {
+.field-signup-form-username i, .field-signup-form-fullname i, .field-signup-form-password i, .field-signup-form-email, .field-signup-form-typeuser, .field-signup-form-country i {
 
   cursor: pointer;
 }

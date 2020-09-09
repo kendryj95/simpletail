@@ -42,6 +42,7 @@
     $categoryId = 0;
     $sortType = 0;
     $moderationType = 0;
+    $search_by = null;
 
     if (!isset($_COOKIE['moderation_type'])) {
 
@@ -61,6 +62,7 @@
         $query = isset($_GET['query']) ? $_GET['query'] : '';
         $categoryId = isset($_GET['category']) ? $_GET['category'] : 0;
         $sortType = isset($_GET['sortType']) ? $_GET['sortType'] : 0;
+        $search_by = isset($_GET['type']) ? $_GET['type'] : 1;
 
         $locationType = isset($_GET['locationType']) ? $_GET['locationType'] : 0;
         $distance = isset($_GET['distance']) ? $_GET['distance'] : 0;
@@ -115,6 +117,7 @@
         $pageId = isset($_POST['pageId']) ? $_POST['pageId'] : 0;
         $categoryId = isset($_POST['category']) ? $_POST['category'] : 0;
         $sortType = isset($_POST['sortType']) ? $_POST['sortType'] : 0;
+        $search_by = isset($_POST['type']) ? $_POST['type'] : 1;
 
         $locationType = isset($_POST['locationType']) ? $_POST['locationType'] : 0;
         $distance = isset($_POST['distance']) ? $_POST['distance'] : 0;
@@ -154,7 +157,7 @@
 
         if ($moderationType != 0) $finder->setModerationFilter(FILTER_ONLY_YES); // Show only moderated items
 
-        $result = $finder->getItems($query, $pageId, $sortType, $lat, $lng, $distance);
+        $result = $finder->getItems($query, $pageId, $sortType, $lat, $lng, $distance, $search_by);
 
         $result['items_count'] = count($result['items']);
 
@@ -206,6 +209,7 @@
                     ?>
 
                     <!-- Search form -->
+                    <?php if ((!auth::isSession() || auth::getTypeuser() === "STORE")): ?>
 
                     <form id="search-form" class="form-horizontal" action="/" method="get">
 
@@ -228,6 +232,22 @@
                                     </div>
 
                                     <div class="col-sm-12 col-md-12 col-lg-3">
+                                        <div class="custom-controls-stacked">
+                                            <div class="form-label"><?php echo $LANG['label-search-by']; ?></div>
+                                            <div class="row">
+                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-2 mt-lg-0 location-type location-address ">
+                                                    <select id="type" class="form-control" name="type">
+                                                        <option value="1" <?php if ($search_by == 1): echo 'selected'; endif; ?>><?= $LANG['option-product-name'] ?></option>
+                                                        <option value="2" <?php if ($search_by == 2): echo 'selected'; endif; ?>><?= $LANG['option-keywords'] ?></option>
+                                                        <option value="3" <?php if ($search_by == 3): echo 'selected'; endif; ?>><?= $LANG['option-country-brand'] ?></option>
+                                                        <option value="4" <?php if ($search_by == 4): echo 'selected'; endif; ?>><?= $LANG['option-range-prices'] ?></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                   <!-- <div class="col-sm-12 col-md-12 col-lg-3">
                                         <div class="custom-controls-stacked">
                                             <div class="form-label"><?php echo $LANG['label-ad-category']; ?></div>
                                             <div class="row">
@@ -252,7 +272,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="col-search-actions col-12 col-sm-12 col-md-12 col-lg-2">
                                         <div class="form-group">
@@ -335,6 +355,9 @@
 
                     </form>
 
+                    <?php endif ?>
+
+
                     <!-- Search form end -->
 
 
@@ -358,7 +381,7 @@
                                 $tmp_lng = $lng;
                             }
 
-                            $result = $finder->getItems($query, 0, $sortType, $tmp_lat, $tmp_lng, $distance);
+                            $result = $finder->getItems($query, 0, $sortType, $tmp_lat, $tmp_lng, $distance, $search_by);
 
                             if (strlen($query) == 0 && $categoryId == 0 && $locationType == 0) {
 

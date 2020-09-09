@@ -437,6 +437,18 @@ class helper extends db_connect
         return $value;
     }
 
+    static function clearFloat($value)
+    {
+        $value = floatval($value);
+
+        if ($value < 0) {
+
+            $value = 0;
+        }
+
+        return $value;
+    }
+
     static function ip_addr()
     {
         (string) $ip_addr = 'undefined';

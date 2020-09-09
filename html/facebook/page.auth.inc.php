@@ -107,7 +107,7 @@
 
                 if (!$access_data['error']) {
 
-                    auth::setSession($access_data['accountId'], $accountInfo['username'], $accountInfo['fullname'], $accountInfo['lowPhotoUrl'], $accountInfo['verified'], 0, $access_data['accessToken']);
+                    auth::setSession($access_data['accountId'], $accountInfo['username'], $accountInfo['fullname'], $accountInfo['lowPhotoUrl'], $accountInfo['verified'], 0, $access_data['accessToken'], $accountInfo['typeuser']);
                     auth::updateCookie($accountInfo['username'], $access_data['accessToken']);
 
                     header("Location: /");

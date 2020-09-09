@@ -118,6 +118,7 @@
 <script type="text/javascript" src="/js/js.cookie-2.2.0.min.js"></script>
 
 <script type="text/javascript" src="/js/app.js?x=45"></script>
+<script type="text/javascript" src="/js/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
 
     <script type="text/javascript">
@@ -161,5 +162,20 @@
             }
 
         ?>
+
+        $('.attributes').tagsinput({
+            maxTags: 5,
+            confirmKeys: [13, 44, 188, 9]
+        });
+
+        $('.other-input-tags').tagsinput({
+            confirmKeys: [13, 44, 188, 9]
+        });
+
+        $(".attributes, .other-input-tags").keypress(function(e) {
+            if (e.which === 13) {
+                e.preventDefault();
+            }
+        });
 
     </script>

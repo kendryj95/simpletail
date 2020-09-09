@@ -21,6 +21,8 @@
         exit;
     }
 
+    $user_type = '';
+    $user_country = '';
     $user_username = '';
     $user_email = '';
     $user_fullname = '';
@@ -38,6 +40,8 @@
         $user_fullname = isset($_POST['fullname']) ? $_POST['fullname'] : '';
         $user_password = isset($_POST['password']) ? $_POST['password'] : '';
         $user_email = isset($_POST['email']) ? $_POST['email'] : '';
+        $user_type = isset($_POST['typeuser']) ? $_POST['typeuser'] : '';
+        $user_country = isset($_POST['country_id']) ? $_POST['country_id'] : '';
         $token = isset($_POST['authenticity_token']) ? $_POST['authenticity_token'] : '';
 
         $sex = isset($_POST['sex']) ? $_POST['sex'] : 0;
@@ -108,7 +112,7 @@
             $account = new account($dbo);
 
             $result = array();
-            $result = $account->signup($user_username, $user_fullname, $user_password, $user_email, "", $sex, 2000, 1, 1, $LANG['lang-code']);
+            $result = $account->signup($user_username, $user_fullname, $user_password, $user_email, "", $sex, $user_type, $user_country, 2000, 1, 1, $LANG['lang-code']);
 
             if ($result['error'] === false) {
 
@@ -119,7 +123,7 @@
 
                 if ($access_data['error'] === false) {
 
-                    auth::setSession($access_data['accountId'], $user_username, $user_fullname, "", 0, 0, $access_data['accessToken']);
+                    auth::setSession($access_data['accountId'], $user_username, $user_fullname, "", 0, 0, $access_data['accessToken'], $user_type);
                     auth::updateCookie($user_username, $access_data['accessToken']);
 
                     $language = $account->getLanguage();
@@ -143,7 +147,7 @@
 
                     auth::newAuthenticityToken(); // Re-generate token
 
-                    header("Location: /");
+                    header("Location: /account/settings");
                     exit;
                 }
 
@@ -169,6 +173,9 @@
         $user_fullname = $_SESSION['oauth_name'];
         $user_email = $_SESSION['oauth_email'];
     }
+
+    $general = new general($dbo);
+    $countries = $general->getCountries();
 
     auth::newAuthenticityToken();
 
@@ -305,6 +312,16 @@
                                         }
                                         ?>
 
+                                        <div class="form-group field-signup-form-typeuser required noselect">
+                                            <label class="form-label" for="typeuser"><?php echo $LANG['label-type-user']; ?> <i class="far fa-question-circle" title="<?php echo $LANG['label-signup-tooltip-type-user']; ?>" rel="tooltip"></i></label>
+                                            <select required id="typeuser" class="form-control" name="typeuser">
+                                                <option value="<?= $LANG['label-type-user-option-value-1'] ?>" <?php if ($user_type == $LANG['label-type-user-option-value-1']): ?> selected <?php endif ?>><?= $LANG['label-type-user-option-text-1'] ?></option>
+                                                <option value="<?= $LANG['label-type-user-option-value-2'] ?>" <?php if ($user_type == $LANG['label-type-user-option-value-2']): ?> selected <?php endif ?>><?= $LANG['label-type-user-option-text-2'] ?></option>
+                                            </select>
+
+                                            <div class="help-block"></div>
+                                        </div>
+
                                         <div class="form-group field-signup-form-username required noselect">
                                             <label class="form-label" for="username"><?php echo $LANG['label-username']; ?> <i class="far fa-question-circle" title="<?php echo $LANG['label-signup-tooltip-username']; ?>" rel="tooltip"></i></label>
                                             <input placeholder="<?php echo $LANG['label-signup-placeholder-username']; ?>" maxlength="24" type="text" required id="username" class="form-control" name="username" value="<?php echo $user_username; ?>" aria-required="true">
@@ -313,8 +330,22 @@
                                         </div>
 
                                         <div class="form-group field-signup-form-fullname required noselect">
-                                            <label class="form-label" for="fullname"><?php echo $LANG['label-fullname']; ?> <i class="far fa-question-circle" title="<?php echo $LANG['label-signup-tooltip-fullname']; ?>" rel="tooltip"></i></label>
-                                            <input placeholder="<?php echo $LANG['label-signup-placeholder-fullname']; ?>" maxlength="24" type="text" required id="fullname" class="form-control" name="fullname" value="<?php echo $user_fullname; ?>" aria-required="true">
+                                            <label class="form-label brand-field" for="fullname"><?php echo $LANG['label-fullname-brand']; ?> <i class="far fa-question-circle" title="<?php echo $LANG['label-signup-tooltip-fullname-brand']; ?>" rel="tooltip"></i></label>
+                                            <label style="display:none;" class="form-label store-field" for="fullname"><?php echo $LANG['label-fullname-store']; ?> <i class="far fa-question-circle" title="<?php echo $LANG['label-signup-tooltip-fullname-store']; ?>" rel="tooltip"></i></label>
+                                            <input placeholder="<?php echo $LANG['label-signup-placeholder-fullname-brand']; ?>" maxlength="24" type="text" required id="fullname" class="form-control" name="fullname" value="<?php echo $user_fullname; ?>" aria-required="true">
+
+                                            <div class="help-block"></div>
+                                        </div>
+
+                                        <div class="form-group field-signup-form-country required noselect">
+                                            <label class="form-label brand-field" for="country_id"><?php echo $LANG['label-country-brand']; ?> <i class="far fa-question-circle" title="<?php echo $LANG['label-signup-tooltip-country-brand']; ?>" rel="tooltip"></i></label>
+                                            <label style="display:none;" class="form-label store-field" for="country_id"><?php echo $LANG['label-country-store']; ?> <i class="far fa-question-circle" title="<?php echo $LANG['label-signup-tooltip-country-store']; ?>" rel="tooltip"></i></label>
+                                            <select required id="country_id" class="form-control" name="country_id">
+                                                <option value=""><?= $LANG['select-country'] ?></option>
+                                                <?php foreach ($countries['countries'] as $item): ?>
+                                                <option value="<?= $item['id'] ?>" <?php if ($user_country == $item['id']): ?> selected <?php endif ?>><?= $item['name'] ?></option>
+                                                <?php endforeach ?>
+                                            </select>
 
                                             <div class="help-block"></div>
                                         </div>
@@ -522,6 +553,19 @@
             // Clear error when text change
 
             $email_field.removeClass('has-error').find('.help-block').text('');
+        });
+
+        $('#typeuser').change(function () {
+            var value = $(this).val();
+            if (value === "BRAND") {
+                $('.brand-field').show();
+                $('.store-field').hide();
+                $('#fullname').attr('placeholder',"<?= $LANG['label-signup-placeholder-fullname-brand'] ?>");
+            } else {
+                $('.store-field').show();
+                $('.brand-field').hide();
+                $('#fullname').attr('placeholder',"<?= $LANG['label-signup-placeholder-fullname-store'] ?>");
+            }
         });
 
     </script>

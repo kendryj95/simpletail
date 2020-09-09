@@ -1,7 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9f208d7-215f-445c-9e3c-bf5610a01949" name="Default Changelist" comment="" />
+    <list default="true" id="d9f208d7-215f-445c-9e3c-bf5610a01949" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/Gruntfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/bootstrap-tagsinput.jquery.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/dist/bootstrap-tagsinput-angular.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/dist/bootstrap-tagsinput-angular.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/dist/bootstrap-tagsinput-angular.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/dist/bootstrap-tagsinput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/dist/bootstrap-tagsinput.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/dist/bootstrap-tagsinput.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/examples/assets/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/examples/assets/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/examples/assets/app_bs2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/examples/assets/app_bs3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/examples/assets/cities.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/examples/assets/citynames.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/examples/bootstrap-2.3.2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/examples/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/src/bootstrap-tagsinput-angular.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/src/bootstrap-tagsinput.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/src/bootstrap-tagsinput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/test/bootstrap-tagsinput-angular.tests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/test/bootstrap-tagsinput/events.tests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/test/bootstrap-tagsinput/input_with_object_items.tests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/test/bootstrap-tagsinput/input_with_string_items.tests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/test/bootstrap-tagsinput/reproduced_bugs.tests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/test/bootstrap-tagsinput/select_with_object_items.tests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/test/bootstrap-tagsinput/select_with_string_items.tests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/test/helpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bootstrap-tagsinput/test/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sys/class/class.general.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/footer.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/footer.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/header.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/header.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/topbar.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/topbar.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/account/page.settings.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/account/page.settings.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/facebook/page.auth.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/facebook/page.auth.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/item/page.new.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/item/page.new.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/page.login.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/page.login.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/page.main.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/page.main.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/page.signup.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/page.signup.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.account.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.account.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.auth.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.auth.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.finder.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.finder.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.helper.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.helper.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.imglib.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.imglib.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.items.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.items.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/lang/en.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/lang/en.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +77,9 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1gsTxC7q38BxmAT3nWqGMfwOxgr" />
   <component name="ProjectViewState">
@@ -18,8 +89,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\simpletail\js" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -29,11 +105,66 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598902544264</updated>
-      <workItem from="1598902545326" duration="1608000" />
+      <workItem from="1598902545326" duration="5266000" />
+      <workItem from="1598912554619" duration="7088000" />
+      <workItem from="1598966237826" duration="74000" />
+      <workItem from="1599005034479" duration="7665000" />
+      <workItem from="1599051119851" duration="638000" />
+      <workItem from="1599138793172" duration="7716000" />
+      <workItem from="1599410793315" duration="5412000" />
+      <workItem from="1599482200466" duration="27625000" />
+      <workItem from="1599568198974" duration="8771000" />
+      <workItem from="1599662150878" duration="599000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1599589206851">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1599589206851" />
+    <state x="486" y="87" key="NewPhpClassDialog" timestamp="1598916341210">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="486" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1598916341210" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1599484904638">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1599484904638" />
+    <state x="569" y="278" key="VCS.EditChangelistDialog" timestamp="1599417308716">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="569" y="278" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1599417308716" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1599511123501">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1599511123501" />
+    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1599587548308">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1599587548308" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1599512703313">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1599512703313" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599521067994">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599521067994" />
   </component>
 </project>

@@ -41,7 +41,7 @@
 
 		$sex = isset($_POST['sex']) ? $_POST['sex'] : 0;
 
-		$birthday = isset($_POST['birthday']) ? $_POST['birthday'] : "2000-01-01";
+		$birthday = isset($_POST['date_incorporation']) ? $_POST['date_incorporation'] : "2000-01-01";
 
 		$phoneNumber = isset($_POST['phone_number']) ? $_POST['phone_number'] : '';
 
@@ -73,6 +73,21 @@
 		$instagram_page = filter_var($instagram_page, FILTER_SANITIZE_URL);
 		$instagram_page = helper::clearText($instagram_page);
 		$instagram_page = helper::escapeText($instagram_page);
+		$category_id = isset($_POST['category_id']) ? $_POST['category_id'] : null;
+		$attributes = isset($_POST['attributes']) ? $_POST['attributes'] : null;
+		$address = isset($_POST['address']) ? $_POST['address'] : null;
+		$annual_turnover = isset($_POST['annual_turnover']) ? $_POST['annual_turnover'] : null;
+		$type_business = isset($_POST['type_business']) ? $_POST['type_business'] : null;
+		$url_content_company = isset($_POST['url_content_company']) ? $_POST['url_content_company'] : null;
+        $url_content_company = filter_var($url_content_company, FILTER_SANITIZE_URL);
+        $url_content_company = helper::clearText($url_content_company);
+        $url_content_company = helper::escapeText($url_content_company);
+        $number_stores = isset($_POST['number_stores']) ? $_POST['number_stores'] : null;
+        $cities_stores = isset($_POST['cities_stores']) ? $_POST['cities_stores'] : null;
+        $website = isset($_POST['website']) ? $_POST['website'] : null;
+        $website = helper::clearText($website);
+        $website = helper::escapeText($website);
+
 
 		if (auth::getAuthenticityToken() !== $token) {
 
@@ -106,12 +121,48 @@
 
 				$date = new DateTime($birthday);
 
-				$account->setBirth($date->format('Y'), $date->format('m'), $date->format('d'));
+				//$account->setBirth($date->format('Y'), $date->format('m'), $date->format('d'));
+                // Replaced
+                $account->setDateIncorporation($birthday);
+
 			}
 
 			$account->setSex($sex);
 			$account->setBio($bio);
 			$account->setLocation($location);
+			$account->setCategory($category_id);
+			$account->setAttributes($attributes);
+			$account->setAddress($address);
+			$account->setAnnualTurnover($annual_turnover);
+			$account->setTypeBusiness($type_business);
+			$account->setNumberStores($number_stores);
+			$account->setCitiesStores($cities_stores);
+
+			if (filter_var($url_content_company, FILTER_VALIDATE_URL) !== false) {
+
+				$account->setUrlCompany($url_content_company);
+
+			} else {
+
+				if (strlen($url_content_company) == 0) {
+
+					$account->setUrlCompany("");
+				}
+			}
+
+
+
+			if (filter_var($website, FILTER_VALIDATE_URL) !== false) {
+
+				$account->setWebsite($website);
+
+			} else {
+
+				if (strlen($website) == 0) {
+
+					$account->setWebsite("");
+				}
+			}
 
 			if (filter_var($facebook_page, FILTER_VALIDATE_URL) !== false) {
 
@@ -146,6 +197,8 @@
 	}
 
 	$accountInfo = $account->get();
+	$category = new category($dbo);
+	$categories = $category->getItems();
 
 	auth::newAuthenticityToken();
 
@@ -157,6 +210,30 @@
 	include_once("common/header.inc.php");
 
 ?>
+<style>
+    .bootstrap-tagsinput {
+        width: 100% !important;
+    }
+    .tag.label {
+        cursor: pointer;
+    }
+    .label {
+        display: inline;
+        padding: .2em .6em .3em;
+        font-size: 75%;
+        font-weight: bold;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25em;
+    }
+    .label-info {
+        background-color: #37bc9b;
+        border-color: #37bc9b;
+    }
+</style>
 
 <body class="body-directory-index page-profile">
 
@@ -234,11 +311,116 @@
 											<input autocomplete="off" type="hidden" name="authenticity_token" value="<?php echo auth::getAuthenticityToken(); ?>">
 
 											<div class="form-group field-fullname">
-												<label class="form-label" for="fullname"><?php echo $LANG['label-fullname']; ?></label>
+												<label class="form-label" for="fullname"><?php echo $accountInfo['typeuser'] === "BRAND" ? $LANG['label-fullname-brand'] : $LANG['label-fullname-store'] ?></label>
 												<input type="text" maxlength="96" id="fullname" class="form-control" name="fullname" value="<?php echo $accountInfo['fullname']; ?>">
 
 												<div class="help-block"></div>
 											</div>
+
+                                            <div class="form-group">
+												<label class="form-label" for="category_id"><?php echo $accountInfo['typeuser'] === "BRAND" ? $LANG['label-category-brand'] : $LANG['label-category-store'] ?></label>
+                                                <select name="category_id" id="category_id"
+                                                        class="form-control">
+                                                    <?php foreach ($categories['items'] as $item): ?>
+                                                        <option value="<?= $item['id'] ?>" <?php if($accountInfo['category_id'] == $item['id']): ?> selected <?php endif ?>><?= $item['title'] ?></option>
+                                                    <?php endforeach ?>
+                                                </select>
+
+												<div class="help-block"></div>
+											</div>
+
+                                            <?php if ($accountInfo['typeuser'] === "BRAND"): ?>
+
+                                            <div class="form-group">
+												<label class="form-label" for="attributes"><?php echo $LANG['label-attributes-brand'] ?></label>
+                                                <input type="text" class="attributes" name="attributes" id="attributes" value="<?= $accountInfo['attributes'] ?>" data-role="tagsinput">
+
+                                                <div class="help-block"></div>
+											</div>
+
+                                            <div class="form-group">
+                                                <label class="form-label" for="address"><?php echo $LANG['label-address-company'] ?></label>
+                                                <input type="text" maxlength="96" id="address" class="form-control" name="address" value="<?php echo $accountInfo['address']; ?>">
+
+                                                <div class="help-block"></div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label" for="annual_turnover"><?php echo $LANG['label-annual-turnover'] ?></label>
+                                                <select name="annual_turnover" id="annual_turnover"
+                                                        class="form-control">
+                                                    <option value="0-249k€" <?php if ($accountInfo['annual_turnover'] == "0-249k€"): ?> selected <?php endif ?> >0-249k€</option>
+                                                    <option value="250k€-500k€" <?php if ($accountInfo['annual_turnover'] == "250k€-500k€"): ?> selected <?php endif ?> >250k€-500k€</option>
+                                                    <option value="500-999k€" <?php if ($accountInfo['annual_turnover'] == "500-999k€"): ?> selected <?php endif ?> >500-999k€</option>
+                                                    <option value=">1M€" <?php if ($accountInfo['annual_turnover'] == ">1M€"): ?> selected <?php endif ?> >>1M€</option>
+                                                </select>
+
+                                                <div class="help-block"></div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label" for="type_business"><?php echo $LANG['label-type-business'] ?></label>
+                                                <select name="type_business" id="type_business"
+                                                        class="form-control">
+                                                    <option value="Manufacturer" <?php if ($accountInfo['type_business'] == "Manufacturer"): ?> selected <?php  endif ?>>Manufacturer</option>
+                                                    <option value="Distributor" <?php if ($accountInfo['type_business'] == "Distributor"): ?> selected <?php  endif ?>>Distributor</option>
+                                                </select>
+
+                                                <div class="help-block"></div>
+                                            </div>
+
+                                            <?php endif ?>
+
+                                            <?php if ($accountInfo['typeuser'] === "STORE"): ?>
+
+                                                <div class="form-group">
+                                                    <label class="form-label" for="number_stores"><?php echo $LANG['label-number-stores'] ?></label>
+                                                    <input type="number" class="form-control" id="number_stores" name="number_stores" value="<?= $accountInfo['number_stores'] ?>">
+
+                                                    <div class="help-block"></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="form-label" for="type_business"><?php echo $LANG['label-type-business'] ?></label>
+                                                    <select name="type_business" id="type_business"
+                                                            class="form-control">
+                                                        <option value="Distributor" <?php if ($accountInfo['type_business'] == "Distributor"): ?> selected <?php  endif ?>>Distributor</option>
+                                                        <option value="Single shop" <?php if ($accountInfo['type_business'] == "Single shop"): ?> selected <?php  endif ?>>Single shop</option>
+                                                        <option value="Chain of retail stores" <?php if ($accountInfo['type_business'] == "Chain of retail stores"): ?> selected <?php  endif ?>>Chain of retail stores</option>
+                                                    </select>
+
+                                                    <div class="help-block"></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="form-label" for="website"><?php echo $LANG['label-website-company'] ?></label>
+                                                    <input type="text" maxlength="96" id="website" class="form-control" name="website" value="<?php echo $accountInfo['website']; ?>">
+
+                                                    <div class="help-block"></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="form-label" for="address"><?php echo $LANG['label-address-store'] ?></label>
+                                                    <input type="text" maxlength="96" id="address" class="form-control" name="address" value="<?php echo $accountInfo['address']; ?>">
+
+                                                    <div class="help-block"></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="form-label" for="cities_stores"><?php echo $LANG['label-cities-stores'] ?></label>
+                                                    <input type="text" class="attributes" name="cities_stores" id="cities_stores" value="<?= $accountInfo['cities_stores'] ?>" data-role="tagsinput">
+
+                                                    <div class="help-block"></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="form-label" for="attributes"><?php echo $LANG['label-attributes-essentials'] ?></label>
+                                                    <input type="text" class="attributes" name="attributes" id="attributes" value="<?= $accountInfo['attributes'] ?>" data-role="tagsinput">
+
+                                                    <div class="help-block"></div>
+                                                </div>
+
+                                            <?php endif ?>
 
                                             <?php
 
@@ -251,6 +433,15 @@
 
 												<div class="help-block"></div>
 											</div>
+
+                                            <?php if ($accountInfo['typeuser'] === "BRAND"): ?>
+                                                <div class="form-group">
+                                                    <label class="form-label" for="url_content_company"><?php echo $LANG['label-content-related'] ?></label>
+                                                    <input type="text" maxlength="96" id="url_content_company" placeholder="For example: Youtube link, PDF link, etc" class="form-control" name="url_content_company" value="<?php echo $accountInfo['url_content_company']; ?>">
+
+                                                    <div class="help-block"></div>
+                                                </div>
+                                            <?php endif ?>
 
 											<div class="form-group field-facebook-page">
 												<label class="form-label" for="facebook-page"><?php echo $LANG['label-facebook-link']; ?></label>
@@ -282,26 +473,9 @@
 											<div class="row">
 
 												<div class="col-sm-4">
-													<div class="form-group field-profile-sex">
-														<label class="form-label" for="profile-sex"><?php echo $LANG['label-sex']; ?></label>
-														<select id="profile-sex" class="form-control" name="sex">
-															<option value="0" <?php if ($accountInfo['sex'] == SEX_UNKNOWN) echo "selected=\"selected\""; ?>><?php echo $LANG['label-sex-unknown']; ?></option>
-															<option value="1" <?php if ($accountInfo['sex'] == SEX_MALE) echo "selected=\"selected\""; ?>><?php echo $LANG['label-sex-male']; ?></option>
-															<option value="2" <?php if ($accountInfo['sex'] == SEX_FEMALE) echo "selected=\"selected\""; ?>><?php echo $LANG['label-sex-female']; ?></option>
-														</select>
-
-														<div class="help-block"></div>
-													</div>
-												</div>
-
-											</div>
-
-											<div class="row">
-
-												<div class="col-sm-4">
 													<div class="form-group field-birthday">
-														<label class="form-label" for="birthday"><?php echo $LANG['label-birth-date']; ?></label>
-														<input type="date" id="birthday" class="form-control" name="birthday" value="<?php echo date('Y-m-d', strtotime($accountInfo['year'].'/'.$accountInfo['month'].'/'.$accountInfo['day'])); ?>">
+                                                            <label class="form-label" for="date_incorporation"><?php echo $LANG['label-date-incorporation']; ?></label>
+														<input type="date" id="date_incorporation" class="form-control" name="date_incorporation" value="<?php echo $accountInfo['dateIncorporation'] ?>">
 
 														<div class="help-block"></div>
 													</div>

@@ -155,7 +155,7 @@ class imglib extends db_connect
 
             // Set max width. default max width 800px
 
-            if (!$this->img_resize($filename, $new_filename, $maxWidth, 0)) {
+            if ($this->img_resize($filename, $new_filename, $maxWidth, 0)) {
 
                 rename($filename, $new_filename);
 

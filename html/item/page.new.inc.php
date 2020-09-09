@@ -24,6 +24,11 @@
         exit;
     }
 
+    if (auth::isSession() && auth::getTypeuser() !== "BRAND") {
+        header('Location: /');
+        exit;
+    }
+
     if (isset($_GET['get_subcategories'])) {
 
         $categoryId = isset($_GET['categoryId']) ? $_GET['categoryId'] : 0;
@@ -174,6 +179,23 @@
         $ad_country = isset($_POST['country']) ? $_POST['country'] : '';
         $ad_city = isset($_POST['city']) ? $_POST['city'] : '';
 
+        // ADDED BY KENDRY
+        $ad_countryId = isset($_POST['countryId']) ? $_POST['countryId'] : null;
+        $ad_incoterms = isset($_POST['incoterms']) ? $_POST['incoterms'] : array();
+        $ad_externalShippingPacking1 = isset($_POST['externalShippingPacking1']) ? $_POST['externalShippingPacking1'] : null;
+        $ad_externalShippingPacking2 = isset($_POST['externalShippingPacking2']) ? $_POST['externalShippingPacking2'] : null;
+        $ad_externalShippingPacking3 = isset($_POST['externalShippingPacking3']) ? $_POST['externalShippingPacking3'] : null;
+        $ad_internalShippingPackingDetail = isset($_POST['internalShippingPackingDetail']) ? $_POST['internalShippingPackingDetail'] : null;
+        $ad_externalShippingPackingDetail = isset($_POST['externalShippingPackingDetail']) ? $_POST['externalShippingPackingDetail'] : null;
+        $ad_externalShippingPackingGrs = isset($_POST['externalShippingPackingGrs']) ? $_POST['externalShippingPackingGrs'] : null;
+            $ad_unitMeasure = isset($_POST['unitMeasure']) ? $_POST['unitMeasure'] : null;
+        $ad_quantityPiecesReferences = isset($_POST['quantityPiecesReferences']) ? $_POST['quantityPiecesReferences'] : null;
+        $ad_eanCode = isset($_POST['eanCode']) ? $_POST['eanCode'] : null;
+        $ad_productCertifications = isset($_POST['productCertifications']) ? $_POST['productCertifications'] : null;
+        $ad_productAvailability = isset($_POST['productAvailability']) ? $_POST['productAvailability'] : null;
+        $ad_ingredients = isset($_POST['ingredients']) ? $_POST['ingredients'] : null;
+        $ad_keywordsProduct = isset($_POST['keywordsProduct']) ? $_POST['keywordsProduct'] : null;
+
         $ajax_mode = helper::clearInt($ajax_mode);
 
         $ad_title = helper::clearText($ad_title);
@@ -199,6 +221,28 @@
 
         $ad_city = helper::clearText($ad_city);
         $ad_city = helper::escapeText($ad_city);
+        $ad_countryId = helper::clearInt($ad_countryId);
+        $ad_externalShippingPacking1 = helper::clearFloat($ad_externalShippingPacking1);
+        $ad_externalShippingPacking2 = helper::clearFloat($ad_externalShippingPacking2);
+        $ad_externalShippingPacking3 = helper::clearFloat($ad_externalShippingPacking3);
+        $ad_internalShippingPackingDetail = preg_replace( "/[\r\n]+/", "<br>", $ad_internalShippingPackingDetail); //replace all new lines to one new line
+        $ad_internalShippingPackingDetail  = preg_replace('/\s+/', ' ', $ad_internalShippingPackingDetail);        //replace all white spaces to one space
+
+        $ad_internalShippingPackingDetail = helper::escapeText($ad_internalShippingPackingDetail);
+        $ad_externalShippingPackingDetail = preg_replace( "/[\r\n]+/", "<br>", $ad_externalShippingPackingDetail); //replace all new lines to one new line
+        $ad_externalShippingPackingDetail  = preg_replace('/\s+/', ' ', $ad_externalShippingPackingDetail);        //replace all white spaces to one space
+
+        $ad_externalShippingPackingDetail = helper::escapeText($ad_externalShippingPackingDetail);
+        $ad_externalShippingPackingGrs = helper::clearFloat($ad_externalShippingPackingGrs);
+        $ad_unitMeasure = helper::clearText($ad_unitMeasure);
+        $ad_quantityPiecesReferences = helper::clearInt($ad_quantityPiecesReferences);
+        $ad_eanCode = helper::clearText($ad_eanCode);
+        $ad_productCertifications = helper::clearText($ad_productCertifications);
+        $ad_productAvailability = helper::clearText($ad_productAvailability);
+        $ad_ingredients = trim(helper::clearText($ad_ingredients),",");
+        $ad_keywordsProduct = trim(helper::clearText($ad_keywordsProduct),",");
+        $ad_incoterms = implode(",",$ad_incoterms);
+
 
         if (!helper::isFloat($ad_lat) || !helper::isFloat($ad_lng)) {
 
@@ -277,12 +321,6 @@
             $error_messages[] = $LANG['msg-error-ad-photos'];
         }
 
-        if (!helper::isCorrectPhoneNew($ad_phone_number)) {
-
-            $error = true;
-            $error_messages[] = $LANG['msg-error-ad-phone-incorrect'];
-        }
-
         if (!$error) {
 
             // copy files and get links
@@ -306,7 +344,7 @@
                                 $imglib = new imglib($dbo);
                                 $imglib->setRequestFrom(auth::getCurrentUserId());
 
-                                $response = $imglib->createItemImg(TEMP_PATH.$ad_photos[$i]["name"], true, true);
+                                $response = $imglib->createItemImg(TEMP_PATH.$ad_photos[$i]["name"], false, true);
 
                                 if (!$response['error']) {
 
@@ -327,7 +365,7 @@
 
                 if (!$edit_mode) {
 
-                    $result = $items->add(APP_TYPE_WEB, $ad_category, $ad_subcategory, $ad_title, $ad_title, $ad_description, $images_links[0], 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number);
+                    $result = $items->add(APP_TYPE_WEB, $ad_category, $ad_subcategory, $ad_title, $ad_title, $ad_description, $images_links[0], 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number, $ad_countryId, $ad_incoterms, $ad_externalShippingPacking1, $ad_externalShippingPacking2, $ad_externalShippingPacking2, $ad_externalShippingPacking3, $ad_externalShippingPackingDetail, $ad_externalShippingPackingGrs, $ad_unitMeasure, $ad_quantityPiecesReferences, $ad_eanCode, $ad_productCertifications, $ad_productAvailability, $ad_ingredients, $ad_keywordsProduct);
 
                     if (!$result['error'] && count($images_links) > 1) {
 
@@ -388,6 +426,8 @@
     auth::newAuthenticityToken();
 
     $page_id = "new_item";
+    $general = new general($dbo);
+    $countries = $general->getCountries();
 
     $css_files = array();
     $page_title = $LANG['page-new-ad-title']." | ".APP_TITLE;
@@ -401,6 +441,31 @@
     include_once("common/header.inc.php");
 
 ?>
+
+<style>
+    .bootstrap-tagsinput {
+        width: 100% !important;
+    }
+    .tag.label {
+        cursor: pointer;
+    }
+    .label {
+        display: inline;
+        padding: .2em .6em .3em;
+        font-size: 75%;
+        font-weight: bold;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25em;
+    }
+    .label-info {
+        background-color: #37bc9b;
+        border-color: #37bc9b;
+    }
+</style>
 
 <body class="body-directory-index page-item-new">
 
@@ -519,6 +584,20 @@
                                                 </div>
 
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group group-country">
+                                                        <label class="form-label noselect" for="country_id"><?php echo $LANG['label-ad-country']; ?></label>
+                                                        <select id="country_id" class="form-control" name="countryId">
+                                                            <option value="" selected disabled><?= $LANG['select-country'] ?></option>
+                                                            <?php foreach ($countries['countries'] as $item): ?>
+                                                                <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
+                                                            <?php endforeach ?>
+                                                        </select>
+
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
                                                     <div class="form-group group-category">
                                                         <label class="form-label noselect" for="category"><?php echo $LANG['label-ad-category']; ?></label>
                                                         <select id="category" class="form-control" name="categoryId">
@@ -583,24 +662,6 @@
                                                             <select id="currency" class="form-control" name="currency">
                                                                 <?php
 
-                                                                    array_unshift($CURRENCY_ARRAY, array(
-                                                                        "code" => "",
-                                                                        "name" => $LANG['label-currency-negotiable'],
-                                                                        "symbol" => ""
-                                                                    ));
-
-                                                                    array_unshift($CURRENCY_ARRAY, array(
-                                                                        "code" => "",
-                                                                        "name" => $LANG['label-currency-free'],
-                                                                        "symbol" => ""
-                                                                    ));
-
-                                                                    array_unshift($CURRENCY_ARRAY, array(
-                                                                        "code" => "",
-                                                                        "name" => $LANG['label-currency-choose'],
-                                                                        "symbol" => ""
-                                                                    ));
-
                                                                     for ($i = 0; $i < count($CURRENCY_ARRAY); $i++) {
 
                                                                         $currency_string = $CURRENCY_ARRAY[$i]['name'];
@@ -610,8 +671,13 @@
                                                                             $currency_string = $CURRENCY_ARRAY[$i]['code']." (".$CURRENCY_ARRAY[$i]['name'].")";
                                                                         }
 
+                                                                        if ($CURRENCY_ARRAY[$i]['code'] !== "EUR")
+                                                                            continue;
+
                                                                         ?>
-                                                                            <option <?php if ($i == $ad_currency) echo "selected"; ?> <?php if ($i == 0) echo "disabled"; ?> value="<?php echo $i; ?>"><?php echo $currency_string; ?></option>
+                                                                       <!--     <option <?php if ($i == $ad_currency) echo "selected"; ?> <?php if ($i == 0) echo "disabled"; ?> value="<?php echo $i; ?>"><?php echo $currency_string; ?></option> -->
+                                                                            <!-- 4 = EUR -->
+                                                                            <option value="4"><?php echo $currency_string; ?></option>
                                                                         <?php
                                                                     }
                                                                 ?>
@@ -621,7 +687,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-sm-6 col-md-3 col-lg-3 price-container" style="<?php if ($ad_currency < 3) echo "display: none"; ?>">
+                                                    <div class="col-sm-6 col-md-3 col-lg-3 price-container">
                                                         <div class="form-group group-price">
                                                             <label class="form-label noselect" for="price"><?php echo $LANG['label-ad-price']; ?> <small>(<?php echo $LANG['label-ad-sub-price']; ?>)</small></label>
                                                             <input type="number" id="price" min="1" class="form-control" name="price" value="<?php echo $ad_price; ?>">
@@ -644,6 +710,185 @@
                                                         <label class="form-label noselect" for="description"><?php echo $LANG['label-ad-description']; ?> <small>(<?php echo $LANG['label-ad-sub-description']; ?>)</small></label>
                                                         <textarea maxlength="500" placeholder="<?php echo $LANG['placeholder-ad-description']; ?>" style="min-height: 100px;" id="description" class="form-control" name="description"><?php echo $ad_description; ?></textarea>
 
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group group-incoTerms">
+                                                        <label class="form-label noselect"><?php echo $LANG['label-ad-incoTerms']; ?></label>
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input type="checkbox" name="incoterms[]"
+                                                                   class="custom-control-input" value="Exworks"> <span class="custom-control-label">Exworks</span>
+                                                        </label>
+
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input type="checkbox" name="incoterms[]"
+                                                                   class="custom-control-input" value="DDP"> <span class="custom-control-label">DDP</span>
+                                                        </label>
+
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input type="checkbox" name="incoterms[]"
+                                                                   class="custom-control-input" value="DAP"> <span class="custom-control-label">DAP</span>
+                                                        </label>
+
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input type="checkbox" name="incoterms[]"
+                                                                   class="custom-control-input" value="DDU"> <span class="custom-control-label">DDU</span>
+                                                        </label>
+
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group group-incoTerms">
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input type="checkbox" name="incoterms[]"
+                                                                   class="custom-control-input" value="FOB"> <span class="custom-control-label">FOB</span>
+                                                        </label>
+
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input type="checkbox" name="incoterms[]"
+                                                                   class="custom-control-input" value="CFR"> <span class="custom-control-label">CFR</span>
+                                                        </label>
+
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input type="checkbox" name="incoterms[]"
+                                                                   class="custom-control-input" value="CIP"> <span class="custom-control-label">CIP</span>
+                                                        </label>
+
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input type="checkbox" name="incoterms[]"
+                                                                   class="custom-control-input" value="CPT"> <span class="custom-control-label">CPT</span>
+                                                        </label>
+
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-12">
+                                                    <div class="form-group group-title">
+                                                        <label class="form-label noselect" for="external_shipping_packing"><?php echo $LANG['label-external-shipping-packing']; ?> </label>
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <input type="number" step="0.01" class="form-control" name="externalShippingPacking1">
+                                                            </div>
+                                                            <div class="col-md-1 p-0 pt-2 text-center" style="font-weight: bold">
+                                                                <span>X</span>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <input type="number" step="0.01" class="form-control" name="externalShippingPacking2">
+                                                            </div>
+                                                            <div class="col-md-1 p-0 pt-2 text-center" style="font-weight: bold">
+                                                                <span>X</span>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <input type="number" step="0.01" class="form-control" name="externalShippingPacking3">
+                                                            </div>
+                                                            <div class="col-md-1 p-0 pt-2 text-center" style="font-weight: bold">
+                                                                <span>CM</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-12">
+                                                    <div class="form-group group-internal-shipping-packing-detail">
+                                                        <label class="form-label noselect" for="internalShippingPackingDetail"><?php echo $LANG['label-internal-shipping-packing-detail']; ?> </label>
+                                                        <textarea maxlength="500" placeholder="<?php echo $LANG['placeholder-internal-shipping-packing-detail']; ?>" style="min-height: 100px;" id="internalShippingPackingDetail" class="form-control" name="internalShippingPackingDetail"></textarea>
+
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-12">
+                                                    <div class="form-group group-external-shipping-packing-detail">
+                                                        <label class="form-label noselect" for="externalShippingPackingDetail"><?php echo $LANG['label-external-shipping-packing-detail']; ?> </label>
+                                                        <textarea maxlength="500" placeholder="<?php echo $LANG['placeholder-external-shipping-packing-detail']; ?>" style="min-height: 100px;" id="externalShippingPackingDetail" class="form-control" name="externalShippingPackingDetail"></textarea>
+
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                                    <div class="form-group group-external-shipping-packing-grs">
+                                                        <label class="form-label noselect" for="externalShippingPackingGrs"><?php echo $LANG['label-external-shipping-packing-grs']; ?> </label>
+                                                        <input type="number" name="externalShippingPackingGrs" id="externalShippingPackingGrs" step="0.01"
+                                                               class="form-control">
+
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                                    <div class="form-group group-unit-measure">
+                                                        <label class="form-label noselect" for="unitMeasure"><?php echo $LANG['label-unit-measure']; ?> </label>
+                                                        <input type="text" name="unitMeasure" id="unitMeasure"
+                                                               class="form-control">
+
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                                    <div class="form-group group-quantity-pieces-per-references">
+                                                        <label class="form-label noselect" for="quantityPiecesReferences"><?php echo $LANG['label-quantity-pieces-per-references']; ?> </label>
+                                                        <input type="number" name="quantityPiecesReferences" id="quantityPiecesReferences" step="1"
+                                                               class="form-control">
+
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                                    <div class="form-group group-ean-code">
+                                                        <label class="form-label noselect" for="eanCode"><?php echo $LANG['label-ean-code']; ?> </label>
+                                                        <input type="text" name="eanCode" id="eanCode"
+                                                               class="form-control">
+
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                                    <div class="form-group group-product-certifications">
+                                                        <label class="form-label noselect" for="productCertifications"><?php echo $LANG['label-product-certifications']; ?> </label>
+                                                        <input type="text" name="productCertifications" id="productCertifications"
+                                                               class="form-control">
+
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                                    <div class="form-group group-product-availability">
+                                                        <label class="form-label noselect" for="productAvailability"><?php echo $LANG['label-product-availability']; ?> </label>
+                                                        <select name="productAvailability" id="productAvailability"
+                                                               class="form-control">
+                                                            <option value="No inmediate">No immediate</option>
+                                                            <option value="Inmediate">Immediate</option>
+                                                        </select>
+
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-12">
+                                                    <div class="form-group group-ingredients">
+                                                        <label class="form-label noselect" for="ingredients"><?php echo $LANG['label-ingredients']; ?> </label>
+                                                        <input type="text" class="other-input-tags" name="ingredients" id="ingredients" value="" data-role="tagsinput">
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-12">
+                                                    <div class="form-group group-keywords">
+                                                        <label class="form-label noselect" for="keywords"><?php echo $LANG['label-keywords']; ?> </label>
+                                                        <input type="text" class="other-input-tags" name="keywordsProduct" id="keywordsProduct" value="" data-role="tagsinput">
                                                         <div class="help-block"></div>
                                                     </div>
                                                 </div>
@@ -691,27 +936,6 @@
     <!--                                                        </div>-->
                                                         </div>
 
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-6">
-                                                    <div class="form-group group-phone">
-                                                        <label class="form-label noselect" for="phone"><i class="ad-phone fa fa-phone"></i> <?php echo $LANG['label-ad-phone']; ?> <small>(<?php echo $LANG['label-ad-sub-phone']; ?>)</label>
-                                                        <input maxlength="20" placeholder="<?php echo $LANG['placeholder-ad-phone']; ?>" type="text" id="phone" class="form-control" name="phoneNumber" value="<?php echo $ad_phone_number; ?>">
-
-                                                        <div class="help-block"></div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-12">
-                                                    <div class="form-group group-location">
-                                                        <label class="form-label noselect" for="map"><i class="ad-location fa fa-map-marked"></i> <?php echo $LANG['label-ad-location']; ?> <small>(<?php echo $LANG['label-ad-sub-location']; ?>)</small></label>
-
-                                                        <div id="map" style="height: 250px;"></div>
-
-                                                        <p class="mt-1" id="location">&nbsp;</p>
-
-                                                        <div class="help-block"></div>
                                                     </div>
                                                 </div>
 
@@ -783,21 +1007,6 @@
 
         <script src="/js/geo.js"></script>
 
-    <script>
-
-        var latitude = <?php echo $ad_lat; ?>;
-        var longitude = <?php echo $ad_lng; ?>;
-
-        // Initialize and add the map
-
-        function initializeMap() {
-
-            initMap();
-        }
-
-    </script>
-
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo GOOGLE_MAPS_API_KEY; ?>&language=en&callback=initializeMap"></script>
 
     <script type="text/javascript">
 
@@ -971,37 +1180,6 @@
                         $('div.group-images').find('div.alert').text('').css('display', 'none');
                     }
 
-                    // Check phone number
-
-                    var phone_number = jQuery.trim($('#phone').val());
-
-                    if (phone_number.length > 0) {
-
-                        var phoneNumberPattern = /^\+?(?:[0-9] ?){4,14}[0-9]$/;
-
-                        if (phoneNumberPattern.test(phone_number)) {
-
-                            $('div.group-phone').removeClass('has-error');
-                            $('div.group-phone').find('div.help-block').html('');
-
-                        } else {
-
-                            $("#phone").focus();
-
-                            $('div.group-phone').addClass('has-error');
-                            $('div.group-phone').find('div.help-block').html(strings.szPhoneIncorrect);
-                        }
-
-                    } else {
-
-                        $("#phone").focus();
-
-                        $('div.group-phone').addClass('has-error');
-                        $('div.group-phone').find('div.help-block').html(strings.szPhoneError);
-
-                        return false;
-                    }
-
                     // Send data to server
 
                     $('.loading-more-button').attr('disabled', 'disabled');
@@ -1139,34 +1317,6 @@
 
                         $('div.group-subcategory').addClass('has-error');
                         $('div.group-subcategory').find('div.help-block').html(strings.szSubcategoryError);
-                    }
-                });
-
-                // phone number
-
-                $('#phone').on('input',function(e){
-
-                    var phone_number = jQuery.trim($('#phone').val());
-
-                    if (phone_number.length > 0) {
-
-                        var phoneNumberPattern = /^\+?(?:[0-9] ?){4,14}[0-9]$/;
-
-                        if (phoneNumberPattern.test(phone_number)) {
-
-                            $('div.group-phone').removeClass('has-error');
-                            $('div.group-phone').find('div.help-block').html('');
-
-                        } else {
-
-                            $('div.group-phone').addClass('has-error');
-                            $('div.group-phone').find('div.help-block').html(strings.szPhoneIncorrect);
-                        }
-
-                    } else {
-
-                        $('div.group-phone').addClass('has-error');
-                        $('div.group-phone').find('div.help-block').html(strings.szPhoneError);
                     }
                 });
 

@@ -81,11 +81,22 @@ class account extends db_connect
                     "phone" => $row['phone'],
                     "username" => $row['login'],
                     "fullname" => stripcslashes($row['fullname']),
+                    "typeuser" => stripcslashes($row['typeuser']),
+                    "address" => stripcslashes($row['address']),
                     "location" => stripcslashes($row['country']),
                     "status" => stripcslashes($row['status']),
                     "bio" => stripcslashes($row['status']),
                     "fb_page" => stripcslashes($row['fb_page']),
                     "instagram_page" => stripcslashes($row['my_page']),
+                    "website" => stripcslashes($row['website']),
+                    "dateIncorporation" => $row['dateIncorporation'],
+                    "category_id" => $row['category_id'],
+                    "attributes" => $row['attributes'],
+                    "cities_stores" => $row['cities_stores'],
+                    "annual_turnover" => $row['annual_turnover'],
+                    "type_business" => $row['type_business'],
+                    "url_content_company" => $row['url_content_company'],
+                    "number_stores" => $row['number_stores'],
                     "verify" => $row['verify'],
                     "verified" => $row['verify'],
                     "email" => $row['email'],
@@ -124,7 +135,7 @@ class account extends db_connect
         return $result;
     }
 
-    public function signup($username, $fullname, $password, $email, $phone, $sex, $year, $month, $day, $language = '')
+    public function signup($username, $fullname, $password, $email, $phone, $sex, $typeuser, $country_id, $year, $month, $day, $language = '')
     {
 
         $result = array("error" => true,
@@ -212,12 +223,14 @@ class account extends db_connect
 
         $accountState = ACCOUNT_STATE_ENABLED;
 
-        $stmt = $this->db->prepare("INSERT INTO users (state, login, fullname, passw, email, phone, sex, salt, last_authorize, regtime, ip_addr) value (:state, :username, :fullname, :password, :email, :phone, :sex, :salt, :last_authorize, :createAt, :ip_addr)");
+        $stmt = $this->db->prepare("INSERT INTO users (state, login, fullname, passw, email, typeuser, country_id, phone, sex, salt, last_authorize, regtime, ip_addr) value (:state, :username, :fullname, :password, :email, :typeuser, :country_id, :phone, :sex, :salt, :last_authorize, :createAt, :ip_addr)");
         $stmt->bindParam(":state", $accountState, PDO::PARAM_INT);
         $stmt->bindParam(":username", $username, PDO::PARAM_STR);
         $stmt->bindParam(":fullname", $fullname, PDO::PARAM_STR);
         $stmt->bindParam(":password", $passw_hash, PDO::PARAM_STR);
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+        $stmt->bindParam(":typeuser", $typeuser, PDO::PARAM_STR);
+        $stmt->bindParam(":country_id", $country_id, PDO::PARAM_INT);
         $stmt->bindParam(":phone", $phone, PDO::PARAM_STR);
         $stmt->bindParam(":sex", $sex, PDO::PARAM_INT);
         $stmt->bindParam(":salt", $salt, PDO::PARAM_STR);
@@ -265,7 +278,7 @@ class account extends db_connect
             $row = $stmt->fetch();
             $passw_hash = md5(md5($password).$row['salt']);
 
-            $stmt2 = $this->db->prepare("SELECT id, state, login, fullname, lowPhotoUrl, verify, last_notify_view FROM users WHERE (login = (:username) OR email = (:username)) AND passw = (:password) LIMIT 1");
+            $stmt2 = $this->db->prepare("SELECT id, state, login, fullname, lowPhotoUrl, verify, last_notify_view, typeuser FROM users WHERE (login = (:username) OR email = (:username)) AND passw = (:password) LIMIT 1");
             $stmt2->bindParam(":username", $username, PDO::PARAM_STR);
             $stmt2->bindParam(":password", $passw_hash, PDO::PARAM_STR);
             $stmt2->execute();
@@ -285,6 +298,7 @@ class account extends db_connect
                                 "photoUrl" => $row2['lowPhotoUrl'],
                                 "verify" => $row2['verify'],
                                 "verified" => $row2['verify'],
+                                "typeuser" => $row2['typeuser'],
                                 "lastNotifyView" => $row2['last_notify_view']);
             }
         }
@@ -453,6 +467,24 @@ class account extends db_connect
         $stmt->bindParam(":bYear", $year, PDO::PARAM_INT);
         $stmt->bindParam(":bMonth", $month, PDO::PARAM_INT);
         $stmt->bindParam(":bDay", $day, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+
+            $result = array('error' => false,
+                            'error_code' => ERROR_SUCCESS);
+        }
+
+        return $result;
+    }
+
+    public function setDateIncorporation($date)
+    {
+        $result = array("error" => true,
+                        "error_code" => ERROR_UNKNOWN);
+
+        $stmt = $this->db->prepare("UPDATE users SET dateIncorporation = :dateIncorporation WHERE id = (:accountId)");
+        $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(":dateIncorporation", $date, PDO::PARAM_STR);
 
         if ($stmt->execute()) {
 
@@ -719,6 +751,168 @@ class account extends db_connect
         $stmt = $this->db->prepare("UPDATE users SET country = (:country) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
         $stmt->bindParam(":country", $location, PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+
+            $result = array('error' => false,
+                            'error_code' => ERROR_SUCCESS);
+        }
+
+        return $result;
+    }
+
+    public function setCategory($category_id)
+    {
+        $result = array("error" => true,
+                        "error_code" => ERROR_UNKNOWN);
+
+        $stmt = $this->db->prepare("UPDATE users SET category_id = (:category_id) WHERE id = (:accountId)");
+        $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(":category_id", $category_id, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+
+            $result = array('error' => false,
+                            'error_code' => ERROR_SUCCESS);
+        }
+
+        return $result;
+    }
+
+    public function setAttributes($attributes)
+    {
+        $result = array("error" => true,
+                        "error_code" => ERROR_UNKNOWN);
+
+        $stmt = $this->db->prepare("UPDATE users SET attributes = (:attributes) WHERE id = (:accountId)");
+        $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(":attributes", $attributes, PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+
+            $result = array('error' => false,
+                            'error_code' => ERROR_SUCCESS);
+        }
+
+        return $result;
+    }
+
+    public function setAddress($address)
+    {
+        $result = array("error" => true,
+                        "error_code" => ERROR_UNKNOWN);
+
+        $stmt = $this->db->prepare("UPDATE users SET address = (:address) WHERE id = (:accountId)");
+        $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(":address", $address, PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+
+            $result = array('error' => false,
+                            'error_code' => ERROR_SUCCESS);
+        }
+
+        return $result;
+    }
+
+    public function setAnnualTurnover($annual_turnover)
+    {
+        $result = array("error" => true,
+                        "error_code" => ERROR_UNKNOWN);
+
+        $stmt = $this->db->prepare("UPDATE users SET annual_turnover = (:annual_turnover) WHERE id = (:accountId)");
+        $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(":annual_turnover", $annual_turnover, PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+
+            $result = array('error' => false,
+                            'error_code' => ERROR_SUCCESS);
+        }
+
+        return $result;
+    }
+
+    public function setTypeBusiness($type_business)
+    {
+        $result = array("error" => true,
+                        "error_code" => ERROR_UNKNOWN);
+
+        $stmt = $this->db->prepare("UPDATE users SET type_business = (:type_business) WHERE id = (:accountId)");
+        $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(":type_business", $type_business, PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+
+            $result = array('error' => false,
+                            'error_code' => ERROR_SUCCESS);
+        }
+
+        return $result;
+    }
+
+    public function setUrlCompany($url_content_company)
+    {
+        $result = array("error" => true,
+                        "error_code" => ERROR_UNKNOWN);
+
+        $stmt = $this->db->prepare("UPDATE users SET url_content_company = (:url_content_company) WHERE id = (:accountId)");
+        $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(":url_content_company", $url_content_company, PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+
+            $result = array('error' => false,
+                            'error_code' => ERROR_SUCCESS);
+        }
+
+        return $result;
+    }
+
+    public function setNumberStores($number_stores)
+    {
+        $result = array("error" => true,
+                        "error_code" => ERROR_UNKNOWN);
+
+        $stmt = $this->db->prepare("UPDATE users SET number_stores = (:number_stores) WHERE id = (:accountId)");
+        $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(":number_stores", $number_stores, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+
+            $result = array('error' => false,
+                            'error_code' => ERROR_SUCCESS);
+        }
+
+        return $result;
+    }
+
+    public function setCitiesStores($cities_stores)
+    {
+        $result = array("error" => true,
+                        "error_code" => ERROR_UNKNOWN);
+
+        $stmt = $this->db->prepare("UPDATE users SET cities_stores = (:cities_stores) WHERE id = (:accountId)");
+        $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(":cities_stores", $cities_stores, PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+
+            $result = array('error' => false,
+                            'error_code' => ERROR_SUCCESS);
+        }
+
+        return $result;
+    }
+
+    public function setWebsite($website)
+    {
+        $result = array("error" => true,
+                        "error_code" => ERROR_UNKNOWN);
+
+        $stmt = $this->db->prepare("UPDATE users SET website = (:website) WHERE id = (:accountId)");
+        $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(":website", $website, PDO::PARAM_STR);
 
         if ($stmt->execute()) {
 

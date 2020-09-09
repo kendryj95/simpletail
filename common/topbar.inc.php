@@ -26,7 +26,7 @@
 
 				<?php
 
-					if (isset($page_id) && $page_id !== "main" && $page_id !== "login" && $page_id !== "signup") {
+					if (isset($page_id) && $page_id !== "main" && $page_id !== "login" && $page_id !== "signup" && (!auth::isSession() || auth::getTypeuser() === "STORE")) {
 
 						?>
 							<form class="navbar-form navbar-left d-none d-md-block col-4 col-lg-4" action="/">
@@ -71,12 +71,12 @@
                                 }
 					        ?>
 
-                                <div class="nav-item">
-                                    <a href="/login?continue=/item/new" class="btn btn-add-item" title="<?php echo $LANG['action-new-classified']; ?>" rel="tooltip">
-                                        <i class="fa fa-plus"></i>
-                                        <span class="d-none d-sm-inline-block"><?php echo $LANG['action-new-classified']; ?></span>
-                                    </a>
-                                </div>
+                            <div class="nav-item">
+                                <a href="/login?continue=/item/new" class="btn btn-add-item" title="<?php echo $LANG['action-new-classified']; ?>" rel="tooltip">
+                                    <i class="fa fa-plus"></i>
+                                    <span class="d-none d-sm-inline-block"><?php echo $LANG['action-new-classified']; ?></span>
+                                </a>
+                            </div>
 
                         </div>
 
@@ -132,7 +132,7 @@
 
 								<?php
 
-									if (isset($page_id) && $page_id != "new_item") {
+									if (isset($page_id) && $page_id != "new_item" && auth::getTypeuser() === "BRAND") {
 
 										?>
 											<div class="nav-item d-sm-block">

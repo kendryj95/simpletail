@@ -1087,3 +1087,69 @@
     $TEXT['label-currency-choose'] = "Choose a currency";
     $TEXT['label-currency-free'] = "Free";
     $TEXT['label-currency-negotiable'] = "Price negotiable";
+
+
+    // New Content By Kendry
+
+    $TEXT['label-type-user'] = "Type user";
+    $TEXT['label-type-user-option-value-1'] = "BRAND";
+    $TEXT['label-type-user-option-text-1'] = "Brand";
+    $TEXT['label-type-user-option-value-2'] = "STORE";
+    $TEXT['label-type-user-option-text-2'] = "Store";
+    $TEXT['label-signup-tooltip-type-user'] = "Choose if you are a Store or Brand.";
+    $TEXT['label-fullname-brand'] = "Brand name";
+    $TEXT['label-signup-tooltip-fullname-brand'] = "The brand's real name";
+    $TEXT['label-signup-placeholder-fullname-brand'] = "What is your brand's name?";
+
+    $TEXT['label-fullname-store'] = "Company name";
+    $TEXT['label-signup-tooltip-fullname-store'] = "The company's real name";
+    $TEXT['label-signup-placeholder-fullname-store'] = "What is your company's name?";
+
+    $TEXT['label-country-brand'] = "Brand country of origin";
+    $TEXT['label-signup-tooltip-country-brand'] = "Where are your brand from?";
+    $TEXT['label-country-store'] = "Company country of origin";
+    $TEXT['label-signup-tooltip-country-store'] = "Where are your company from?";
+    $TEXT['select-country'] = "Select a country";
+    $TEXT['label-date-incorporation'] = "Date of incorporation";
+    $TEXT['label-category-brand'] = "Brand category";
+    $TEXT['label-category-store'] = "Company category";
+    $TEXT['label-attributes-brand'] = "Enter the attributes that bestdescribe your business (hasta 5 keywords)";
+    $TEXT['label-address-company'] = "Company address";
+    $TEXT['label-annual-turnover'] = "Annual turnover";
+    $TEXT['label-type-business'] = "Type of business";
+    $TEXT['label-content-related'] = "Insert content related to your brand ";
+    $TEXT['label-number-stores'] = "Number of stores";
+    $TEXT['label-type-business'] = "Type of Business";
+    $TEXT['label-website-company'] = "Store website";
+    $TEXT['label-address-store'] = "Store address";
+    $TEXT['label-cities-stores'] = "Enter the cities where your stores are located";
+    $TEXT['label-attributes-essentials'] = "Enter the attributes that you believe are essential in your business
+search for new brands";
+
+
+    // ADD CLASSIFIED
+
+    $TEXT['label-ad-country'] = "Country of origin";
+    $TEXT['label-ad-incoTerms'] = "Incoterms";
+    $TEXT['label-external-shipping-packing'] = "External shipping packing";
+    $TEXT['label-internal-shipping-packing-detail'] = "Internal shipping packing details";
+    $TEXT['placeholder-internal-shipping-packing-detail'] = "Insert the type of packaging and material, example: carton box";
+    $TEXT['label-external-shipping-packing-detail'] = "External shipping packing details";
+    $TEXT['placeholder-external-shipping-packing-detail'] = "Insert the type of packaging and material, example: carton box";
+    $TEXT['label-external-shipping-packing-grs'] = "External packaging weight in grs";
+    $TEXT['label-quantity-pieces-per-references'] = "Quantity of pieces per references";
+    $TEXT['label-ean-code'] = "EAN Code";
+    $TEXT['label-product-certifications'] = "Product certifications";
+    $TEXT['label-product-availability'] = "Product availability";
+    $TEXT['label-ingredients'] = "Ingredients";
+    $TEXT['label-keywords'] = "Keywords that make your product distinctive";
+    $TEXT['label-unit-measure'] = "Unit of measure";
+
+    $TEXT['label-search-by'] = "Search by";
+    $TEXT['option-product-name'] = "Product name";
+    $TEXT['option-keywords'] = "Keywords";
+    $TEXT['option-country-brand'] = "Country of the brand";
+    $TEXT['option-range-prices'] = "Range of prices";
+
+
+

@@ -244,7 +244,7 @@ class auth extends db_connect
         }
     }
 
-    static function setSession($user_id, $user_login, $user_fullname, $user_photo_url, $user_verified, $access_level, $access_token)
+    static function setSession($user_id, $user_login, $user_fullname, $user_photo_url, $user_verified, $access_level, $access_token, $typeuser = "")
     {
         $_SESSION['user_id'] = $user_id;
         $_SESSION['user_login'] = $user_login;
@@ -254,6 +254,7 @@ class auth extends db_connect
         $_SESSION['access_level'] = $access_level;
         $_SESSION['create_at'] = time();
         $_SESSION['access_token'] = $access_token;
+        $_SESSION['typeuser'] = $typeuser;
     }
 
     static function unsetSession()
@@ -266,6 +267,7 @@ class auth extends db_connect
         unset($_SESSION['access_level']);
         unset($_SESSION['create_at']);
         unset($_SESSION['access_token']);
+        unset($_SESSION['typeuser']);
     }
 
     public function setActivationSession($access_data)
@@ -398,6 +400,18 @@ class auth extends db_connect
         if (isset($_SESSION) && isset($_SESSION['access_token'])) {
 
             return $_SESSION['access_token'];
+
+        } else {
+
+            return "undefined";
+        }
+    }
+
+    static function getTypeuser()
+    {
+        if (isset($_SESSION) && isset($_SESSION['typeuser'])) {
+
+            return $_SESSION['typeuser'];
 
         } else {
 
