@@ -15,6 +15,11 @@
         exit;
     }
 
+    if (auth::isSession() && auth::getTypeuser() === "BRAND") {
+        header("Location: /".auth::getCurrentUserUsername());
+        exit;
+    }
+
     $filters_visible = 0;
 
     if (isset($_COOKIE['search-filters-visible'])) {
@@ -43,6 +48,9 @@
     $sortType = 0;
     $moderationType = 0;
     $search_by = null;
+    $range_1 = null;
+    $range_2 = null;
+    $ranges_prices = "";
 
     if (!isset($_COOKIE['moderation_type'])) {
 
@@ -63,6 +71,10 @@
         $categoryId = isset($_GET['category']) ? $_GET['category'] : 0;
         $sortType = isset($_GET['sortType']) ? $_GET['sortType'] : 0;
         $search_by = isset($_GET['type']) ? $_GET['type'] : 1;
+        $range_1 = isset($_GET['range_1']) ? $_GET['range_1'] : null;
+        $range_2 = isset($_GET['range_2']) ? $_GET['range_2'] : null;
+        if ($range_1 && $range_1 != "" && $range_2 && $range_2 != "")
+            $ranges_prices = $range_1."-".$range_2;
 
         $locationType = isset($_GET['locationType']) ? $_GET['locationType'] : 0;
         $distance = isset($_GET['distance']) ? $_GET['distance'] : 0;
@@ -118,6 +130,10 @@
         $categoryId = isset($_POST['category']) ? $_POST['category'] : 0;
         $sortType = isset($_POST['sortType']) ? $_POST['sortType'] : 0;
         $search_by = isset($_POST['type']) ? $_POST['type'] : 1;
+        $range_1 = isset($_GET['range_1']) ? $_GET['range_1'] : null;
+        $range_2 = isset($_GET['range_2']) ? $_GET['range_2'] : null;
+        if ($range_1 && $range_1 != "" && $range_2 && $range_2 != "")
+            $ranges_prices = $range_1."-".$range_2;
 
         $locationType = isset($_POST['locationType']) ? $_POST['locationType'] : 0;
         $distance = isset($_POST['distance']) ? $_POST['distance'] : 0;
@@ -157,7 +173,7 @@
 
         if ($moderationType != 0) $finder->setModerationFilter(FILTER_ONLY_YES); // Show only moderated items
 
-        $result = $finder->getItems($query, $pageId, $sortType, $lat, $lng, $distance, $search_by);
+        $result = $finder->getItems($query, $pageId, $sortType, $lat, $lng, $distance, $search_by, $ranges_prices);
 
         $result['items_count'] = count($result['items']);
 
@@ -240,7 +256,6 @@
                                                         <option value="1" <?php if ($search_by == 1): echo 'selected'; endif; ?>><?= $LANG['option-product-name'] ?></option>
                                                         <option value="2" <?php if ($search_by == 2): echo 'selected'; endif; ?>><?= $LANG['option-keywords'] ?></option>
                                                         <option value="3" <?php if ($search_by == 3): echo 'selected'; endif; ?>><?= $LANG['option-country-brand'] ?></option>
-                                                        <option value="4" <?php if ($search_by == 4): echo 'selected'; endif; ?>><?= $LANG['option-range-prices'] ?></option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -296,26 +311,16 @@
 
                                         <div class="col-sm-12 col-md-4 col-lg-4">
 
-                                            <div class="form-group field-select-location">
-                                                <div class="form-label noselect"><?php echo $LANG['label-search-filters-location-type']; ?></div>
-                                                <select id="locationType" class="form-control" name="locationType">
-                                                    <option <?php if ($locationType == 0) echo "selected"; ?> value="0"><?php echo $LANG['label-search-filters-location-type-all']; ?></option>
-                                                    <option <?php if ($locationType == 1) echo "selected"; ?> value="1"><?php echo $LANG['label-search-filters-location-type-selected']; ?></option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group field-select-distance">
-                                                <div class="form-label noselect"><?php echo $LANG['label-search-filters-distance-type']; ?></div>
-                                                <select id="distance" class="form-control" name="distance" <?php if ($locationType == 0) echo 'disabled'; ?>>
-                                                    <option <?php if ($distance == 5) echo "selected"; ?> value="5"><?php echo $LANG['label-search-filters-distance-type-5']; ?></option>
-                                                    <option <?php if ($distance == 15) echo "selected"; ?> value="15"><?php echo $LANG['label-search-filters-distance-type-15']; ?></option>
-                                                    <option <?php if ($distance == 30) echo "selected"; ?> value="30"><?php echo $LANG['label-search-filters-distance-type-30']; ?></option>
-                                                    <option <?php if ($distance == 50) echo "selected"; ?> value="50"><?php echo $LANG['label-search-filters-distance-type-50']; ?></option>
-                                                    <option <?php if ($distance == 100) echo "selected"; ?> value="100"><?php echo $LANG['label-search-filters-distance-type-100']; ?></option>
-                                                    <option <?php if ($distance == 300) echo "selected"; ?> value="300"><?php echo $LANG['label-search-filters-distance-type-300']; ?></option>
-                                                    <option <?php if ($distance == 500) echo "selected"; ?> value="500"><?php echo $LANG['label-search-filters-distance-type-500']; ?></option>
-                                                    <option <?php if ($distance == 700) echo "selected"; ?> value="700"><?php echo $LANG['label-search-filters-distance-type-700']; ?></option>
-                                                </select>
+                                            <div class="form-group field-query">
+                                                <div class="form-label noselect"><?php echo $LANG['option-range-prices']; ?></div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                                        <input type="number" name="range_1" placeholder="Range min" id="range_1" step="0.01" value="<?= $range_1 ?>" class="form-control">
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                                        <input type="number" name="range_2" placeholder="Range max" id="range_2" step="0.01" value="<?= $range_2 ?>" class="form-control">
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div class="form-group field-query">
@@ -336,14 +341,6 @@
                                                 </div>
                                             </div>
 
-                                        </div>
-
-                                        <!-- Map -->
-
-                                        <div class="col-sm-12 col-md-8 col-lg-8 map-view <?php if ($locationType == 0) echo 'hidden'; ?>">
-                                            <label class="form-label noselect" for="map"><i class="ad-location ic icon-map-pin"></i> <?php echo $LANG['label-ad-location']; ?> <small>(<?php echo $LANG['label-ad-sub-location']; ?>)</small></label>
-                                            <div id="map" style="min-height: 210px; width: 100%"></div>
-                                            <p class="mt-1" id="location">&nbsp;</p>
                                         </div>
 
                                     </div>
@@ -381,7 +378,7 @@
                                 $tmp_lng = $lng;
                             }
 
-                            $result = $finder->getItems($query, 0, $sortType, $tmp_lat, $tmp_lng, $distance, $search_by);
+                            $result = $finder->getItems($query, 0, $sortType, $tmp_lat, $tmp_lng, $distance, $search_by, $ranges_prices);
 
                             if (strlen($query) == 0 && $categoryId == 0 && $locationType == 0) {
 
@@ -455,39 +452,6 @@
     </div> <!-- End page -->
 
     <script src="/js/geo.js"></script>
-
-    <script type="text/javascript">
-
-        var latitude = <?php echo $lat; ?>;
-        var longitude = <?php echo $lng; ?>;
-
-        var locationType = <?php echo $locationType; ?>;
-
-        var filters_visible = <?php echo $filters_visible; ?>;
-
-        var map_initialized = false;
-
-        var strings = {
-
-            szLocationError: "<?php echo $LANG['msg-selected-location-error']; ?>"
-        };
-
-        // Initialize and add the map
-
-        function initializeMap() {
-
-            if (locationType != 0 && filters_visible == 1) {
-
-                map_initialized = true;
-
-                initMap();
-            }
-        }
-
-    </script>
-
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo GOOGLE_MAPS_API_KEY; ?>&language=en&callback=initializeMap"></script>
-
 
         <script type="text/javascript">
 
@@ -572,7 +536,6 @@
 
                             map_initialized = true;
 
-                            initMap();
                         }
 
                         $mapView.removeClass("hidden");
@@ -603,7 +566,6 @@
 
                         map_initialized = true;
 
-                        initMap();
                     }
 
                 } else {

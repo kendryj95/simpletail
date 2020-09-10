@@ -87,6 +87,23 @@
     $ad_photos = array();
     $ad_phone_number = "";
 
+    // ADDED BY KENDRY
+    $ad_countryId = null;
+    $ad_incoterms = null;
+    $ad_externalShippingPacking1 = null;
+    $ad_externalShippingPacking2 = null;
+    $ad_externalShippingPacking3 = null;
+    $ad_internalShippingPackingDetail = null;
+    $ad_externalShippingPackingDetail = null;
+    $ad_externalShippingPackingGrs = null;
+    $ad_unitMeasure = null;
+    $ad_quantityPiecesReferences = null;
+    $ad_eanCode = null;
+    $ad_productCertifications = null;
+    $ad_productAvailability = null;
+    $ad_ingredients = null;
+    $ad_keywordsProduct = null;
+
     $ad_area = "";
     $ad_country = "";
     $ad_city = "";
@@ -150,6 +167,23 @@
         $ad_description = $itemInfo['itemContent'];
         $ad_phone_number = $itemInfo['phoneNumber'];
 
+        // ADDED BY KENDRY
+        $ad_countryId = $itemInfo['countryId'];
+        $ad_incoterms = $itemInfo['incoterms'];
+        $ad_externalShippingPacking1 = $itemInfo['externalShippingPacking1'];
+        $ad_externalShippingPacking2 = $itemInfo['externalShippingPacking2'];
+        $ad_externalShippingPacking3 = $itemInfo['externalShippingPacking3'];
+        $ad_internalShippingPackingDetail = $itemInfo['internalShippingPackingDetail'];
+        $ad_externalShippingPackingDetail = $itemInfo['externalShippingPackingDetail'];
+        $ad_externalShippingPackingGrs = $itemInfo['externalShippingPackingGrs'];
+        $ad_unitMeasure = $itemInfo['unitMeasure'];
+        $ad_quantityPiecesReferences = $itemInfo['quantityPiecesReferences'];
+        $ad_eanCode = $itemInfo['eanCode'];
+        $ad_productCertifications = $itemInfo['productCertifications'];
+        $ad_productAvailability = $itemInfo['productAvailability'];
+        $ad_ingredients = $itemInfo['ingredients'];
+        $ad_keywordsProduct = $itemInfo['keywordsProduct'];
+
         if ($ad_price < 1) $ad_price = 1;
 
         $ad_lat = $itemInfo['lat'];
@@ -188,7 +222,7 @@
         $ad_internalShippingPackingDetail = isset($_POST['internalShippingPackingDetail']) ? $_POST['internalShippingPackingDetail'] : null;
         $ad_externalShippingPackingDetail = isset($_POST['externalShippingPackingDetail']) ? $_POST['externalShippingPackingDetail'] : null;
         $ad_externalShippingPackingGrs = isset($_POST['externalShippingPackingGrs']) ? $_POST['externalShippingPackingGrs'] : null;
-            $ad_unitMeasure = isset($_POST['unitMeasure']) ? $_POST['unitMeasure'] : null;
+        $ad_unitMeasure = isset($_POST['unitMeasure']) ? $_POST['unitMeasure'] : null;
         $ad_quantityPiecesReferences = isset($_POST['quantityPiecesReferences']) ? $_POST['quantityPiecesReferences'] : null;
         $ad_eanCode = isset($_POST['eanCode']) ? $_POST['eanCode'] : null;
         $ad_productCertifications = isset($_POST['productCertifications']) ? $_POST['productCertifications'] : null;
@@ -204,7 +238,7 @@
         $ad_category = helper::clearInt($ad_category);
         $ad_subcategory = helper::clearInt($ad_subcategory);
         $ad_currency = helper::clearInt($ad_currency);
-        $ad_price = helper::clearInt($ad_price);
+        $ad_price = helper::clearFloat($ad_price);
 
         $ad_description = helper::clearText($ad_description);
 
@@ -714,28 +748,23 @@
                                                     </div>
                                                 </div>
 
+                                                <?php
+
+                                                $optionsIncoterms1 = ["Exworks","DDP","DAP","DDU"];
+                                                $optionsIncoterms2 = ["FOB","CFR","CIP","CPT"];
+                                                $ad_incoterms = explode(",",$ad_incoterms);
+
+                                                ?>
+
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                                     <div class="form-group group-incoTerms">
                                                         <label class="form-label noselect"><?php echo $LANG['label-ad-incoTerms']; ?></label>
-                                                        <label class="custom-control custom-checkbox">
-                                                            <input type="checkbox" name="incoterms[]"
-                                                                   class="custom-control-input" value="Exworks"> <span class="custom-control-label">Exworks</span>
-                                                        </label>
-
-                                                        <label class="custom-control custom-checkbox">
-                                                            <input type="checkbox" name="incoterms[]"
-                                                                   class="custom-control-input" value="DDP"> <span class="custom-control-label">DDP</span>
-                                                        </label>
-
-                                                        <label class="custom-control custom-checkbox">
-                                                            <input type="checkbox" name="incoterms[]"
-                                                                   class="custom-control-input" value="DAP"> <span class="custom-control-label">DAP</span>
-                                                        </label>
-
-                                                        <label class="custom-control custom-checkbox">
-                                                            <input type="checkbox" name="incoterms[]"
-                                                                   class="custom-control-input" value="DDU"> <span class="custom-control-label">DDU</span>
-                                                        </label>
+                                                        <?php foreach ($optionsIncoterms1 as $item): ?>
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" name="incoterms[]"
+                                                                       class="custom-control-input" value="<?= $item ?>" <?php if (in_array($item,$ad_incoterms)): echo 'checked'; endif; ?>> <span class="custom-control-label"><?= $item ?></span>
+                                                            </label>
+                                                        <?php endforeach; ?>
 
                                                         <div class="help-block"></div>
                                                     </div>
@@ -743,25 +772,12 @@
 
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                                     <div class="form-group group-incoTerms">
-                                                        <label class="custom-control custom-checkbox">
-                                                            <input type="checkbox" name="incoterms[]"
-                                                                   class="custom-control-input" value="FOB"> <span class="custom-control-label">FOB</span>
-                                                        </label>
-
-                                                        <label class="custom-control custom-checkbox">
-                                                            <input type="checkbox" name="incoterms[]"
-                                                                   class="custom-control-input" value="CFR"> <span class="custom-control-label">CFR</span>
-                                                        </label>
-
-                                                        <label class="custom-control custom-checkbox">
-                                                            <input type="checkbox" name="incoterms[]"
-                                                                   class="custom-control-input" value="CIP"> <span class="custom-control-label">CIP</span>
-                                                        </label>
-
-                                                        <label class="custom-control custom-checkbox">
-                                                            <input type="checkbox" name="incoterms[]"
-                                                                   class="custom-control-input" value="CPT"> <span class="custom-control-label">CPT</span>
-                                                        </label>
+                                                        <?php foreach ($optionsIncoterms2 as $item): ?>
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" name="incoterms[]"
+                                                                       class="custom-control-input" value="<?= $item ?>" <?php if (in_array($item,$ad_incoterms)): echo 'checked'; endif; ?>> <span class="custom-control-label"><?= $item ?></span>
+                                                            </label>
+                                                        <?php endforeach; ?>
 
                                                         <div class="help-block"></div>
                                                     </div>
@@ -772,19 +788,19 @@
                                                         <label class="form-label noselect" for="external_shipping_packing"><?php echo $LANG['label-external-shipping-packing']; ?> </label>
                                                         <div class="row">
                                                             <div class="col-md-2">
-                                                                <input type="number" step="0.01" class="form-control" name="externalShippingPacking1">
+                                                                <input type="number" step="0.01" class="form-control" value="<?= $ad_externalShippingPacking1 ?>" name="externalShippingPacking1">
                                                             </div>
                                                             <div class="col-md-1 p-0 pt-2 text-center" style="font-weight: bold">
                                                                 <span>X</span>
                                                             </div>
                                                             <div class="col-md-2">
-                                                                <input type="number" step="0.01" class="form-control" name="externalShippingPacking2">
+                                                                <input type="number" step="0.01" class="form-control" value="<?= $ad_externalShippingPacking2 ?>" name="externalShippingPacking2">
                                                             </div>
                                                             <div class="col-md-1 p-0 pt-2 text-center" style="font-weight: bold">
                                                                 <span>X</span>
                                                             </div>
                                                             <div class="col-md-2">
-                                                                <input type="number" step="0.01" class="form-control" name="externalShippingPacking3">
+                                                                <input type="number" step="0.01" class="form-control" value="<?= $ad_externalShippingPacking3 ?>" name="externalShippingPacking3">
                                                             </div>
                                                             <div class="col-md-1 p-0 pt-2 text-center" style="font-weight: bold">
                                                                 <span>CM</span>
@@ -798,7 +814,7 @@
                                                 <div class="col-sm-12">
                                                     <div class="form-group group-internal-shipping-packing-detail">
                                                         <label class="form-label noselect" for="internalShippingPackingDetail"><?php echo $LANG['label-internal-shipping-packing-detail']; ?> </label>
-                                                        <textarea maxlength="500" placeholder="<?php echo $LANG['placeholder-internal-shipping-packing-detail']; ?>" style="min-height: 100px;" id="internalShippingPackingDetail" class="form-control" name="internalShippingPackingDetail"></textarea>
+                                                        <textarea maxlength="500" placeholder="<?php echo $LANG['placeholder-internal-shipping-packing-detail']; ?>" style="min-height: 100px;" id="internalShippingPackingDetail" class="form-control" name="internalShippingPackingDetail"><?= $ad_internalShippingPackingDetail ?></textarea>
 
                                                         <div class="help-block"></div>
                                                     </div>
@@ -807,7 +823,7 @@
                                                 <div class="col-sm-12">
                                                     <div class="form-group group-external-shipping-packing-detail">
                                                         <label class="form-label noselect" for="externalShippingPackingDetail"><?php echo $LANG['label-external-shipping-packing-detail']; ?> </label>
-                                                        <textarea maxlength="500" placeholder="<?php echo $LANG['placeholder-external-shipping-packing-detail']; ?>" style="min-height: 100px;" id="externalShippingPackingDetail" class="form-control" name="externalShippingPackingDetail"></textarea>
+                                                        <textarea maxlength="500" placeholder="<?php echo $LANG['placeholder-external-shipping-packing-detail']; ?>" style="min-height: 100px;" id="externalShippingPackingDetail" class="form-control" name="externalShippingPackingDetail"><?= $ad_externalShippingPackingDetail ?></textarea>
 
                                                         <div class="help-block"></div>
                                                     </div>
@@ -817,7 +833,7 @@
                                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                                     <div class="form-group group-external-shipping-packing-grs">
                                                         <label class="form-label noselect" for="externalShippingPackingGrs"><?php echo $LANG['label-external-shipping-packing-grs']; ?> </label>
-                                                        <input type="number" name="externalShippingPackingGrs" id="externalShippingPackingGrs" step="0.01"
+                                                        <input type="number" name="externalShippingPackingGrs" id="externalShippingPackingGrs" value="<?= $ad_externalShippingPackingGrs ?>" step="0.01"
                                                                class="form-control">
 
                                                         <div class="help-block"></div>
@@ -827,7 +843,7 @@
                                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                                     <div class="form-group group-unit-measure">
                                                         <label class="form-label noselect" for="unitMeasure"><?php echo $LANG['label-unit-measure']; ?> </label>
-                                                        <input type="text" name="unitMeasure" id="unitMeasure"
+                                                        <input type="text" name="unitMeasure" id="unitMeasure" value="<?= $ad_unitMeasure ?>"
                                                                class="form-control">
 
                                                         <div class="help-block"></div>
@@ -837,7 +853,7 @@
                                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                                     <div class="form-group group-quantity-pieces-per-references">
                                                         <label class="form-label noselect" for="quantityPiecesReferences"><?php echo $LANG['label-quantity-pieces-per-references']; ?> </label>
-                                                        <input type="number" name="quantityPiecesReferences" id="quantityPiecesReferences" step="1"
+                                                        <input type="number" name="quantityPiecesReferences" value="<?= $ad_quantityPiecesReferences ?>" id="quantityPiecesReferences" step="1"
                                                                class="form-control">
 
                                                         <div class="help-block"></div>
@@ -847,7 +863,7 @@
                                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                                     <div class="form-group group-ean-code">
                                                         <label class="form-label noselect" for="eanCode"><?php echo $LANG['label-ean-code']; ?> </label>
-                                                        <input type="text" name="eanCode" id="eanCode"
+                                                        <input type="text" name="eanCode" id="eanCode" value="<?= $ad_eanCode ?>"
                                                                class="form-control">
 
                                                         <div class="help-block"></div>
@@ -857,7 +873,7 @@
                                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                                     <div class="form-group group-product-certifications">
                                                         <label class="form-label noselect" for="productCertifications"><?php echo $LANG['label-product-certifications']; ?> </label>
-                                                        <input type="text" name="productCertifications" id="productCertifications"
+                                                        <input type="text" name="productCertifications" id="productCertifications" value="<?= $ad_productCertifications ?>"
                                                                class="form-control">
 
                                                         <div class="help-block"></div>
@@ -869,8 +885,8 @@
                                                         <label class="form-label noselect" for="productAvailability"><?php echo $LANG['label-product-availability']; ?> </label>
                                                         <select name="productAvailability" id="productAvailability"
                                                                class="form-control">
-                                                            <option value="No inmediate">No immediate</option>
-                                                            <option value="Inmediate">Immediate</option>
+                                                            <option value="No immediate" <?php if ($ad_productAvailability === "No immediate"): echo 'selected'; endif; ?>>No immediate</option>
+                                                            <option value="Immediate" <?php if ($ad_productAvailability === "Immediate"): echo 'selected'; endif; ?>>Immediate</option>
                                                         </select>
 
                                                         <div class="help-block"></div>
@@ -880,7 +896,7 @@
                                                 <div class="col-sm-12">
                                                     <div class="form-group group-ingredients">
                                                         <label class="form-label noselect" for="ingredients"><?php echo $LANG['label-ingredients']; ?> </label>
-                                                        <input type="text" class="other-input-tags" name="ingredients" id="ingredients" value="" data-role="tagsinput">
+                                                        <input type="text" class="other-input-tags" name="ingredients" id="ingredients" value="<?= $ad_ingredients ?>" data-role="tagsinput">
                                                         <div class="help-block"></div>
                                                     </div>
                                                 </div>
@@ -888,7 +904,7 @@
                                                 <div class="col-sm-12">
                                                     <div class="form-group group-keywords">
                                                         <label class="form-label noselect" for="keywords"><?php echo $LANG['label-keywords']; ?> </label>
-                                                        <input type="text" class="other-input-tags" name="keywordsProduct" id="keywordsProduct" value="" data-role="tagsinput">
+                                                        <input type="text" class="other-input-tags" name="keywordsProduct" id="keywordsProduct" value="<?= $ad_keywordsProduct ?>" data-role="tagsinput">
                                                         <div class="help-block"></div>
                                                     </div>
                                                 </div>

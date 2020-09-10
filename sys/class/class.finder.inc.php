@@ -37,7 +37,7 @@ class finder extends db_connect
 
     }
 
-    public function getItems($queryText = '', $pageId = 0, $sortType = 0, $lat = 0.000000, $lng = 0.000000, $distance = 30, $search_by = null)
+    public function getItems($queryText = '', $pageId = 0, $sortType = 0, $lat = 0.000000, $lng = 0.000000, $distance = 30, $search_by = null, $ranges_prices = "")
     {
 
         if (strlen($queryText) != 0 && $pageId == 0 && $this->getRequestFromApp() != 0) {
@@ -49,7 +49,7 @@ class finder extends db_connect
 
         $itemsCount = 0;
 
-        if ($pageId == 0) $itemsCount = $this->getItemsCount($queryText, $lat, $lng, $distance, $search_by);
+        if ($pageId == 0) $itemsCount = $this->getItemsCount($queryText, $lat, $lng, $distance, $search_by, $ranges_prices);
 
         $result = array("error" => false,
                         "error_code" => ERROR_SUCCESS,
@@ -143,14 +143,6 @@ class finder extends db_connect
                 case 3:
                     $searchSql = " AND c.name LIKE (:query)";
                     break;
-                case 4:
-                    list($price1, $price2) = explode("-", $queryText);
-                    if ($price1 && $price2) {
-                        $searchSql = " AND (price BETWEEN $price1 AND $price2)";
-                    } else {
-                        $searchSql = "";
-                    }
-                    break;
                 default:
                     $searchSql = "";
                     break;
@@ -159,6 +151,13 @@ class finder extends db_connect
         } else {
 
             $searchSql = "";
+        }
+
+        if ($ranges_prices != "") {
+            list($price1, $price2) = explode("-", $ranges_prices);
+            if ($price1 && $price2) {
+                $searchSql .= " AND (price BETWEEN $price1 AND $price2)";
+            }
         }
 
 
@@ -219,7 +218,7 @@ class finder extends db_connect
         return $result;
     }
 
-    public function getItemsCount($queryText = '', $lat = 0.000000, $lng = 0.000000, $distance = 30, $search_by = null)
+    public function getItemsCount($queryText = '', $lat = 0.000000, $lng = 0.000000, $distance = 30, $search_by = null, $ranges_prices = "")
     {
         if ($this->getCurrencyFilter() > 0) {
 
@@ -260,14 +259,6 @@ class finder extends db_connect
                 case 3:
                     $searchSql = " AND c.name LIKE (:query)";
                     break;
-                case 4:
-                    list($price1, $price2) = explode("-", $queryText);
-                    if ($price1 && $price2) {
-                        $searchSql = " AND (price BETWEEN $price1 AND $price2)";
-                    } else {
-                        $searchSql = "";
-                    }
-                    break;
                 default:
                     $searchSql = "";
                     break;
@@ -276,6 +267,13 @@ class finder extends db_connect
         } else {
 
             $searchSql = "";
+        }
+
+        if ($ranges_prices != "") {
+            list($price1, $price2) = explode("-", $ranges_prices);
+            if ($price1 && $price2) {
+                $searchSql .= " AND (price BETWEEN $price1 AND $price2)";
+            }
         }
 
         $origLat = $lat;
