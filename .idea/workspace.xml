@@ -18,7 +18,6 @@
       <change beforePath="$PROJECT_DIR$/html/item/page.new.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/item/page.new.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/page.main.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/page.main.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sys/class/class.finder.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.finder.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sys/class/class.items.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.items.inc.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +64,7 @@
       <workItem from="1599482200466" duration="27625000" />
       <workItem from="1599568198974" duration="8771000" />
       <workItem from="1599662150878" duration="1639000" />
+      <workItem from="1599745456758" duration="3350000" />
     </task>
     <task id="LOCAL-00001" summary="Mejoras en el proyecto">
       <created>1599676707457</created>
@@ -73,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599676707457</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Ajustes y mejoras">
+      <created>1599713879655</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1599713879655</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,13 +100,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Mejoras en el proyecto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mejoras en el proyecto" />
+    <MESSAGE value="Ajustes y mejoras" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajustes y mejoras" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1599589206851">
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1599750042019">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1599589206851" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1599750042019" />
     <state x="486" y="87" key="NewPhpClassDialog" timestamp="1598916341210">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -112,10 +120,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="569" y="278" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1599417308716" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1599511123501">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1599713971397">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1599511123501" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1599713971397" />
     <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1599587548308">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

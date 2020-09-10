@@ -167,11 +167,11 @@ class finder extends db_connect
 
         if ($lat == 0.000000 && $lng == 0.000000) {
 
-            $sql = "SELECT * FROM {$this->tableName} LEFT JOIN countries c ON c.id = {$this->tableName}.countryId WHERE removeAt = 0".$searchSql.$profileSql.$this->getInactiveSql().$this->getModerationSql().$categorySql.$currencySql.$sortSql.$limitSql;
+            $sql = "SELECT {$this->tableName}.* FROM {$this->tableName} LEFT JOIN countries c ON c.id = {$this->tableName}.countryId WHERE removeAt = 0".$searchSql.$profileSql.$this->getInactiveSql().$this->getModerationSql().$categorySql.$currencySql.$sortSql.$limitSql;
 
         } else {
 
-            $sql = "SELECT *, lat, lng, 3956 * 2 *
+            $sql = "SELECT {$this->tableName}.*, lat, lng, 3956 * 2 *
                       ASIN(SQRT( POWER(SIN(($origLat - lat)*pi()/180/2),2)
                       +COS($origLat*pi()/180 )*COS(lat*pi()/180)
                       *POWER(SIN(($origLon-lng)*pi()/180/2),2)))

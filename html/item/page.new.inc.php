@@ -724,7 +724,7 @@
                                                     <div class="col-sm-6 col-md-3 col-lg-3 price-container">
                                                         <div class="form-group group-price">
                                                             <label class="form-label noselect" for="price"><?php echo $LANG['label-ad-price']; ?> <small>(<?php echo $LANG['label-ad-sub-price']; ?>)</small></label>
-                                                            <input type="number" id="price" min="1" class="form-control" name="price" value="<?php echo $ad_price; ?>">
+                                                            <input type="number" id="price" min="1" step="0.01" class="form-control" name="price" value="<?php echo $ad_price; ?>">
 
                                                             <div class="help-block"></div>
                                                         </div>

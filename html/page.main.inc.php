@@ -323,23 +323,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group field-query">
-                                                <div class="form-label noselect"><?php echo $LANG['label-search-filters-sort-type']; ?></div>
-                                                <select id="sortType" class="form-control" name="sortType">
-                                                    <option <?php if ($sortType == 0) echo "selected"; ?> value="0"><?php echo $LANG['label-search-filters-sort-by-new']; ?></option>
-                                                    <option <?php if ($sortType == 1) echo "selected"; ?> value="1"><?php echo $LANG['label-search-filters-sort-by-old']; ?></option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group field-query">
-                                                <div class="form-group field-online">
-                                                    <div class="form-label noselect"><?php echo $LANG['label-search-filters-moderation-type']; ?></div>
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input type="checkbox" id="online" class="custom-control-input" name="moderationType" value="1" <?php if ($moderationType != 0) echo 'checked'; ?>>
-                                                        <span class="custom-control-label"><?php echo $LANG['label-search-filters-moderation-only']; ?></span>
-                                                    </label>
-                                                </div>
-                                            </div>
+                                            <input type="hidden" name="moderationType" value="1">
 
                                         </div>
 
