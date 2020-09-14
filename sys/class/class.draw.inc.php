@@ -432,7 +432,7 @@ class draw extends db_connect
 
 			default: {
 
-				return $LANG_CURRENCY_ARRAY[$currency - 3]['symbol']." ".number_format($price)." <span class=\"currency-label\">".$LANG_CURRENCY_ARRAY[$currency - 3]['name']."</span>";
+				return $LANG_CURRENCY_ARRAY[$currency - 3]['symbol']." ".number_format($price,2,".",",")." <span class=\"currency-label\">".$LANG_CURRENCY_ARRAY[$currency - 3]['name']."</span>";
 			}
 		}
 	}

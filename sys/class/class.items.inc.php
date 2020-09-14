@@ -76,11 +76,14 @@ class items extends db_connect
 
     // Add new item
 
-    public function add($appType, $category, $subCategoryId, $title, $description, $content, $imgUrl, $allowComments = 1, $price = 0, $postArea = "", $postCountry = "", $postCity = "", $postLat = "0.000000", $postLng = "0.000000", $currency = 3, $phoneNumber = "", $countryId = 0, $incoterms = "", $externalShippingPacking1 = 0, $externalShippingPacking2 = 0, $externalShippingPacking3 = 0, $internalShippingPackingDetail = "", $externalShippingPackingDetail = "", $externalShippingPackingGrs = 0, $unitMeasure = "", $quantityPiecesReferences = 0, $eanCode = "", $productCertifications = "", $productAvailability = "", $ingredients = "", $keywordsProduct = "")
+    public function add($appType, $category, $subCategoryId, $title, $description, $content, $imgUrl, $allowComments = 1, $price = 0.00, $postArea = "", $postCountry = "", $postCity = "", $postLat = "0.000000", $postLng = "0.000000", $currency = 3, $phoneNumber = "", $countryId = 0, $incoterms = "", $externalShippingPacking1 = 0, $externalShippingPacking2 = 0, $externalShippingPacking3 = 0, $internalShippingPackingDetail = "", $externalShippingPackingDetail = "", $externalShippingPackingGrs = 0, $unitMeasure = "", $quantityPiecesReferences = 0, $eanCode = "", $productCertifications = "", $productAvailability = "", $ingredients = "", $keywordsProduct = "")
     {
         $result = array(
             "error" => true,
             "error_code" => ERROR_UNKNOWN);
+
+        var_dump($price);
+        exit;
 
         if (strlen($title) == 0) {
 
@@ -140,7 +143,7 @@ class items extends db_connect
         $stmt->bindParam(":itemContent", $content, PDO::PARAM_STR);
         $stmt->bindParam(":imgUrl", $imgUrl, PDO::PARAM_STR);
         $stmt->bindParam(":previewImgUrl", $previewImgUrl, PDO::PARAM_STR);
-        $stmt->bindParam(":price", $price, PDO::PARAM_INT);
+        $stmt->bindParam(":price", $price, PDO::PARAM_STR);
         $stmt->bindParam(":currency", $currency, PDO::PARAM_INT);
         $stmt->bindParam(":area", $postArea, PDO::PARAM_STR);
         $stmt->bindParam(":country", $postCountry, PDO::PARAM_STR);
@@ -184,7 +187,7 @@ class items extends db_connect
 
     // Edit item
 
-    public function edit($itemId, $category, $subCategoryId, $title, $imgUrl, $content, $allowComments, $price, $area = "", $country = "", $city = "", $lat = "0.000000", $lng = "0.000000", $currency = 3, $phoneNumber = "")
+    public function edit($itemId, $category, $subCategoryId, $title, $imgUrl, $content, $allowComments, $price, $area = "", $country = "", $city = "", $lat = "0.000000", $lng = "0.000000", $currency = 3, $phoneNumber = "", $countryId = 0, $incoterms = "", $externalShippingPacking1 = 0, $externalShippingPacking2 = 0, $externalShippingPacking3 = 0, $internalShippingPackingDetail = "", $externalShippingPackingDetail = "", $externalShippingPackingGrs = 0, $unitMeasure = "", $quantityPiecesReferences = 0, $eanCode = "", $productCertifications = "", $productAvailability = "", $ingredients = "", $keywordsProduct = "")
     {
         $result = array(
             "error" => true,
@@ -236,7 +239,7 @@ class items extends db_connect
 
         $modifyAt = time();
 
-        $stmt = $this->db->prepare("UPDATE items SET imagesCount = 0, modifyAt = (:modifyAt), phoneNumber = (:phoneNumber), area = (:area), country = (:country), city = (:city), lat = (:lat), lng = (:lng), allowComments = (:allowComments), category = (:category), subCategory = (:subCategory), itemTitle = (:itemTitle), itemContent = (:itemContent), imgUrl = (:imgUrl), previewImgUrl = (:previewImgUrl), price = (:price), currency = (:currency), moderatedAt = 0, moderatedId = 0, rejectedAt = 0, rejectedId = 0, inactiveAt = 0 WHERE id = (:itemId)");
+        $stmt = $this->db->prepare("UPDATE items SET imagesCount = 0, modifyAt = (:modifyAt), phoneNumber = (:phoneNumber), area = (:area), country = (:country), city = (:city), lat = (:lat), lng = (:lng), allowComments = (:allowComments), category = (:category), subCategory = (:subCategory), countryId = (:countryId), incoterms = (:incoterms), externalShippingPacking1 = (:externalShippingPacking1), externalShippingPacking2 = (:externalShippingPacking2), externalShippingPacking3 = (:externalShippingPacking3), internalShippingPackingDetail = (:internalShippingPackingDetail), externalShippingPackingDetail = (:externalShippingPackingDetail), externalShippingPackingGrs = (:externalShippingPackingGrs), unitMeasure = (:unitMeasure), quantityPiecesReferences = (:quantityPiecesReferences), eanCode = (:eanCode), productCertifications = (:productCertifications), productAvailability = (:productAvailability), ingredients = (:ingredients), keywordsProduct = (:keywordsProduct), itemTitle = (:itemTitle), itemContent = (:itemContent), imgUrl = (:imgUrl), previewImgUrl = (:previewImgUrl), price = (:price), currency = (:currency), moderatedAt = 0, moderatedId = 0, rejectedAt = 0, rejectedId = 0, inactiveAt = 0 WHERE id = (:itemId)");
         $stmt->bindParam(":modifyAt", $modifyAt, PDO::PARAM_INT);
         $stmt->bindParam(":phoneNumber", $phoneNumber, PDO::PARAM_STR);
         $stmt->bindParam(":area", $area, PDO::PARAM_STR);
@@ -253,8 +256,23 @@ class items extends db_connect
         $stmt->bindParam(":imgUrl", $imgUrl, PDO::PARAM_STR);
         $stmt->bindParam(":previewImgUrl", $previewImgUrl, PDO::PARAM_STR);
         $stmt->bindParam(":itemId", $itemId, PDO::PARAM_INT);
-        $stmt->bindParam(":price", $price, PDO::PARAM_INT);
+        $stmt->bindParam(":price", $price, PDO::PARAM_STR);
         $stmt->bindParam(":currency", $currency, PDO::PARAM_INT);
+        $stmt->bindParam(":countryId", $countryId, PDO::PARAM_INT);
+        $stmt->bindParam(":incoterms", $incoterms, PDO::PARAM_STR);
+        $stmt->bindParam(":externalShippingPacking1", $externalShippingPacking1, PDO::PARAM_INT);
+        $stmt->bindParam(":externalShippingPacking2", $externalShippingPacking2, PDO::PARAM_INT);
+        $stmt->bindParam(":externalShippingPacking3", $externalShippingPacking3, PDO::PARAM_INT);
+        $stmt->bindParam(":internalShippingPackingDetail", $internalShippingPackingDetail, PDO::PARAM_STR);
+        $stmt->bindParam(":externalShippingPackingDetail", $externalShippingPackingDetail, PDO::PARAM_STR);
+        $stmt->bindParam(":externalShippingPackingGrs", $externalShippingPackingGrs, PDO::PARAM_INT);
+        $stmt->bindParam(":unitMeasure", $unitMeasure, PDO::PARAM_STR);
+        $stmt->bindParam(":quantityPiecesReferences", $quantityPiecesReferences, PDO::PARAM_INT);
+        $stmt->bindParam(":eanCode", $eanCode, PDO::PARAM_STR);
+        $stmt->bindParam(":productCertifications", $productCertifications, PDO::PARAM_STR);
+        $stmt->bindParam(":productAvailability", $productAvailability, PDO::PARAM_STR);
+        $stmt->bindParam(":ingredients", $ingredients, PDO::PARAM_STR);
+        $stmt->bindParam(":keywordsProduct", $keywordsProduct, PDO::PARAM_STR);
 
         if ($stmt->execute()) {
 

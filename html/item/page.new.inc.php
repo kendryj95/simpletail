@@ -416,7 +416,7 @@
 
                 } else {
 
-                    $result = $items->edit($itemInfo['id'], $ad_category, $ad_subcategory, $ad_title, $images_links[0], $ad_description, 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number);
+                    $result = $items->edit($itemInfo['id'], $ad_category, $ad_subcategory, $ad_title, $images_links[0], $ad_description, 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number, $ad_countryId, $ad_incoterms, $ad_externalShippingPacking1, $ad_externalShippingPacking2, $ad_externalShippingPacking2, $ad_externalShippingPacking3, $ad_externalShippingPackingDetail, $ad_externalShippingPackingGrs, $ad_unitMeasure, $ad_quantityPiecesReferences, $ad_eanCode, $ad_productCertifications, $ad_productAvailability, $ad_ingredients, $ad_keywordsProduct);
 
                     if (!$result['error'] && count($images_links) > 1) {
 
@@ -623,7 +623,7 @@
                                                         <select id="country_id" class="form-control" name="countryId">
                                                             <option value="" selected disabled><?= $LANG['select-country'] ?></option>
                                                             <?php foreach ($countries['countries'] as $item): ?>
-                                                                <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
+                                                                <option value="<?= $item['id'] ?>" <?php if ($ad_countryId == $item['id']) echo 'selected' ?>><?= $item['name'] ?></option>
                                                             <?php endforeach ?>
                                                         </select>
 
