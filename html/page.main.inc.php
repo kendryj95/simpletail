@@ -20,6 +20,10 @@
         exit;
     }
 
+    if (!auth::isSession()) {
+        header("Location: /login");
+    }
+
     $filters_visible = 0;
 
     if (isset($_COOKIE['search-filters-visible'])) {
