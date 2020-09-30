@@ -15,9 +15,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d9f208d7-215f-445c-9e3c-bf5610a01949" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/topbar.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/topbar.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/account/page.settings.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/account/page.settings.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/item/page.new.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/item/page.new.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/page.main.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/page.main.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sys/class/class.finder.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.finder.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/page.signup.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/page.signup.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/lang/en.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/lang/en.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +42,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -64,7 +67,12 @@
       <workItem from="1599482200466" duration="27625000" />
       <workItem from="1599568198974" duration="8771000" />
       <workItem from="1599662150878" duration="1639000" />
-      <workItem from="1599745456758" duration="3350000" />
+      <workItem from="1599745456758" duration="3990000" />
+      <workItem from="1599877209916" duration="84000" />
+      <workItem from="1600117831320" duration="3521000" />
+      <workItem from="1601060082455" duration="7558000" />
+      <workItem from="1601400301981" duration="2126000" />
+      <workItem from="1601471912964" duration="1511000" />
     </task>
     <task id="LOCAL-00001" summary="Mejoras en el proyecto">
       <created>1599676707457</created>
@@ -80,7 +88,28 @@
       <option name="project" value="LOCAL" />
       <updated>1599713879655</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Ajustes y mejoras">
+      <created>1599751722867</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599751722867</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Ajustes para ediciones y decimales en precios">
+      <created>1600120021437</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1600120021437</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Validacion para usuarios no logueados">
+      <created>1600138167294</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1600138167294</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,7 +130,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Mejoras en el proyecto" />
     <MESSAGE value="Ajustes y mejoras" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajustes y mejoras" />
+    <MESSAGE value="Ajustes para ediciones y decimales en precios" />
+    <MESSAGE value="Validacion para usuarios no logueados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Validacion para usuarios no logueados" />
   </component>
   <component name="WindowStateProjectService">
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1599750042019">
@@ -112,29 +143,33 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="486" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1598916341210" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1599484904638">
+    <state x="184" y="9" key="SettingsEditor" timestamp="1600118023708">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1599484904638" />
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1600118023708" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1600118961932">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1600118961932" />
     <state x="569" y="278" key="VCS.EditChangelistDialog" timestamp="1599417308716">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="569" y="278" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1599417308716" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1599713971397">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1600138171308">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1599713971397" />
-    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1599587548308">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1600138171308" />
+    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1601472766485">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1599587548308" />
+    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1601472766485" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1599512703313">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1599512703313" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599712399815">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1601064801824">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599712399815" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1601064801824" />
   </component>
 </project>

@@ -366,7 +366,7 @@
 
                                         <div class="row mb-2">
 
-                                            <div class="col-12 col-md-6 col-lg-6">
+                                            <!--div class="col-12 col-md-6 col-lg-6">
                                                 <div class="form-group field-signup-form-username required noselect">
                                                     <label class="form-label"><?php echo $LANG['label-signup-sex']; ?> <small>(<?php echo $LANG['label-optional']; ?>)</small> <i class="far fa-question-circle" title="<?php echo $LANG['label-signup-tooltip-sex']; ?>" rel="tooltip"></i></label>
                                                 </div>
@@ -397,7 +397,7 @@
                                                     </label>
 
                                                 </div>
-                                            </div>
+                                            </div-->
 
                                         </div>
 

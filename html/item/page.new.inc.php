@@ -29,6 +29,16 @@
         exit;
     }
 
+    $accountId = auth::getCurrentUserId();
+
+    $account = new account($dbo, $accountId);
+    $accountInfo = $account->get();
+
+    if ($accountInfo['category_id'] == ""){
+        header('Location: /account/settings?profile=uncompleted');
+        exit;
+    }
+
     if (isset($_GET['get_subcategories'])) {
 
         $categoryId = isset($_GET['categoryId']) ? $_GET['categoryId'] : 0;

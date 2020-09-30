@@ -71,12 +71,15 @@
                                 }
 					        ?>
 
-                            <div class="nav-item">
-                                <a href="/login?continue=/item/new" class="btn btn-add-item" title="<?php echo $LANG['action-new-classified']; ?>" rel="tooltip">
-                                    <i class="fa fa-plus"></i>
-                                    <span class="d-none d-sm-inline-block"><?php echo $LANG['action-new-classified']; ?></span>
-                                </a>
-                            </div>
+                            <?php if (isset($page_id) && $page_id !== "login" && $page_id !== "signup"): ?>
+
+                                <div class="nav-item">
+                                    <a href="/login?continue=/item/new" class="btn btn-add-item" title="<?php echo $LANG['action-new-classified']; ?>" rel="tooltip">
+                                        <i class="fa fa-plus"></i>
+                                        <span class="d-none d-sm-inline-block"><?php echo $LANG['action-new-classified']; ?></span>
+                                    </a>
+                                </div>
+                            <?php endif ?>
 
                         </div>
 

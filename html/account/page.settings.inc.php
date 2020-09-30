@@ -306,6 +306,14 @@
 											}
 										?>
 
+                                        <?php if (isset($_GET['profile']) && $_GET['profile'] === "uncompleted"): ?>
+
+                                            <div class="alert alert-danger">
+                                                <?= $LANG['alert-profile-uncompleted'] ?>
+                                            </div>
+
+                                        <?php endif ?>
+
 										<form id="profile-form" class="form-horizontal" action="/account/settings" method="post">
 
 											<input autocomplete="off" type="hidden" name="authenticity_token" value="<?php echo auth::getAuthenticityToken(); ?>">
@@ -320,7 +328,7 @@
                                             <div class="form-group">
 												<label class="form-label" for="category_id"><?php echo $accountInfo['typeuser'] === "BRAND" ? $LANG['label-category-brand'] : $LANG['label-category-store'] ?></label>
                                                 <select name="category_id" id="category_id"
-                                                        class="form-control">
+                                                        class="form-control" required>
                                                     <?php foreach ($categories['items'] as $item): ?>
                                                         <option value="<?= $item['id'] ?>" <?php if($accountInfo['category_id'] == $item['id']): ?> selected <?php endif ?>><?= $item['title'] ?></option>
                                                     <?php endforeach ?>
@@ -349,10 +357,10 @@
                                                 <label class="form-label" for="annual_turnover"><?php echo $LANG['label-annual-turnover'] ?></label>
                                                 <select name="annual_turnover" id="annual_turnover"
                                                         class="form-control">
-                                                    <option value="0-249k€" <?php if ($accountInfo['annual_turnover'] == "0-249k€"): ?> selected <?php endif ?> >0-249k€</option>
-                                                    <option value="250k€-500k€" <?php if ($accountInfo['annual_turnover'] == "250k€-500k€"): ?> selected <?php endif ?> >250k€-500k€</option>
-                                                    <option value="500-999k€" <?php if ($accountInfo['annual_turnover'] == "500-999k€"): ?> selected <?php endif ?> >500-999k€</option>
-                                                    <option value=">1M€" <?php if ($accountInfo['annual_turnover'] == ">1M€"): ?> selected <?php endif ?> >>1M€</option>
+                                                    <option value="0 millioni € - 1 millioni €" <?php if ($accountInfo['annual_turnover'] == "0 millioni € - 1 millioni €"): ?> selected <?php endif ?> >0 millioni € - 1 millioni €</option>
+                                                    <option value="1 milione € - 2 millioni €" <?php if ($accountInfo['annual_turnover'] == "1 milione € - 2 millioni €"): ?> selected <?php endif ?> >1 milione € - 2 millioni €</option>
+                                                    <option value="2 millioni € - 4 millioni €" <?php if ($accountInfo['annual_turnover'] == "2 millioni € - 4 millioni €"): ?> selected <?php endif ?> >2 millioni € - 4 millioni €</option>
+                                                    <option value="+ 5 millioni €" <?php if ($accountInfo['annual_turnover'] == "+ 5 millioni €"): ?> selected <?php endif ?> >+ 5 millioni €</option>
                                                 </select>
 
                                                 <div class="help-block"></div>
@@ -436,8 +444,14 @@
 
                                             <?php if ($accountInfo['typeuser'] === "BRAND"): ?>
                                                 <div class="form-group">
-                                                    <label class="form-label" for="url_content_company"><?php echo $LANG['label-content-related'] ?></label>
-                                                    <input type="text" maxlength="96" id="url_content_company" placeholder="For example: Youtube link, PDF link, etc" class="form-control" name="url_content_company" value="<?php echo $accountInfo['url_content_company']; ?>">
+                                                    <label class="form-label" for="website"><?php echo $LANG['label-website-company-brand'] ?></label>
+                                                    <input type="text" maxlength="96" id="website" placeholder="Url Website" class="form-control" name="website" value="<?php echo $accountInfo['website']; ?>">
+
+                                                    <div class="help-block"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-label" for="url_youtube_company"><?php echo $LANG['label-youtube-company-brand'] ?></label>
+                                                    <input type="text" maxlength="96" id="url_content_company" placeholder="Url Website" class="form-control" name="url_content_company" value="<?php echo $accountInfo['url_content_company']; ?>">
 
                                                     <div class="help-block"></div>
                                                 </div>

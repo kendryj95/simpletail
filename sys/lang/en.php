@@ -196,7 +196,7 @@
     $TEXT['apanel-label-demo-mode-desc'] = "Warning! Enabled demo version mode! The changes you've made will not be saved.";
 
     $TEXT['apanel-label-total-accounts'] = "Total Accounts";
-    $TEXT['apanel-label-total-market-items'] = "Total Classifieds";
+    $TEXT['apanel-label-total-market-items'] = "Total products";
     $TEXT['apanel-label-total-chats'] = "Total Chats";
     $TEXT['apanel-label-total-messages'] = "Total Messages";
     $TEXT['apanel-label-removed-chats'] = "Removed Chats";
@@ -218,7 +218,7 @@
     $TEXT['apanel-label-stats-active-support-items'] = "Support tickets";
     $TEXT['apanel-label-stats-active-likes'] = "Items in favorites";
 
-    $TEXT['apanel-label-stats-market'] = "Classifieds";
+    $TEXT['apanel-label-stats-market'] = "Products";
     $TEXT['apanel-label-stats-messages'] = "Messages and Chats";
     $TEXT['apanel-label-stats-accounts'] = "Accounts";
     $TEXT['apanel-label-stats-reports'] = "Reports";
@@ -402,7 +402,7 @@
 
     $TEXT['label-who-us'] = "See who with us";
 
-    $TEXT['label-thanks'] = "Hooray!";
+    $TEXT['label-thanks'] = "Thanks!";
 
 
 
@@ -721,7 +721,7 @@
 
     // new engine
 
-    $TEXT['main-page-browser-title'] = "Classified ads website for buying and selling used goods/things";
+    $TEXT['main-page-browser-title'] = "";
 
     $TEXT['action-continue'] = "Continue";
 
@@ -746,8 +746,8 @@
     $TEXT['placeholder-ad-description'] = "Add a description for your product/service, specify benefits and important details"; //Добавьте описание вашего товара/услуги, укажите преимущества и важные детали.
     $TEXT['placeholder-ad-phone'] = "Enter your phone number";
 
-    $TEXT['page-edit-ad-title'] = "Edit classified"; //Редактировать объявление
-    $TEXT['page-new-ad-title'] = "Create classified"; //Создать объявление
+    $TEXT['page-edit-ad-title'] = "Edit Product"; //Редактировать объявление
+    $TEXT['page-new-ad-title'] = "Create Product"; //Создать объявление
     $TEXT['action-new-ad'] = "Create"; //Создать
 
     $TEXT['msg-error-ad-title'] = "Enter ad title"; //Введите заголовок объявления
@@ -834,8 +834,8 @@
     // Actions
 
     $TEXT['action-favorites-promo-button'] = "Search now!"; //Ищите сейчас!
-    $TEXT['action-new-classified'] = "Add classified";
-    $TEXT['action-see-classified'] = "See classified";
+    $TEXT['action-new-classified'] = "Add Product";
+    $TEXT['action-see-classified'] = "See products";
     $TEXT['action-find'] = "Search";
     $TEXT['action-see-all'] = "See all";
     $TEXT['action-show'] = "Show";
@@ -855,46 +855,46 @@
     $TEXT['msg-photo-width-height-error'] = "Height and width should be more than 300 pixels";
     $TEXT['msg-photo-file-upload-limit'] = "Exceeded file limit for upload";
     $TEXT['msg-empty-fields'] = "All fields are required";
-    $TEXT['msg-ad-published'] = "Classified ad successfully published."; //Объявление успешно опубликовано.
+    $TEXT['msg-ad-published'] = "Product successfully published."; //Объявление успешно опубликовано.
     $TEXT['msg-ad-saved'] = "Changes saved successfully"; //Изменения успешно сохранены
     $TEXT['msg-selected-location-error'] = "Location not specified or incorrect location selection";
     $TEXT['msg-contact-promo'] = "Want to contact %s? Join now!"; // Хотите связаться с %s? Присоединяйтесь!
-    $TEXT['msg-publish-ad-promo'] = "Post your first classified!";
-    $TEXT['msg-empty-profile-items'] = "No classifieds.";
+    $TEXT['msg-publish-ad-promo'] = "Post your first Product!";
+    $TEXT['msg-empty-profile-items'] = "No products.";
     $TEXT['msg-search-empty'] = "No results found for your query :("; //По вашему запросу ничего не найдено :(
-    $TEXT['msg-search-success'] = "Found %d classifieds"; //Найдено %d объявлений
-    $TEXT['msg-search-all'] = "Found %d classifieds"; //Найдено %d объявлений
+    $TEXT['msg-search-success'] = "Found %d products"; //Найдено %d объявлений
+    $TEXT['msg-search-all'] = "Found %d products"; //Найдено %d объявлений
     $TEXT['msg-confirm-delete'] = "Are you sure you want to delete it?"; //Вы уверены, что хотите удалить это?
     $TEXT['msg-feature-disabled'] = "This feature is currently disabled by the administrator. Sorry for temporary inconvenience. Please try again later.";
     $TEXT['msg-block-user-text'] = "User %s will be added to your blacklist. You will not receive personal messages and other notifications from %s. Do you confirm your action?";
     $TEXT['msg-unblock-user-text'] = "User %s will be removed from your blacklist. Do you confirm your action?";
     $TEXT['msg-unblock-user-text-2'] = "User will be removed from your blacklist. Do you confirm your action?";
-    $TEXT['msg-item-success-removed'] = "Your classified has been successfully removed"; // Ваше объявление было успешно удалено
-    $TEXT['msg-item-success-inactivated'] = "Your classified has been successfully inactivated"; // Ваше объявление было успешно деактивировано
+    $TEXT['msg-item-success-removed'] = "Your Product has been successfully removed"; // Ваше объявление было успешно удалено
+    $TEXT['msg-item-success-inactivated'] = "Your Product has been successfully inactivated"; // Ваше объявление было успешно деактивировано
     $TEXT['msg-favorites-added'] = "Added to favorites";
     $TEXT['msg-favorites-removed'] = "Removed from your favorites";
 
-    $TEXT['msg-item-not-active'] = "Classified Ad is not active.";
+    $TEXT['msg-item-not-active'] = "Product Ad is not active.";
     $TEXT['msg-item-make-active-promo'] = "To make this ad active - you need to edit it.";
     $TEXT['msg-item-make-active-description'] = "Please make your ad correct. Enter the correct title, category, description and images.";
 
-    $TEXT['msg-confirm-inactive-title'] = "Classified will be marked as \"Inactive\". Classified will not appear in search and in your profile. Your phone number will be hidden in classified."; //Объявление будет отмечено как "Не активно". Объявление не будет отображатся в поиске и в вашем профиле. В объявлении будет скрыт номер Вашего телефона.
-    $TEXT['msg-confirm-inactive-hint'] = "You will be able to delete, edit and make this classified active again at any time."; //Вы будете иметь возможность в любое время удалить, отредактировать и сделать это объявление снова активным.
+    $TEXT['msg-confirm-inactive-title'] = "Product will be marked as \"Inactive\". Product will not appear in search and in your profile. Your phone number will be hidden in Product."; //Объявление будет отмечено как "Не активно". Объявление не будет отображатся в поиске и в вашем профиле. В объявлении будет скрыт номер Вашего телефона.
+    $TEXT['msg-confirm-inactive-hint'] = "You will be able to delete, edit and make this Product active again at any time."; //Вы будете иметь возможность в любое время удалить, отредактировать и сделать это объявление снова активным.
     $TEXT['msg-confirm-inactive-subtitle'] = "Are you sure you want to do it?"; //Вы уверены, что хотите сделать это?
 
     // Info messages
 
     $TEXT['page-notifications-empty-list'] = "You have no new notifications";
     $TEXT['page-messages-empty-list'] = "You have no conversations yet";
-    $TEXT['page-classifieds-items-empty-list'] = "You have no active classifieds";
+    $TEXT['page-classified-items-empty-list'] = "You have no active products";
     $TEXT['page-empty-list'] = "List is empty";
     $TEXT['page-blacklist-empty-list'] = "You do not have users in your blacklist";
     $TEXT['page-favorites-empty-list'] = "You haven't added anything to your favorites yet";
 
     // Item View
 
-    $TEXT['page-item-view-title'] = "Classified ad"; //Объявление
-    $TEXT['msg-item-not-found'] = "Classified ad does not exist or has been deleted."; //Объявление не существует или было удалено.
+    $TEXT['page-item-view-title'] = "Product"; //Объявление
+    $TEXT['msg-item-not-found'] = "Product does not exist or has been deleted."; //Объявление не существует или было удалено.
 
     // Pages
 
@@ -909,7 +909,7 @@
     $TEXT['page-notifications'] = "Notifications";
     $TEXT['page-messages'] = "Messages";
     $TEXT['page-chat'] = "Chat";
-    $TEXT['page-items'] = "Classifieds";
+    $TEXT['page-items'] = "Products";
 
     $TEXT['page-404'] = "Page not found"; //Страница не найдена
     $TEXT['page-404-description'] = "Requested page not found"; //Запрашиваемая страница не найдена
@@ -937,7 +937,7 @@
     $TEXT['label-search-query'] = "Search text"; //Текст поиска
     $TEXT['placeholder-search-query'] = "What are you looking for?"; //Что вы ищите?
     $TEXT['label-all-categories'] = "All categories"; //Все категории
-    $TEXT['label-all-profile-items'] = "%d classifieds"; // %d объявлений
+    $TEXT['label-all-profile-items'] = "%d products"; // %d объявлений
     $TEXT['label-cookie-message'] = "We use tools, such as \"cookies\", to enable essential services and functionality on our site and to collect data on how visitors interact with our site, products and services. By using the website, you agree with our ";
 
     $TEXT['label-filters'] = "Filters"; //
@@ -987,7 +987,7 @@
     $TEXT['label-favorites-add'] = "Add to favorites";
     $TEXT['label-favorites-remove'] = "Remove from favorites";
 
-    $TEXT['label-notify-item'] = "Classified ad";
+    $TEXT['label-notify-item'] = "Product";
     $TEXT['label-notify-item-approved'] = "Your %s is approved by a moderator.";
     $TEXT['label-notify-item-rejected'] = "Your %s has been rejected by moderator.";
 
@@ -1007,14 +1007,14 @@
     $TEXT['label-item-stats-favorites'] = "Added to favorites";
     $TEXT['label-item-stats-phone-views'] = "Phone number views";
 
-    $TEXT['label-item-disclaimer-title'] = "Disclaimer";
-    $TEXT['label-item-disclaimer-desc'] = "We does not control the content posted by members and therefore assumes no responsibility any liability for any consequence relating directly or indirectly to any action or inaction.";
+    $TEXT['label-item-disclaimer-title'] = "General Details";
+    $TEXT['label-item-disclaimer-desc'] = "If you need some extra info of the product, you can send a message to the product manufacturer / distributor, clicking on the envelope icon.";
 
-    $TEXT['label-items-related'] = "Related classifieds";
+    $TEXT['label-items-related'] = "Related products";
     $TEXT['label-items-more-from-author'] = "More from %s";
-    $TEXT['label-items-latest'] = "Latest classifieds";
-    $TEXT['label-items-featured'] = "Feature classifieds";
-    $TEXT['label-items-popular'] = "Popular classifieds";
+    $TEXT['label-items-latest'] = "Latest products";
+    $TEXT['label-items-featured'] = "Feature products";
+    $TEXT['label-items-popular'] = "Popular products";
 
     // Settings
 
@@ -1118,6 +1118,8 @@
     $TEXT['label-annual-turnover'] = "Annual turnover";
     $TEXT['label-type-business'] = "Type of business";
     $TEXT['label-content-related'] = "Insert content related to your brand ";
+    $TEXT['label-website-company-brand'] = "URL Website Brand";
+    $TEXT['label-youtube-company-brand'] = "URL Youtube Brand";
     $TEXT['label-number-stores'] = "Number of stores";
     $TEXT['label-type-business'] = "Type of Business";
     $TEXT['label-website-company'] = "Store website";
@@ -1125,9 +1127,10 @@
     $TEXT['label-cities-stores'] = "Enter the cities where your stores are located";
     $TEXT['label-attributes-essentials'] = "Enter the attributes that you believe are essential in your business
 search for new brands";
+    $TEXT['alert-profile-uncompleted'] = "You must complete your profile to allow you to create new products";
 
 
-    // ADD CLASSIFIED
+    // ADD classified
 
     $TEXT['label-ad-country'] = "Country of origin";
     $TEXT['label-ad-incoTerms'] = "Incoterms";
@@ -1139,14 +1142,14 @@ search for new brands";
     $TEXT['label-external-shipping-packing-grs'] = "External packaging weight in grs";
     $TEXT['label-quantity-pieces-per-references'] = "Quantity of pieces per references";
     $TEXT['label-ean-code'] = "EAN Code";
-    $TEXT['label-product-certifications'] = "Product certifications";
-    $TEXT['label-product-availability'] = "Product availability";
+    $TEXT['label-classified-certifications'] = "Product certifications";
+    $TEXT['label-classified-availability'] = "Product availability";
     $TEXT['label-ingredients'] = "Ingredients";
     $TEXT['label-keywords'] = "Keywords that make your product distinctive";
     $TEXT['label-unit-measure'] = "Unit of measure";
 
     $TEXT['label-search-by'] = "Search by";
-    $TEXT['option-product-name'] = "Product name";
+    $TEXT['option-classified-name'] = "Product name";
     $TEXT['option-keywords'] = "Keywords";
     $TEXT['option-country-brand'] = "Country of the brand";
     $TEXT['option-range-prices'] = "Range of prices";
