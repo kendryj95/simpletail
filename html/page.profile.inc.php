@@ -281,6 +281,38 @@
 
 															<?php
 
+																if (strlen($profileInfo['website']) != 0) {
+
+																	?>
+																		<div class="addon-line d-flex align-content-center flex-column flex-sm-row">
+																			<div class="user-link mt-2 mt-sm-0 ml-0">
+																				<i class="fa fa-link""></i>
+																				<a target="_blank" rel="nofollow" href="/go?to=<?php echo $profileInfo['website']; ?>"><?php echo $profileInfo['website']; ?></a>
+																			</div>
+																		</div>
+																	<?php
+																}
+															?>
+
+
+                                                            <?php
+
+																if (strlen($profileInfo['url_content_company']) != 0) {
+
+																	?>
+																		<div class="addon-line d-flex align-content-center flex-column flex-sm-row">
+																			<div class="user-link mt-2 mt-sm-0 ml-0">
+																				<i class="fa fa-link""></i>
+																				<a target="_blank" rel="nofollow" href="/go?to=<?php echo $profileInfo['url_content_company']; ?>"><?php echo $profileInfo['url_content_company']; ?></a>
+																			</div>
+																		</div>
+																	<?php
+																}
+															?>
+
+
+                                                            <?php
+
 																if (strlen($profileInfo['fb_page']) != 0) {
 
 																	?>
@@ -323,6 +355,51 @@
 																	<?php
 																}
 															?>
+
+
+                                                            <?php
+
+																if (strlen($profileInfo['attributes']) != 0) {
+
+																	?>
+																		<div class="addon-line d-flex align-content-center flex-column flex-sm-row">
+																			<div class="user-bio mt-2 mt-sm-0 ml-0">
+																				<?php
+                                                                                $attributes = explode(",",$profileInfo['attributes']);
+
+                                                                                foreach ($attributes as $item):
+                                                                                ?>
+                                                                                <span class="badge badge-secondary"><?= $item ?></span>
+
+                                                                                <?php endforeach; ?>
+																			</div>
+																		</div>
+																	<?php
+																}
+															?>
+
+
+                                                            <?php
+
+																if (strlen($profileInfo['annual_turnover']) != 0) {
+
+																	?>
+																		<div class="addon-line d-flex align-content-center flex-column flex-sm-row">
+																			<div class="user-bio mt-2 mt-sm-0 ml-0">
+                                                                                <i class="fa fa-money-bill-wave" aria-hidden="true"></i>
+                                                                                <span><?= $profileInfo['annual_turnover'] ?></span>
+																			</div>
+																		</div>
+																	<?php
+																}
+															?>
+
+                                                            <div class="addon-line d-flex align-content-center flex-column flex-sm-row">
+                                                                <div class="user-bio mt-2 mt-sm-0 ml-0">
+                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                    <span><?= $finder->getItems()['itemsCount'] ?></span>
+                                                                </div>
+                                                            </div>
 
 														</div>
 

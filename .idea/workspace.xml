@@ -15,10 +15,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d9f208d7-215f-445c-9e3c-bf5610a01949" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/topbar.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/topbar.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/account/page.settings.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/account/page.settings.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/item/page.new.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/item/page.new.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/page.signup.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/page.signup.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/page.profile.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/page.profile.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.profile.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.profile.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sys/lang/en.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/lang/en.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +72,7 @@
       <workItem from="1600117831320" duration="3521000" />
       <workItem from="1601060082455" duration="7558000" />
       <workItem from="1601400301981" duration="2126000" />
-      <workItem from="1601471912964" duration="1511000" />
+      <workItem from="1601471912964" duration="7604000" />
     </task>
     <task id="LOCAL-00001" summary="Mejoras en el proyecto">
       <created>1599676707457</created>
@@ -109,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600138167294</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Mejoras en seccion de BRANDS">
+      <created>1601473510252</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1601473510252</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,13 +139,14 @@
     <MESSAGE value="Ajustes y mejoras" />
     <MESSAGE value="Ajustes para ediciones y decimales en precios" />
     <MESSAGE value="Validacion para usuarios no logueados" />
-    <option name="LAST_COMMIT_MESSAGE" value="Validacion para usuarios no logueados" />
+    <MESSAGE value="Mejoras en seccion de BRANDS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mejoras en seccion de BRANDS" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1599750042019">
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1601483451465">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1599750042019" />
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1601483451465" />
     <state x="486" y="87" key="NewPhpClassDialog" timestamp="1598916341210">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -159,17 +167,17 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1600138171308" />
-    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1601472766485">
+    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1601484354033">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1601472766485" />
+    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1601484354033" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1599512703313">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1599512703313" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1601064801824">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1601474788371">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1601064801824" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1601474788371" />
   </component>
 </project>

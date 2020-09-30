@@ -850,7 +850,7 @@
     // Error messages
 
     $TEXT['msg-photo-file-size-exceeded'] = "File size exceeded";
-    $TEXT['msg-photo-file-size-error'] = "File size too large";
+    $TEXT['msg-photo-file-size-error'] = "File size too large. Max: 3mb";
     $TEXT['msg-photo-format-error'] = "Invalid image file format";
     $TEXT['msg-photo-width-height-error'] = "Height and width should be more than 300 pixels";
     $TEXT['msg-photo-file-upload-limit'] = "Exceeded file limit for upload";

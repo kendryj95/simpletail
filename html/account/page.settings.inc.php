@@ -445,13 +445,13 @@
                                             <?php if ($accountInfo['typeuser'] === "BRAND"): ?>
                                                 <div class="form-group">
                                                     <label class="form-label" for="website"><?php echo $LANG['label-website-company-brand'] ?></label>
-                                                    <input type="text" maxlength="96" id="website" placeholder="Url Website" class="form-control" name="website" value="<?php echo $accountInfo['website']; ?>">
+                                                    <input type="text" maxlength="96" id="website" placeholder="http://yourwebsite.com" class="form-control" name="website" value="<?php echo $accountInfo['website']; ?>">
 
                                                     <div class="help-block"></div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="form-label" for="url_youtube_company"><?php echo $LANG['label-youtube-company-brand'] ?></label>
-                                                    <input type="text" maxlength="96" id="url_content_company" placeholder="Url Website" class="form-control" name="url_content_company" value="<?php echo $accountInfo['url_content_company']; ?>">
+                                                    <input type="text" maxlength="96" id="url_content_company" placeholder="http://youtube.com/yourchannel" class="form-control" name="url_content_company" value="<?php echo $accountInfo['url_content_company']; ?>">
 
                                                     <div class="help-block"></div>
                                                 </div>

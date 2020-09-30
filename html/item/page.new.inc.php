@@ -882,7 +882,7 @@
 
                                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                                     <div class="form-group group-product-certifications">
-                                                        <label class="form-label noselect" for="productCertifications"><?php echo $LANG['label-product-certifications']; ?> </label>
+                                                        <label class="form-label noselect" for="productCertifications"><?php echo $LANG['label-classified-certifications']; ?> </label>
                                                         <input type="text" name="productCertifications" id="productCertifications" value="<?= $ad_productCertifications ?>"
                                                                class="form-control">
 
@@ -892,7 +892,7 @@
 
                                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                                     <div class="form-group group-product-availability">
-                                                        <label class="form-label noselect" for="productAvailability"><?php echo $LANG['label-product-availability']; ?> </label>
+                                                        <label class="form-label noselect" for="productAvailability"><?php echo $LANG['label-classified-availability']; ?> </label>
                                                         <select name="productAvailability" id="productAvailability"
                                                                class="form-control">
                                                             <option value="No immediate" <?php if ($ad_productAvailability === "No immediate"): echo 'selected'; endif; ?>>No immediate</option>
