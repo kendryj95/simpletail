@@ -257,7 +257,7 @@
                                             <div class="row">
                                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-2 mt-lg-0 location-type location-address ">
                                                     <select id="type" class="form-control" name="type">
-                                                        <option value="1" <?php if ($search_by == 1): echo 'selected'; endif; ?>><?= $LANG['option-product-name'] ?></option>
+                                                        <option value="1" <?php if ($search_by == 1): echo 'selected'; endif; ?>><?= $LANG['option-classified-name'] ?></option>
                                                         <option value="2" <?php if ($search_by == 2): echo 'selected'; endif; ?>><?= $LANG['option-keywords'] ?></option>
                                                         <option value="3" <?php if ($search_by == 3): echo 'selected'; endif; ?>><?= $LANG['option-country-brand'] ?></option>
                                                     </select>
@@ -440,131 +440,6 @@
     </div> <!-- End page -->
 
     <script src="/js/geo.js"></script>
-
-        <script type="text/javascript">
-
-            var $distanceSelect = $('select#distance');
-            var $mapView = $('div.map-view');
-            var $form = $("#search-form");
-
-            $(document).on('click', '.loading-more-button', function() {
-
-                var $this = $(this);
-
-                if ($this.hasClass('disabled')) {
-
-                    return;
-                }
-
-                $this.addClass('disabled');
-                $this.find('div.btn-loader').removeClass('hidden');
-                $this.find('i.loading-more-button-icon').addClass('hidden');
-
-                $.ajax({
-                    type: 'POST',
-                    url: $form.attr('action'),
-                    data: $form.serialize(),
-                    dataType: 'json',
-                    timeout: 30000,
-                    success: function(response) {
-
-                        if (response.hasOwnProperty('html')) {
-
-                            $("div.items-grid-view").append(response.html);
-                        }
-
-                        if (response.hasOwnProperty('items_count')) {
-
-                            if (response.items_count < 20) {
-
-                                $('div.loading-more-container').addClass('hidden');
-
-                            } else {
-
-                                var pageId = $form.find("input[name=pageId]").val();
-
-                                pageId++;
-
-                                $form.find("input[name=pageId]").val(pageId);
-                            }
-                        }
-
-                        $this.removeClass('disabled');
-                        $this.find('div.btn-loader').addClass('hidden');
-                        $this.find('i.loading-more-button-icon').removeClass('hidden');
-                    },
-                    error: function(xhr, status, error) {
-
-                        $this.removeClass('disabled');
-                        $this.find('div.btn-loader').addClass('hidden');
-                        $this.find('i.loading-more-button-icon').removeClass('hidden');
-                    }
-                });
-            });
-
-            $('select#locationType').on('change', function() {
-
-                switch (this.value) {
-
-                    case "0": {
-
-                        locationType = 0;
-
-                        $mapView.hide();
-                        $distanceSelect.attr("disabled", true);
-
-                        break;
-                    }
-
-                    case "1": {
-
-                        locationType = 1;
-
-                        if (!map_initialized) {
-
-                            map_initialized = true;
-
-                        }
-
-                        $mapView.removeClass("hidden");
-                        $mapView.show();
-                        $distanceSelect.attr("disabled", false);
-
-                        break;
-                    }
-
-                    default: {
-
-                        return;
-                    }
-                }
-            });
-
-            $(document).on('click', '.btn-toggle-search-filters', function() {
-
-                var $filtersBlock = $('div#search-filters');
-
-                if ($filtersBlock.hasClass('hidden')) {
-
-                    $filtersBlock.removeClass('hidden');
-
-                    $.cookie("search-filters-visible", "yes", { expires : 7, path: '/' });
-
-                    if (locationType != 0 && !map_initialized) {
-
-                        map_initialized = true;
-
-                    }
-
-                } else {
-
-                    $filtersBlock.addClass('hidden');
-
-                    $.removeCookie('search-filters-visible', { path: '/' })
-                }
-            });
-
-        </script>
 
 </body>
 </html>

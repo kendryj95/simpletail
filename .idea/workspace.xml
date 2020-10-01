@@ -14,10 +14,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9f208d7-215f-445c-9e3c-bf5610a01949" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/page.stores.inc.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/items/5_549_768384f68c26d7349aac84c518cae44733d96bfc.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/items/5_73d_5ae9b0d46140520370d72b5e944e87674877c2ea.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/items/5_dfe_401b8398d60d288c4c44bcb72f5020bb234b9063.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/items/t_5_549_768384f68c26d7349aac84c518cae44733d96bfc.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/items/t_5_73d_5ae9b0d46140520370d72b5e944e87674877c2ea.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/items/t_5_dfe_401b8398d60d288c4c44bcb72f5020bb234b9063.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmp/09dd58ed3149ffa48ba2aae3c50595080b8414a9.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmp/87678c73f3d910d7a2555f237619f522b86c05d5.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmp/ba787d1971cfa368ae418ac7d5d7b06045667a57.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/account/page.settings.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/account/page.settings.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/footer.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/footer.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/topbar.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/topbar.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/item/page.new.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/item/page.new.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/page.main.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/page.main.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/page.profile.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/page.profile.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.draw.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.draw.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.finder.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.finder.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.items.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.items.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sys/class/class.profile.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.profile.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sys/lang/en.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/lang/en.php" afterDir="false" />
     </list>
@@ -40,12 +56,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/html" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\simpletail\html" />
       <recent name="C:\xampp\htdocs\simpletail\js" />
     </key>
   </component>
@@ -72,7 +89,7 @@
       <workItem from="1600117831320" duration="3521000" />
       <workItem from="1601060082455" duration="7558000" />
       <workItem from="1601400301981" duration="2126000" />
-      <workItem from="1601471912964" duration="7604000" />
+      <workItem from="1601471912964" duration="27123000" />
     </task>
     <task id="LOCAL-00001" summary="Mejoras en el proyecto">
       <created>1599676707457</created>
@@ -116,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601473510252</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Mejoras en seccion de PERFIL">
+      <created>1601486119673</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1601486119673</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,7 +164,8 @@
     <MESSAGE value="Ajustes para ediciones y decimales en precios" />
     <MESSAGE value="Validacion para usuarios no logueados" />
     <MESSAGE value="Mejoras en seccion de BRANDS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mejoras en seccion de BRANDS" />
+    <MESSAGE value="Mejoras en seccion de PERFIL" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mejoras en seccion de PERFIL" />
   </component>
   <component name="WindowStateProjectService">
     <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1601483451465">
@@ -151,14 +176,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="486" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1598916341210" />
+    <state x="517" y="66" key="RollbackChangesDialog" timestamp="1601512581044">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="517" y="66" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1601512581044" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1600118023708">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1600118023708" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1600118961932">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1601516031881">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1600118961932" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1601516031881" />
     <state x="569" y="278" key="VCS.EditChangelistDialog" timestamp="1599417308716">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -167,17 +196,17 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1600138171308" />
-    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1601484354033">
+    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1601521362436">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1601484354033" />
+    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1601521362436" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1599512703313">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1599512703313" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1601474788371">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1601520419552">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1601474788371" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1601520419552" />
   </component>
 </project>

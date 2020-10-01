@@ -26,25 +26,6 @@
 
 				<?php
 
-					if (isset($page_id) && $page_id !== "main" && $page_id !== "login" && $page_id !== "signup" && (!auth::isSession() || auth::getTypeuser() === "STORE")) {
-
-						?>
-							<form class="navbar-form navbar-left d-none d-md-block col-4 col-lg-4" action="/">
-
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="<?php echo $LANG['placeholder-search-query']; ?>" name="query">
-									<button type="submit" class="btn btn-secondary">
-										<span class="fa fa-search"></span>
-									</button>
-								</div>
-
-							</form>
-						<?php
-					}
-				?>
-
-				<?php
-
 					if (!auth::isSession()) {
 
                         ?>
@@ -91,13 +72,17 @@
 
 							<div class="d-flex align-items-center order-lg-2 ml-auto">
 
-                                <div class="d-none d-sm-block">
+                                <?php if (auth::isSession() && auth::getTypeuser() !== "BRAND"): ?>
+                                    <div class="d-none d-sm-block">
 
-                                    <a class="nav-link py-2 icon position-relative" href="/account/favorites">
-                                        <i class="fa fa-star"></i>
-                                        <span class="nav-unread hidden favorites-badge"></span>
-                                    </a>
-                                </div>
+
+                                        <a class="nav-link py-2 icon position-relative" href="/account/favorites">
+                                            <i class="fa fa-star"></i>
+                                            <span class="nav-unread hidden favorites-badge"></span>
+                                        </a>
+
+                                    </div>
+                                <?php endif ?>
 
                                 <div class="d-none d-sm-block">
 
@@ -146,6 +131,18 @@
 											</div>
 										<?php
 									}
+
+									if (auth::getTypeuser() === "BRAND") {
+
+										?>
+											<div class="nav-item d-sm-block">
+												<a href="/stores" class="btn btn-add-item btn-sm" title="<?php echo $LANG['action-stores']; ?>" rel="tooltip">
+													<i class="fa fa-building"></i>
+													<span class="new-item d-none d-sm-inline-block"><?php echo $LANG['action-stores']; ?></span>
+												</a>
+											</div>
+										<?php
+									}
 								?>
 
 								<div class="dropdown">
@@ -158,12 +155,14 @@
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 										<a class="dropdown-item" href="/<?php echo auth::getCurrentUserUsername(); ?>"><i class="dropdown-icon fa fa-user-alt"></i><?php echo $LANG['topbar-profile']; ?></a>
-                                        <a class="dropdown-item d-block d-md-none" href="/account/favorites">
-											<span class="float-right">
-												<span class="badge badge-primary favorites-badge favorites-primary-badge hidden">0</span>
-											</span>
-                                            <i class="dropdown-icon fa fa-star"></i><?php echo $LANG['topbar-favorites']; ?>
-                                        </a>
+                                        <?php if (auth::isSession() && auth::getTypeuser() !== "BRAND"): ?>
+                                            <a class="dropdown-item d-block d-md-none" href="/account/favorites">
+                                                <span class="float-right">
+                                                    <span class="badge badge-primary favorites-badge favorites-primary-badge hidden">0</span>
+                                                </span>
+                                                <i class="dropdown-icon fa fa-star"></i><?php echo $LANG['topbar-favorites']; ?>
+                                            </a>
+                                        <?php endif ?>
                                         <a class="dropdown-item d-block d-md-none" href="/account/messages">
 											<span class="float-right">
 												<span class="badge badge-primary messages-badge messages-primary-badge hidden">0</span>
@@ -218,3 +217,107 @@
             }
         }
     ?>
+
+<?php
+
+$filters_visible = 0;
+
+if (isset($_COOKIE['search-filters-visible'])) {
+
+    $filters_visible = 1;
+}
+
+if (isset($page_id) && $page_id !== "main" && $page_id !== "login" && $page_id !== "signup" && (!auth::isSession() || auth::getTypeuser() === "STORE")) {
+
+    ?>
+
+<div class="content my-3 my-md-5">
+    <div class="container">
+    <form id="search-form" class="form-horizontal" action="/" method="get">
+
+        <input autocomplete="off" type="hidden" name="lat" value="0.000000">
+        <input autocomplete="off" type="hidden" name="lng" value="0.000000">
+        <input autocomplete="off" type="hidden" name="country" value="">
+        <input autocomplete="off" type="hidden" name="city" value="">
+        <input autocomplete="off" type="hidden" name="pageId" value="1">
+
+        <div class="card">
+            <div class="card-body pt-3 pb-1">
+
+                <div class="row">
+
+                    <div class="col-sm-12 col-md-12 col-lg-7">
+                        <div class="form-group field-query">
+                            <label class="form-label" for="query"><?php echo $LANG['label-search-query']; ?></label>
+                            <input type="text" id="query" class="form-control" name="query" placeholder="<?php echo $LANG['placeholder-search-query']; ?>" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-3">
+                        <div class="custom-controls-stacked">
+                            <div class="form-label"><?php echo $LANG['label-search-by']; ?></div>
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-2 mt-lg-0 location-type location-address ">
+                                    <select id="type" class="form-control" name="type">
+                                        <option value="1"><?= $LANG['option-classified-name'] ?></option>
+                                        <option value="2"><?= $LANG['option-keywords'] ?></option>
+                                        <option value="3"><?= $LANG['option-country-brand'] ?></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-search-actions col-12 col-sm-12 col-md-12 col-lg-2">
+                        <div class="form-group">
+                            <div class="form-label">&nbsp;</div>
+                            <div class="btn-group w-100">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <i class="fa fa-search pr-2"></i><?php echo $LANG['action-find']; ?>
+                                </button>
+                                <button class="btn btn-primary btn-toggle-search-filters" type="button">
+                                    <i class="fa fa-cog"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="search-filters" class=" <?php if ($filters_visible == 0) echo 'hidden'; ?>">
+
+                    <div class="row pt-2">
+
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+
+                            <div class="form-group field-query">
+                                <div class="form-label noselect"><?php echo $LANG['option-range-prices']; ?></div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                        <input type="number" name="range_1" placeholder="Range min" id="range_1" step="0.01" value="" class="form-control">
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                        <input type="number" name="range_2" placeholder="Range max" id="range_2" step="0.01" value="" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="moderationType" value="1">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+
+    </div>
+
+</div>
+    <?php
+}
+?>

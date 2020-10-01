@@ -394,6 +394,35 @@
 																}
 															?>
 
+                                                            <?php
+
+                                                            if (auth::getTypeuser() === "STORE") {
+																if (strlen($profileInfo['category']) != 0) {
+
+																	?>
+																		<div class="addon-line d-flex align-content-center flex-column flex-sm-row">
+																			<div class="user-bio mt-2 mt-sm-0 ml-0">
+                                                                                <i class="fa fa-bookmark" aria-hidden="true"></i>
+                                                                                <span><?= $profileInfo['category'] ?></span>
+																			</div>
+																		</div>
+																	<?php
+																}
+
+																if (strlen($profileInfo['number_stores']) != 0) {
+
+																	?>
+																		<div class="addon-line d-flex align-content-center flex-column flex-sm-row">
+																			<div class="user-bio mt-2 mt-sm-0 ml-0">
+                                                                                <i class="fa fa-building" aria-hidden="true"></i>
+                                                                                <span><?= $profileInfo['number_stores'] ?></span>
+																			</div>
+																		</div>
+																	<?php
+																}
+                                                            }
+															?>
+
                                                             <div class="addon-line d-flex align-content-center flex-column flex-sm-row">
                                                                 <div class="user-bio mt-2 mt-sm-0 ml-0">
                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>

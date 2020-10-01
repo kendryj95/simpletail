@@ -218,6 +218,35 @@ class finder extends db_connect
         return $result;
     }
 
+    public function getStores()
+    {
+
+        $user_id = auth::getCurrentUserId();
+        $result = array("error" => false,
+            "error_code" => ERROR_SUCCESS,
+            "items" => array());
+
+        $sql = "SELECT * FROM users WHERE typeuser = 'STORE' AND id <> :user_id";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+
+            if ($stmt->rowCount() > 0) {
+
+                while ($row = $stmt->fetch()) {
+
+                    array_push($result['items'], $row);
+
+                    $result['itemId'] = $row['id'];
+                }
+            }
+        }
+
+        return $result;
+    }
+
     public function getItemsCount($queryText = '', $lat = 0.000000, $lng = 0.000000, $distance = 30, $search_by = null, $ranges_prices = "")
     {
         if ($this->getCurrencyFilter() > 0) {

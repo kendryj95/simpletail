@@ -85,6 +85,32 @@ class draw extends db_connect
 		<?php
 	}
 
+	static function itemStore($item, $css_style = "col-6 col-sm-6 col-md-4 col-lg-3")
+	{
+		?>
+
+		<div class="<?php echo $css_style; ?> list-view-item grid-item" data-id="<?php echo $item['id']; ?>">
+			<div class="card" data-id="<?php echo $item['id']; ?>">
+					<div class="card-img-top-wrapper d-flex justify-content-center">
+						<div class="loader"><i class="ic icon-spin icon-spin"></i></div>
+						<div class="card-img-top" style="background-image: url(<?php echo $item['normalPhotoUrl']; ?>);"></div>
+					</div>
+
+
+				<div class="card-body d-flex flex-column">
+					<h4 class="d-flex justify-content-start align-items-center">
+							<span class="display-name" title="<?php echo $item['fullname']; ?>"><?php echo $item['fullname']; ?></span>
+					</h4>
+				</div>
+			</div>
+		</div>
+
+
+		<?php
+	}
+
+
+
 	static function dropdownNotificationItem($item, $LANG)
 	{
 		?>

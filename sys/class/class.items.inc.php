@@ -76,7 +76,7 @@ class items extends db_connect
 
     // Add new item
 
-    public function add($appType, $category, $subCategoryId, $title, $description, $content, $imgUrl, $allowComments = 1, $price = 0.00, $postArea = "", $postCountry = "", $postCity = "", $postLat = "0.000000", $postLng = "0.000000", $currency = 3, $phoneNumber = "", $countryId = 0, $incoterms = "", $externalShippingPacking1 = 0, $externalShippingPacking2 = 0, $externalShippingPacking3 = 0, $internalShippingPackingDetail = "", $externalShippingPackingDetail = "", $externalShippingPackingGrs = 0, $unitMeasure = "", $quantityPiecesReferences = 0, $eanCode = "", $productCertifications = "", $productAvailability = "", $ingredients = "", $keywordsProduct = "")
+    public function add($appType, $category, $subCategoryId, $title, $description, $content, $imgUrl, $allowComments = 1, $price = 0.00, $postArea = "", $postCountry = "", $postCity = "", $postLat = "0.000000", $postLng = "0.000000", $currency = 3, $phoneNumber = "", $countryId = 0, $incoterms = "", $externalShippingPacking1 = 0, $externalShippingPacking2 = 0, $externalShippingPacking3 = 0, $internalShippingPackingDetail = "", $externalShippingPackingDetail = "", $externalShippingPackingGrs = 0, $unitMeasure = "", $quantityPiecesReferences = 0, $eanCode = "", $productCertifications = "", $productAvailability = "", $ingredients = "", $keywordsProduct = "", $luogo = "", $amount_product = 0, $amount_product_value = "", $total_weight = 0, $quantity_items_per_case = 0)
     {
         $result = array(
             "error" => true,
@@ -130,7 +130,7 @@ class items extends db_connect
 
         $itemUrl = helper::createLinkFromString($title);
 
-        $stmt = $this->db->prepare("INSERT INTO items (itemUrl, appType, allowComments, fromUserId, phoneNumber, category, subCategory, itemTitle, itemDesc, itemContent, imgUrl, previewImgUrl, price, currency, area, country, city, lat, lng, createAt, ip_addr, u_agent, countryId, incoterms, externalShippingPacking1, externalShippingPacking2, externalShippingPacking3, internalShippingPackingDetail, externalShippingPackingDetail, externalShippingPackingGrs, unitMeasure, quantityPiecesReferences, eanCode, productCertifications, productAvailability, ingredients, keywordsProduct) value (:itemUrl, :appType, :allowComments, :fromUserId, :phoneNumber, :category, :subCategory, :itemTitle, :itemDesc, :itemContent, :imgUrl, :previewImgUrl, :price, :currency, :area, :country, :city, :lat, :lng, :createAt, :ip_addr, :u_agent, :countryId, :incoterms, :externalShippingPacking1, :externalShippingPacking2, :externalShippingPacking3, :internalShippingPackingDetail, :externalShippingPackingDetail, :externalShippingPackingGrs, :unitMeasure, :quantityPiecesReferences, :eanCode, :productCertifications, :productAvailability, :ingredients, :keywordsProduct)");
+        $stmt = $this->db->prepare("INSERT INTO items (itemUrl, appType, allowComments, fromUserId, phoneNumber, category, subCategory, itemTitle, itemDesc, itemContent, imgUrl, previewImgUrl, price, currency, area, country, city, lat, lng, createAt, ip_addr, u_agent, countryId, incoterms, externalShippingPacking1, externalShippingPacking2, externalShippingPacking3, internalShippingPackingDetail, externalShippingPackingDetail, externalShippingPackingGrs, unitMeasure, quantityPiecesReferences, eanCode, productCertifications, productAvailability, ingredients, keywordsProduct, luogo, amount_product, amount_product_value, total_weight, quantity_items_per_case) value (:itemUrl, :appType, :allowComments, :fromUserId, :phoneNumber, :category, :subCategory, :itemTitle, :itemDesc, :itemContent, :imgUrl, :previewImgUrl, :price, :currency, :area, :country, :city, :lat, :lng, :createAt, :ip_addr, :u_agent, :countryId, :incoterms, :externalShippingPacking1, :externalShippingPacking2, :externalShippingPacking3, :internalShippingPackingDetail, :externalShippingPackingDetail, :externalShippingPackingGrs, :unitMeasure, :quantityPiecesReferences, :eanCode, :productCertifications, :productAvailability, :ingredients, :keywordsProduct, :luogo, :amount_product, :amount_product_value, :total_weight, :quantity_items_per_case)");
         $stmt->bindParam(":itemUrl", $itemUrl, PDO::PARAM_STR);
         $stmt->bindParam(":appType", $appType, PDO::PARAM_INT);
         $stmt->bindParam(":allowComments", $allowComments, PDO::PARAM_INT);
@@ -168,6 +168,11 @@ class items extends db_connect
         $stmt->bindParam(":productAvailability", $productAvailability, PDO::PARAM_STR);
         $stmt->bindParam(":ingredients", $ingredients, PDO::PARAM_STR);
         $stmt->bindParam(":keywordsProduct", $keywordsProduct, PDO::PARAM_STR);
+        $stmt->bindParam(":luogo", $luogo, PDO::PARAM_STR);
+        $stmt->bindParam(":amount_product", $amount_product, PDO::PARAM_STR);
+        $stmt->bindParam(":amount_product_value", $amount_product_value, PDO::PARAM_STR);
+        $stmt->bindParam(":total_weight", $total_weight, PDO::PARAM_STR);
+        $stmt->bindParam(":quantity_items_per_case", $quantity_items_per_case, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
 
@@ -187,7 +192,7 @@ class items extends db_connect
 
     // Edit item
 
-    public function edit($itemId, $category, $subCategoryId, $title, $imgUrl, $content, $allowComments, $price, $area = "", $country = "", $city = "", $lat = "0.000000", $lng = "0.000000", $currency = 3, $phoneNumber = "", $countryId = 0, $incoterms = "", $externalShippingPacking1 = 0, $externalShippingPacking2 = 0, $externalShippingPacking3 = 0, $internalShippingPackingDetail = "", $externalShippingPackingDetail = "", $externalShippingPackingGrs = 0, $unitMeasure = "", $quantityPiecesReferences = 0, $eanCode = "", $productCertifications = "", $productAvailability = "", $ingredients = "", $keywordsProduct = "")
+    public function edit($itemId, $category, $subCategoryId, $title, $imgUrl, $content, $allowComments, $price, $area = "", $country = "", $city = "", $lat = "0.000000", $lng = "0.000000", $currency = 3, $phoneNumber = "", $countryId = 0, $incoterms = "", $externalShippingPacking1 = 0, $externalShippingPacking2 = 0, $externalShippingPacking3 = 0, $internalShippingPackingDetail = "", $externalShippingPackingDetail = "", $externalShippingPackingGrs = 0, $unitMeasure = "", $quantityPiecesReferences = 0, $eanCode = "", $productCertifications = "", $productAvailability = "", $ingredients = "", $keywordsProduct = "", $luogo = "", $amount_product = 0, $amount_product_value = "", $total_weight = 0, $quantity_items_per_case = 0)
     {
         $result = array(
             "error" => true,
@@ -239,7 +244,7 @@ class items extends db_connect
 
         $modifyAt = time();
 
-        $stmt = $this->db->prepare("UPDATE items SET imagesCount = 0, modifyAt = (:modifyAt), phoneNumber = (:phoneNumber), area = (:area), country = (:country), city = (:city), lat = (:lat), lng = (:lng), allowComments = (:allowComments), category = (:category), subCategory = (:subCategory), countryId = (:countryId), incoterms = (:incoterms), externalShippingPacking1 = (:externalShippingPacking1), externalShippingPacking2 = (:externalShippingPacking2), externalShippingPacking3 = (:externalShippingPacking3), internalShippingPackingDetail = (:internalShippingPackingDetail), externalShippingPackingDetail = (:externalShippingPackingDetail), externalShippingPackingGrs = (:externalShippingPackingGrs), unitMeasure = (:unitMeasure), quantityPiecesReferences = (:quantityPiecesReferences), eanCode = (:eanCode), productCertifications = (:productCertifications), productAvailability = (:productAvailability), ingredients = (:ingredients), keywordsProduct = (:keywordsProduct), itemTitle = (:itemTitle), itemContent = (:itemContent), imgUrl = (:imgUrl), previewImgUrl = (:previewImgUrl), price = (:price), currency = (:currency), moderatedAt = 0, moderatedId = 0, rejectedAt = 0, rejectedId = 0, inactiveAt = 0 WHERE id = (:itemId)");
+        $stmt = $this->db->prepare("UPDATE items SET imagesCount = 0, modifyAt = (:modifyAt), phoneNumber = (:phoneNumber), area = (:area), country = (:country), city = (:city), lat = (:lat), lng = (:lng), allowComments = (:allowComments), category = (:category), subCategory = (:subCategory), countryId = (:countryId), incoterms = (:incoterms), externalShippingPacking1 = (:externalShippingPacking1), externalShippingPacking2 = (:externalShippingPacking2), externalShippingPacking3 = (:externalShippingPacking3), internalShippingPackingDetail = (:internalShippingPackingDetail), externalShippingPackingDetail = (:externalShippingPackingDetail), externalShippingPackingGrs = (:externalShippingPackingGrs), unitMeasure = (:unitMeasure), quantityPiecesReferences = (:quantityPiecesReferences), eanCode = (:eanCode), productCertifications = (:productCertifications), productAvailability = (:productAvailability), ingredients = (:ingredients), keywordsProduct = (:keywordsProduct), itemTitle = (:itemTitle), itemContent = (:itemContent), imgUrl = (:imgUrl), previewImgUrl = (:previewImgUrl), price = (:price), currency = (:currency), luogo = (:luogo), amount_product = (:amount_product), amount_product_value = (:amount_product_value), total_weight = (:total_weight), quantity_items_per_case = (:quantity_items_per_case), moderatedAt = 0, moderatedId = 0, rejectedAt = 0, rejectedId = 0, inactiveAt = 0 WHERE id = (:itemId)");
         $stmt->bindParam(":modifyAt", $modifyAt, PDO::PARAM_INT);
         $stmt->bindParam(":phoneNumber", $phoneNumber, PDO::PARAM_STR);
         $stmt->bindParam(":area", $area, PDO::PARAM_STR);
@@ -273,6 +278,11 @@ class items extends db_connect
         $stmt->bindParam(":productAvailability", $productAvailability, PDO::PARAM_STR);
         $stmt->bindParam(":ingredients", $ingredients, PDO::PARAM_STR);
         $stmt->bindParam(":keywordsProduct", $keywordsProduct, PDO::PARAM_STR);
+        $stmt->bindParam(":luogo", $luogo, PDO::PARAM_STR);
+        $stmt->bindParam(":amount_product", $amount_product, PDO::PARAM_STR);
+        $stmt->bindParam(":amount_product_value", $amount_product_value, PDO::PARAM_STR);
+        $stmt->bindParam(":total_weight", $total_weight, PDO::PARAM_STR);
+        $stmt->bindParam(":quantity_items_per_case", $quantity_items_per_case, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
 
@@ -832,6 +842,11 @@ class items extends db_connect
                         "productAvailability" => $row['productAvailability'],
                         "ingredients" => $row['ingredients'],
                         "keywordsProduct" => $row['keywordsProduct'],
+                        "luogo" => $row['luogo'],
+                        "amount_product" => $row['amount_product'],
+                        "amount_product_value" => $row['amount_product_value'],
+                        "total_weight" => $row['total_weight'],
+                        "quantity_items_per_case" => $row['quantity_items_per_case'],
                         "price" => $row['price'],
                         "currency" => $row['currency'],
                         "categoryTitle" => "",

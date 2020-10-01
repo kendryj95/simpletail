@@ -835,6 +835,7 @@
 
     $TEXT['action-favorites-promo-button'] = "Search now!"; //Ищите сейчас!
     $TEXT['action-new-classified'] = "Add Product";
+    $TEXT['action-stores'] = "Nigozi";
     $TEXT['action-see-classified'] = "See products";
     $TEXT['action-find'] = "Search";
     $TEXT['action-see-all'] = "See all";
@@ -1133,7 +1134,8 @@ search for new brands";
     // ADD classified
 
     $TEXT['label-ad-country'] = "Country of origin";
-    $TEXT['label-ad-incoTerms'] = "Incoterms";
+    $TEXT['label-ad-incoTerms'] = "RESA";
+    $TEXT['label-ad-luogo'] = "LUOGO";
     $TEXT['label-external-shipping-packing'] = "External shipping packing";
     $TEXT['label-internal-shipping-packing-detail'] = "Internal shipping packing details";
     $TEXT['placeholder-internal-shipping-packing-detail'] = "Insert the type of packaging and material, example: carton box";
@@ -1147,12 +1149,19 @@ search for new brands";
     $TEXT['label-ingredients'] = "Ingredients";
     $TEXT['label-keywords'] = "Keywords that make your product distinctive";
     $TEXT['label-unit-measure'] = "Unit of measure";
+    $TEXT['label-ad-amount-product'] = "Quantità prodotto per singola referenza";
+    $TEXT['label-ad-amount-product-value'] = "Unità di misura";
+    $TEXT['label-ad-total-weight'] = "Peso totale del prodotto (prodotto + packaging)";
+    $TEXT['label-ad-quantity-items-per-case'] = "Quantità prodotti per unità di vendita";
 
     $TEXT['label-search-by'] = "Search by";
     $TEXT['option-classified-name'] = "Product name";
     $TEXT['option-keywords'] = "Keywords";
     $TEXT['option-country-brand'] = "Country of the brand";
     $TEXT['option-range-prices'] = "Range of prices";
+
+    $TEXT['label-all-stores'] = "List Stores";
+    $TEXT['msg-stores-empty'] = "There are no stores registered :(";
 
 
 

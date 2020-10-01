@@ -113,6 +113,11 @@
     $ad_productAvailability = null;
     $ad_ingredients = null;
     $ad_keywordsProduct = null;
+    $luogo = null;
+    $amount_product = null;
+    $amount_product_value = null;
+    $total_weight = null;
+    $quantity_items_per_case = null;
 
     $ad_area = "";
     $ad_country = "";
@@ -193,6 +198,11 @@
         $ad_productAvailability = $itemInfo['productAvailability'];
         $ad_ingredients = $itemInfo['ingredients'];
         $ad_keywordsProduct = $itemInfo['keywordsProduct'];
+        $luogo = $itemInfo['luogo'];
+        $amount_product = $itemInfo['amount_product'];
+        $amount_product_value = $itemInfo['amount_product_value'];
+        $total_weight = $itemInfo['total_weight'];
+        $quantity_items_per_case = $itemInfo['quantity_items_per_case'];
 
         if ($ad_price < 1) $ad_price = 1;
 
@@ -239,6 +249,11 @@
         $ad_productAvailability = isset($_POST['productAvailability']) ? $_POST['productAvailability'] : null;
         $ad_ingredients = isset($_POST['ingredients']) ? $_POST['ingredients'] : null;
         $ad_keywordsProduct = isset($_POST['keywordsProduct']) ? $_POST['keywordsProduct'] : null;
+        $luogo = isset($_POST['luogo']) ? $_POST['luogo'] : null;
+        $amount_product = isset($_POST['amount_product']) ? $_POST['amount_product'] : null;
+        $amount_product_value = isset($_POST['amount_product_value']) ? $_POST['amount_product_value'] : null;
+        $total_weight = isset($_POST['total_weight']) ? $_POST['total_weight'] : null;
+        $quantity_items_per_case = isset($_POST['quantity_items_per_case']) ? $_POST['quantity_items_per_case'] : null;
 
         $ajax_mode = helper::clearInt($ajax_mode);
 
@@ -285,8 +300,10 @@
         $ad_productAvailability = helper::clearText($ad_productAvailability);
         $ad_ingredients = trim(helper::clearText($ad_ingredients),",");
         $ad_keywordsProduct = trim(helper::clearText($ad_keywordsProduct),",");
-        $ad_incoterms = implode(",",$ad_incoterms);
-
+        $luogo = helper::clearText($luogo);
+        $amount_product = helper::clearFloat($amount_product);
+        $total_weight = helper::clearFloat($total_weight);
+        $quantity_items_per_case = helper::clearInt($quantity_items_per_case);
 
         if (!helper::isFloat($ad_lat) || !helper::isFloat($ad_lng)) {
 
@@ -409,7 +426,7 @@
 
                 if (!$edit_mode) {
 
-                    $result = $items->add(APP_TYPE_WEB, $ad_category, $ad_subcategory, $ad_title, $ad_title, $ad_description, $images_links[0], 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number, $ad_countryId, $ad_incoterms, $ad_externalShippingPacking1, $ad_externalShippingPacking2, $ad_externalShippingPacking2, $ad_externalShippingPacking3, $ad_externalShippingPackingDetail, $ad_externalShippingPackingGrs, $ad_unitMeasure, $ad_quantityPiecesReferences, $ad_eanCode, $ad_productCertifications, $ad_productAvailability, $ad_ingredients, $ad_keywordsProduct);
+                    $result = $items->add(APP_TYPE_WEB, $ad_category, $ad_subcategory, $ad_title, $ad_title, $ad_description, $images_links[0], 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number, $ad_countryId, $ad_incoterms, $ad_externalShippingPacking1, $ad_externalShippingPacking2, $ad_externalShippingPacking2, $ad_externalShippingPacking3, $ad_externalShippingPackingDetail, $ad_externalShippingPackingGrs, $ad_unitMeasure, $ad_quantityPiecesReferences, $ad_eanCode, $ad_productCertifications, $ad_productAvailability, $ad_ingredients, $ad_keywordsProduct, $luogo, $amount_product, $amount_product_value, $total_weight, $quantity_items_per_case);
 
                     if (!$result['error'] && count($images_links) > 1) {
 
@@ -426,7 +443,7 @@
 
                 } else {
 
-                    $result = $items->edit($itemInfo['id'], $ad_category, $ad_subcategory, $ad_title, $images_links[0], $ad_description, 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number, $ad_countryId, $ad_incoterms, $ad_externalShippingPacking1, $ad_externalShippingPacking2, $ad_externalShippingPacking2, $ad_externalShippingPacking3, $ad_externalShippingPackingDetail, $ad_externalShippingPackingGrs, $ad_unitMeasure, $ad_quantityPiecesReferences, $ad_eanCode, $ad_productCertifications, $ad_productAvailability, $ad_ingredients, $ad_keywordsProduct);
+                    $result = $items->edit($itemInfo['id'], $ad_category, $ad_subcategory, $ad_title, $images_links[0], $ad_description, 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number, $ad_countryId, $ad_incoterms, $ad_externalShippingPacking1, $ad_externalShippingPacking2, $ad_externalShippingPacking2, $ad_externalShippingPacking3, $ad_externalShippingPackingDetail, $ad_externalShippingPackingGrs, $ad_unitMeasure, $ad_quantityPiecesReferences, $ad_eanCode, $ad_productCertifications, $ad_productAvailability, $ad_ingredients, $ad_keywordsProduct, $luogo, $amount_product, $amount_product_value, $total_weight, $quantity_items_per_case);
 
                     if (!$result['error'] && count($images_links) > 1) {
 
@@ -445,6 +462,52 @@
                 }
 
                 if (!$result['error']) {
+
+                    $accountId = auth::getCurrentUserId();
+
+                    $account = new account($dbo, $accountId);
+                    $accountInfo = $account->get();
+
+
+                    ob_start();
+
+                    echo "<html>
+                    <body>
+                        Su producto se encuentra en revisión, en las próximas horas será publicado en la plataforma
+                    </body>
+                    </html>";
+
+                    $from = SMTP_EMAIL;
+
+                    $to = $accountInfo['email'];
+
+                    $html_text = ob_get_clean();
+
+                    $subject = APP_NAME." | Password reset";
+
+                    $mail = new phpmailer();
+
+                    $mail->isSMTP();                                      // Set mailer to use SMTP
+                    $mail->Host = SMTP_HOST;                               // Specify main and backup SMTP servers
+                    $mail->SMTPDebug = SMTP_DEBUG;
+                    $mail->SMTPAuth = SMTP_AUTH;                               // Enable SMTP authentication
+                    $mail->Username = SMTP_USERNAME;                      // SMTP username
+                    $mail->Password = SMTP_PASSWORD;                      // SMTP password
+                    $mail->SMTPSecure = SMTP_SECURE;                            // Enable TLS encryption, `ssl` also accepted
+                    $mail->Port = SMTP_PORT;                                    // TCP port to connect to
+
+                    $mail->From = $from;
+                    $mail->FromName = APP_TITLE;
+                    $mail->addAddress($to);                               // Name is optional
+
+                    $mail->isHTML(true);                                  // Set email format to HTML
+
+                    $mail->Subject = $subject;
+                    $mail->Body    = $html_text;
+
+                    $mail->send();
+
+                    ob_clean();
 
                     if ($ajax_mode == 0) {
 
@@ -666,36 +729,6 @@
                                                     </div>
                                                 </div>
 
-                                                <div id="subcategory-block" class="col-sm-12 col-md-6 col-lg-6 <?php if ($ad_category == 0) echo 'hidden' ?>">
-                                                    <div class="form-group group-subcategory">
-                                                        <label class="form-label noselect" for="subcategory"><?php echo $LANG['label-ad-subcategory']; ?></label>
-                                                        <select id="subcategory" class="form-control" name="subcategoryId">
-                                                            <option selected disabled value="0"><?php echo $LANG['label-subcategory-choose']; ?></option>
-
-                                                            <?php
-
-                                                                if ($ad_category != 0) {
-
-                                                                    $category = new category($dbo);
-                                                                    $category->setLanguage($LANG['lang-code']);
-                                                                    $result = $subcategories = $category->getItems($ad_category);
-                                                                    unset($category);
-
-                                                                    foreach ($subcategories['items'] as $key => $item) {
-
-                                                                        ?>
-                                                                        <option <?php if ($ad_subcategory == $item['id']) echo 'selected'; ?> value="<?php echo $item['id']; ?>"><?php echo $item['title']; ?></option>
-                                                                        <?php
-                                                                    }
-                                                                }
-                                                            ?>
-
-                                                        </select>
-
-                                                        <div class="help-block"></div>
-                                                    </div>
-                                                </div>
-
                                                 <div class=" col-sm-12">
 
                                                     <div class="row">
@@ -744,6 +777,74 @@
 
                                                 </div>
 
+                                                <div class=" col-sm-12">
+
+                                                    <div class="row">
+
+                                                        <div class="col-sm-6 col-md-3 col-lg-3 price-container">
+                                                            <div class="form-group">
+                                                                <label class="form-label noselect" for="amount_product"><?php echo $LANG['label-ad-amount-product']; ?> </label>
+                                                                <input type="number" id="amount_product" min="1" step="0.01" class="form-control" name="amount_product" value="<?php echo $amount_product; ?>">
+
+                                                                <div class="help-block"></div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-12 col-md-6 col-lg-4">
+                                                            <div class="form-group">
+                                                                <label class="form-label noselect" for="amount_product_value"><?php echo $LANG['label-ad-amount-product-value']; ?></label>
+                                                                <select id="amount_product_value" class="form-control" name="amount_product_value">
+                                                                    <?php
+                                                                    $AMOUNT_PRODUCT_ARRAY = [
+                                                                      "CENTIMETRI CUBICI",
+                                                                      "GRAMMI",
+                                                                      "KILOGRAMMI",
+                                                                      "MILLILITRI",
+                                                                      "UNITA",
+                                                                      "LITRI"
+                                                                    ];
+                                                                    foreach ($AMOUNT_PRODUCT_ARRAY as $item):
+                                                                    ?>
+                                                                    <option value="<?= $item ?>" <?php if ($item == $amount_product_value): ?> selected <?php endif ?>><?= $item ?></option>
+
+                                                                    <?php endforeach; ?>
+                                                                </select>
+
+                                                                <div class="help-block"></div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class=" col-sm-12">
+
+                                                    <div class="row">
+
+                                                        <div class="col-sm-6 col-md-3 col-lg-3">
+                                                            <div class="form-group">
+                                                                <label class="form-label noselect" for="total_weight"><?php echo $LANG['label-ad-total-weight']; ?> </label>
+                                                                <input type="number" id="total_weight" min="1" step="0.01" class="form-control" name="total_weight" value="<?php echo $total_weight; ?>">
+
+                                                                <div class="help-block"></div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-12 col-md-6 col-lg-4">
+                                                            <div class="form-group">
+                                                                <label class="form-label noselect" for="quantity_items_per_case"><?php echo $LANG['label-ad-quantity-items-per-case']; ?></label>
+                                                                <input type="number" id="quantity_items_per_case" min="1" step="0.01" class="form-control" name="quantity_items_per_case" value="<?php echo $quantity_items_per_case; ?>">
+
+
+                                                                <div class="help-block"></div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
                                                 <?php
 
                                                     if (strlen($ad_description) != 0) $ad_description = preg_replace("/<br>/", "\n", $ad_description);
@@ -760,34 +861,27 @@
 
                                                 <?php
 
-                                                $optionsIncoterms1 = ["Exworks","DDP","DAP","DDU"];
-                                                $optionsIncoterms2 = ["FOB","CFR","CIP","CPT"];
-                                                $ad_incoterms = explode(",",$ad_incoterms);
+                                                $optionsIncoterms1 = ["Exworks","DDP","DAP","DDU","FOB","CFR","CIP","CPT"];
 
                                                 ?>
 
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                                     <div class="form-group group-incoTerms">
                                                         <label class="form-label noselect"><?php echo $LANG['label-ad-incoTerms']; ?></label>
+                                                        <select name="incoterms" id="incoterms" class="form-control">
                                                         <?php foreach ($optionsIncoterms1 as $item): ?>
-                                                            <label class="custom-control custom-checkbox">
-                                                                <input type="checkbox" name="incoterms[]"
-                                                                       class="custom-control-input" value="<?= $item ?>" <?php if (in_array($item,$ad_incoterms)): echo 'checked'; endif; ?>> <span class="custom-control-label"><?= $item ?></span>
-                                                            </label>
+                                                            <option value="<?= $item ?>" <?php if ($ad_incoterms == $item): ?> selected <?php endif ?>><?= $item ?></option>
                                                         <?php endforeach; ?>
+                                                        </select>
 
                                                         <div class="help-block"></div>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
-                                                    <div class="form-group group-incoTerms">
-                                                        <?php foreach ($optionsIncoterms2 as $item): ?>
-                                                            <label class="custom-control custom-checkbox">
-                                                                <input type="checkbox" name="incoterms[]"
-                                                                       class="custom-control-input" value="<?= $item ?>" <?php if (in_array($item,$ad_incoterms)): echo 'checked'; endif; ?>> <span class="custom-control-label"><?= $item ?></span>
-                                                            </label>
-                                                        <?php endforeach; ?>
+                                                    <div class="form-group group-title">
+                                                        <label class="form-label noselect" for="title"><?php echo $LANG['label-ad-luogo']; ?></label>
+                                                        <input type="text" id="luogo" class="form-control" name="luogo" value="<?php echo $luogo; ?>">
 
                                                         <div class="help-block"></div>
                                                     </div>
@@ -1104,23 +1198,6 @@
 
                         $('div.group-category').removeClass('has-error');
                         $('div.group-category').find('div.help-block').html('');
-                    }
-
-                    // Check subcategory
-
-                    if ($('select[name=subcategoryId]').val() == 0 || $('select[name=subcategoryId]').val() == null) {
-
-                        $("select#subcategory").focus();
-
-                        $('div.group-subcategory').addClass('has-error');
-                        $('div.group-subcategory').find('div.help-block').html(strings.szSubcategoryError);
-
-                        return false;
-
-                    } else {
-
-                        $('div.group-subcategory').removeClass('has-error');
-                        $('div.group-subcategory').find('div.help-block').html('');
                     }
 
                     // Check currency
