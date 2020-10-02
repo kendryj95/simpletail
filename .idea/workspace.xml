@@ -10,32 +10,17 @@
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9f208d7-215f-445c-9e3c-bf5610a01949" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/page.stores.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/items/5_549_768384f68c26d7349aac84c518cae44733d96bfc.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/items/5_73d_5ae9b0d46140520370d72b5e944e87674877c2ea.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/items/5_dfe_401b8398d60d288c4c44bcb72f5020bb234b9063.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/items/t_5_549_768384f68c26d7349aac84c518cae44733d96bfc.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/items/t_5_73d_5ae9b0d46140520370d72b5e944e87674877c2ea.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/items/t_5_dfe_401b8398d60d288c4c44bcb72f5020bb234b9063.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tmp/09dd58ed3149ffa48ba2aae3c50595080b8414a9.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tmp/87678c73f3d910d7a2555f237619f522b86c05d5.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tmp/ba787d1971cfa368ae418ac7d5d7b06045667a57.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/footer.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/footer.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/topbar.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/topbar.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/item/page.new.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/item/page.new.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/page.main.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/page.main.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/page.profile.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/page.profile.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sys/class/class.draw.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.draw.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sys/class/class.finder.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.finder.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sys/class/class.items.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.items.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sys/class/class.profile.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.profile.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sys/lang/en.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/lang/en.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +136,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -168,10 +165,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Mejoras en seccion de PERFIL" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1601483451465">
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1601647805580">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1601483451465" />
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1601647805580" />
     <state x="486" y="87" key="NewPhpClassDialog" timestamp="1598916341210">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
