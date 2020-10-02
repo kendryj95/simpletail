@@ -39,36 +39,6 @@
         exit;
     }
 
-    if (isset($_GET['get_subcategories'])) {
-
-        $categoryId = isset($_GET['categoryId']) ? $_GET['categoryId'] : 0;
-
-        $categoryId = helper::clearInt($categoryId);
-
-        $category = new category($dbo);
-        $category->setLanguage($LANG['lang-code']);
-        $result = $subcategories = $category->getItems($categoryId);
-        unset($category);
-
-        ob_start();
-
-        ?>
-            <option selected disabled value="0"><?php echo $LANG['label-subcategory-choose']; ?></option>
-        <?php
-
-        foreach ($subcategories['items'] as $key => $item) {
-
-            ?>
-                <option value="<?php echo $item['id']; ?>"><?php echo $item['title']; ?></option>
-            <?php
-        }
-
-        $result['html'] = ob_get_clean();
-
-        echo json_encode($result);
-        exit;
-    }
-
     $edit_mode = false;
     $itemInfo = array();
 
@@ -1068,7 +1038,7 @@
                                                         if (!$edit_mode) {
 
                                                             ?>
-                                                                <button type="submit" class="btn btn-primary loading-more-button">
+                                                                <button id="submit" class="btn btn-primary loading-more-button">
                                                                     <div class="btn-loader hidden rounded loading-more-progress d-inline mr-4 ml-1"></div>
                                                                     <span class="d-sm-inline"><?php echo $LANG['action-new-ad']; ?></span>
                                                                 </button>
@@ -1081,7 +1051,7 @@
                                                                     <span class="d-sm-inline"><?php echo $LANG['action-cancel']; ?></span>
                                                                 </a>
 
-                                                                <button type="submit" class="btn btn-primary loading-more-button">
+                                                                <button id="submit" class="btn btn-primary loading-more-button">
                                                                     <div class="btn-loader hidden rounded loading-more-progress d-inline mr-4 ml-1"></div>
                                                                     <span class="d-sm-inline"><?php echo $LANG['action-save']; ?></span>
                                                                 </button>
@@ -1134,7 +1104,6 @@
 
                 szTitleError: "<?php echo $LANG['msg-error-ad-title']; ?>",
                 szCategoryError: "<?php echo $LANG['msg-error-ad-category']; ?>",
-                szSubcategoryError: "<?php echo $LANG['msg-error-ad-subcategory']; ?>",
                 szCurrencyError: "<?php echo $LANG['msg-error-ad-currency']; ?>",
                 szPriceError: "<?php echo $LANG['msg-error-ad-price']; ?>",
                 szDescriptionError: "<?php echo $LANG['msg-error-ad-description']; ?>",
@@ -1150,7 +1119,7 @@
 
             jQuery(function ($) {
 
-                $("form#form-new").submit(function(e) {
+                $("#submit").on('click',function(e) {
 
                     // Check title
 
@@ -1370,56 +1339,6 @@
                         }
 
                         $('div.price-container').css("display", "none");
-                    }
-                });
-
-                $('select#category').on('change', function() {
-
-                    if (this.value > 0) {
-
-                        $('div.group-category').removeClass('has-error');
-                        $('div.group-category').find('div.help-block').html('');
-
-                    } else {
-
-                        $('div.group-category').addClass('has-error');
-                        $('div.group-category').find('div.help-block').html(strings.szCategoryError);
-                    }
-
-                    $.ajax( {
-                        type: "GET",
-                        url: "/item/new",
-                        data: "get_subcategories=get&categoryId=" + this.value,
-                        dataType: 'json',
-                        success: function(response) {
-
-                            if (response.hasOwnProperty("html")) {
-
-                                $("div#subcategory-block").removeClass('hidden');
-                                $('select#subcategory').html(response.html);
-                            }
-                        },
-                        error: function(xhr, status, error) {
-
-                            $("div#subcategory-block").removeClass('hidden');
-                            $('select#subcategory').html("<option selected value=\"0\">Other</option>");
-                        }
-                    });
-                });
-
-                // subcategory change
-
-                $('select#subcategory').on('change', function() {
-
-                    if (this.value > 0) {
-
-                        $('div.group-subcategory').removeClass('has-error');
-                        $('div.group-subcategory').find('div.help-block').html('');
-
-                    } else {
-
-                        $('div.group-subcategory').addClass('has-error');
-                        $('div.group-subcategory').find('div.help-block').html(strings.szSubcategoryError);
                     }
                 });
 

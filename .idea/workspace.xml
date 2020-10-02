@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d9f208d7-215f-445c-9e3c-bf5610a01949" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/item/page.new.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/item/page.new.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.auth.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.auth.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.helper.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.helper.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.items.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.items.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.profile.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.profile.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/87678c73f3d910d7a2555f237619f522b86c05d5.JPG" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1gsTxC7q38BxmAT3nWqGMfwOxgr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/html" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\simpletail\html" />
+      <recent name="C:\xampp\htdocs\simpletail\js" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d9f208d7-215f-445c-9e3c-bf5610a01949" name="Default Changelist" comment="" />
+      <created>1598902544264</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598902544264</updated>
+      <workItem from="1598902545326" duration="5266000" />
+      <workItem from="1598912554619" duration="7088000" />
+      <workItem from="1598966237826" duration="74000" />
+      <workItem from="1599005034479" duration="7665000" />
+      <workItem from="1599051119851" duration="638000" />
+      <workItem from="1599138793172" duration="7716000" />
+      <workItem from="1599410793315" duration="5412000" />
+      <workItem from="1599482200466" duration="27625000" />
+      <workItem from="1599568198974" duration="8771000" />
+      <workItem from="1599662150878" duration="1639000" />
+      <workItem from="1599745456758" duration="3990000" />
+      <workItem from="1599877209916" duration="84000" />
+      <workItem from="1600117831320" duration="3521000" />
+      <workItem from="1601060082455" duration="7558000" />
+      <workItem from="1601400301981" duration="2126000" />
+      <workItem from="1601471912964" duration="27167000" />
+      <workItem from="1601574137916" duration="29000" />
+      <workItem from="1601644846083" duration="1872000" />
+    </task>
+    <task id="LOCAL-00001" summary="Mejoras en el proyecto">
+      <created>1599676707457</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1599676707457</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Ajustes y mejoras">
+      <created>1599713879655</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1599713879655</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Ajustes y mejoras">
+      <created>1599751722867</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599751722867</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Ajustes para ediciones y decimales en precios">
+      <created>1600120021437</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1600120021437</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Validacion para usuarios no logueados">
+      <created>1600138167294</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1600138167294</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Mejoras en seccion de BRANDS">
+      <created>1601473510252</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1601473510252</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Mejoras en seccion de PERFIL">
+      <created>1601486119673</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1601486119673</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Mejoras en el sistema completo">
+      <created>1601525143691</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1601525143691</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Mejoras en el proyecto" />
+    <MESSAGE value="Ajustes y mejoras" />
+    <MESSAGE value="Ajustes para ediciones y decimales en precios" />
+    <MESSAGE value="Validacion para usuarios no logueados" />
+    <MESSAGE value="Mejoras en seccion de BRANDS" />
+    <MESSAGE value="Mejoras en seccion de PERFIL" />
+    <MESSAGE value="Mejoras en el sistema completo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mejoras en el sistema completo" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1601483451465">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1601483451465" />
+    <state x="486" y="87" key="NewPhpClassDialog" timestamp="1598916341210">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="486" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1598916341210" />
+    <state x="517" y="66" key="RollbackChangesDialog" timestamp="1601512581044">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="517" y="66" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1601512581044" />
+    <state x="184" y="9" key="SettingsEditor" timestamp="1600118023708">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1600118023708" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1601516031881">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1601516031881" />
+    <state x="569" y="278" key="VCS.EditChangelistDialog" timestamp="1599417308716">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="569" y="278" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1599417308716" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1601525152880">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1601525152880" />
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601649294713">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1601649294713" />
+    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1601651399162">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1601651399162" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1599512703313">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1599512703313" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1601645190570">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1601645190570" />
+  </component>
+</project>

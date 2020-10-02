@@ -96,7 +96,7 @@ class profile extends db_connect
             "error" => true,
             "error_code" => ERROR_ACCOUNT_ID);
 
-        $stmt = $this->db->prepare("SELECT * FROM users WHERE id = (:id) LIMIT 1");
+        $stmt = $this->db->prepare("SELECT users.*, countries.name AS country, category.title AS category FROM users LEFT JOIN countries ON users.country_id = countries.id LEFT JOIN category ON category.id = users.category_id WHERE users.id = (:id) LIMIT 1");
         $stmt->bindParam(":id", $this->id, PDO::PARAM_INT);
 
         if ($stmt->execute()) {

@@ -82,8 +82,6 @@ class items extends db_connect
             "error" => true,
             "error_code" => ERROR_UNKNOWN);
 
-        var_dump($price);
-        exit;
 
         if (strlen($title) == 0) {
 
