@@ -315,8 +315,8 @@
                                         <div class="form-group field-signup-form-typeuser required noselect">
                                             <label class="form-label" for="typeuser"><?php echo $LANG['label-type-user']; ?> <i class="far fa-question-circle" title="<?php echo $LANG['label-signup-tooltip-type-user']; ?>" rel="tooltip"></i></label>
                                             <select required id="typeuser" class="form-control" name="typeuser">
-                                                <option value="<?= $LANG['label-type-user-option-value-1'] ?>" <?php if ($user_type == $LANG['label-type-user-option-value-1']): ?> selected <?php endif ?>><?= $LANG['label-type-user-option-text-1'] ?></option>
-                                                <option value="<?= $LANG['label-type-user-option-value-2'] ?>" <?php if ($user_type == $LANG['label-type-user-option-value-2']): ?> selected <?php endif ?>><?= $LANG['label-type-user-option-text-2'] ?></option>
+                                                <option value="BRAND" <?php if ($user_type === "BRAND"): ?> selected <?php endif ?>>BRAND</option>
+                                                <option value="STORE" <?php if ($user_type === "STORE"): ?> selected <?php endif ?>>STORE</option>
                                             </select>
 
                                             <div class="help-block"></div>
