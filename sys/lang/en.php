@@ -9,22 +9,9 @@
 	$TEXT = array();
 	$SEX = array("Male" => 0, "Female" => 1);
 
-    $LANG_CATEGORIES_ARRAY = array(
-        "Phones, tablets and accessories", //Телефоны, планшеты и аксессуары
-        "Cars, motorcycles and other vehicles", //Автомобили, мотоциклы и другой транспорт
-        "Real estate", //Недвижимость
-        "Clothing, Fashion and Style", //Одежда, мода и стиль
-        "Pets", //Домашние животные
-        "Computers, game consoles and accessories", //Компьютеры, игровые приставки и аксессуары
-        "Cosmetics, perfumes and other health and beauty products", //Косметика, парфюмерия и прочии товары для красоты и здоровья
-        "Furniture", //Мебель
-        "Shoes", //Обувь
-        "Tools and other household goods", //Инструменты и прочие товары для дома
-        "Wristwatches", //Наручные часы
-        "Business and services"); //Бизнес и услуги
-
     $TEXT['lang-code'] = "en";
     $TEXT['lang-name'] = "English";
+
 
     // For admin panel
 
@@ -250,471 +237,442 @@
     $TEXT['apanel-label-moderation'] = "Moderation";
     $TEXT['apanel-label-moderation-photos'] = "Profile Photos";
     $TEXT['apanel-label-moderation-covers'] = "Profile Covers";
-
     // For Web site
 
-    $TEXT['topbar-users'] = "Users";
+    $TEXT['topbar-users'] = "Utenti";
 
-    $TEXT['topbar-stats'] = "Statistics";
+    $TEXT['topbar-stats'] = "Statistiche";
 
-    $TEXT['topbar-signin'] = "Log in";
+    $TEXT['topbar-signin'] = "Accedi";
 
-    $TEXT['topbar-logout'] = "Logout";
+    $TEXT['topbar-logout'] = "Esci";
 
-    $TEXT['topbar-signup'] = "Sign up";
+    $TEXT['topbar-signup'] = "Iscriviti";
 
 
-    $TEXT['topbar-settings'] = "Settings";
+    $TEXT['topbar-settings'] = "Impostazioni";
 
-    $TEXT['topbar-messages'] = "Messages";
+    $TEXT['topbar-messages'] = "Messaggi";
 
-    $TEXT['topbar-support'] = "Support";
+    $TEXT['topbar-support'] = "Assistenza e supporto";
 
-    $TEXT['topbar-profile'] = "Profile";
+    $TEXT['topbar-profile'] = "Profilo";
 
-    $TEXT['topbar-likes'] = "Notifications";
+    $TEXT['topbar-likes'] = "Notifiche";
 
-    $TEXT['topbar-notifications'] = "Notifications";
+    $TEXT['topbar-notifications'] = "Notifiche";
 
-    $TEXT['topbar-search'] = "Search";
+    $TEXT['topbar-search'] = "Cerca";
 
     $TEXT['topbar-main-page'] = "Home";
 
     $TEXT['topbar-wall'] = "Home";
 
-    $TEXT['topbar-messages'] = "Messages";
+    $TEXT['topbar-messages'] = "Messaggi";
 
 
-    $TEXT['footer-about'] = "about";
+    $TEXT['footer-about'] = "Chi siamo";
 
-    $TEXT['footer-terms'] = "terms";
+    $TEXT['footer-terms'] = "Termini e condizioni di utilizzo";
 
-    $TEXT['footer-contact'] = "contact us";
+    $TEXT['footer-contact'] = "Contattaci";
 
-    $TEXT['footer-support'] = "support";
-
-    $TEXT['footer-android-application'] = "Android app";
+    $TEXT['footer-support'] = "Assistenza e supporto";
 
     $TEXT['page-main'] = "Main";
 
     $TEXT['page-ad'] = "Ads";
 
-    $TEXT['page-users'] = "Users";
+    $TEXT['page-users'] = "Utenti";
 
-    $TEXT['page-terms'] = "Terms and Policies";
+    $TEXT['page-terms'] = "Termini e condizioni di utilizzo";
 
-    $TEXT['page-about'] = "About";
+    $TEXT['page-about'] = "Chi siamo";
 
-    $TEXT['page-language'] = "Choose your language";
+    $TEXT['page-language'] = "Seleziona la lingua";
 
-    $TEXT['page-support'] = "Support";
+    $TEXT['page-support'] = "Assistenza e supporto";
 
-    $TEXT['page-restore'] = "Password retrieval";
+    $TEXT['page-restore'] = "Recupera password";
 
-    $TEXT['page-restore-sub-title'] = "Please enter the email that was specified during registration";
+    $TEXT['page-restore-sub-title'] = "Inserisci la mail utilizzata nel form di registrazione";
 
-    $TEXT['page-signup'] = "create account";
+    $TEXT['page-signup'] = "Crea un nuovo profilo";
 
-    $TEXT['page-login'] = "Login";
+    $TEXT['page-login'] = "Accedi";
 
-    $TEXT['page-blacklist'] = "Blocked list";
+    $TEXT['page-blacklist'] = "Black list";
 
-    $TEXT['page-messages'] = "Messages";
+    $TEXT['page-messages'] = "Messaggi";
 
 
 
-    $TEXT['page-search'] = "Search";
+    $TEXT['page-search'] = "Cerca";
 
-    $TEXT['page-profile-report'] = "Report";
+    $TEXT['page-profile-report'] = "Segnala";
 
-    $TEXT['page-profile-block'] = "Block";
+    $TEXT['page-profile-block'] = "Blocca";
 
-    $TEXT['page-profile-upload-avatar'] = "Upload photo";
+    $TEXT['page-profile-upload-avatar'] = "Carica foto profilo";
 
-    $TEXT['page-profile-upload-cover'] = "Upload cover";
+    $TEXT['page-profile-upload-cover'] = "Carica foto di copertina";
 
-    $TEXT['page-profile-report-sub-title'] = "Reported profiles are sent to our moderators for a review. They will ban the reported profiles if they violate terms of use";
+    $TEXT['page-profile-report-sub-title'] = "I profili segnalati verranno verificati dal team Simple Tail. Saranno bloccati se violano i termini e le condizioni di utilizzo della piattaforma";
 
-    $TEXT['page-profile-block-sub-title'] = "will not be able write comments to your Items and send your messages, and you will not see notifications from";
+    $TEXT['page-profile-block-sub-title'] = "Non portrait commentare i tuoi items, mandare messaggi e non visualizzerai le notifiche";
 
 
 
     $TEXT['page-likes'] = "People who like this";
 
-    $TEXT['page-services'] = "Services";
+    $TEXT['page-services'] = "Servizi";
 
-    $TEXT['page-services-sub-title'] = "Connect Marketplace with your social network accounts";
+    $TEXT['page-services-sub-title'] = "Connetti Simpletail alle principali piattaforme social";
 
-    $TEXT['page-prompt'] = "create account or login";
+    $TEXT['page-prompt'] = "Crea un nuovo profilo or accedi";
 
-    $TEXT['page-settings'] = "Settings";
+    $TEXT['page-settings'] = "Impostazioni";
 
-    $TEXT['page-profile-settings'] = "Profile";
+    $TEXT['page-profile-settings'] = "Profilo";
 
-    $TEXT['page-profile-password'] = "Change password";
+    $TEXT['page-profile-password'] = "Cambia la password";
 
-    $TEXT['page-notifications-likes'] = "Notifications";
+    $TEXT['page-notifications-likes'] = "Notifiche";
 
-    $TEXT['page-profile-deactivation'] = "Deactivate account";
+    $TEXT['page-profile-deactivation'] = "Elimina il profilo";
 
-    $TEXT['page-profile-deactivation-sub-title'] = "Leaving us?<br>All your Items will be deleted!<br>If you proceed with deactivating your account, you can always come back. Just enter your login and password on the log-in page. We hope to see you again!";
+    $TEXT['page-profile-deactivation-sub-title'] = "Vuoi abbandonare Simpletail?<br>Tutte le tue informazioni verranno cancellate!<br>If you proceed with deactivating your account, you can always come back. Just enter your login and password on the log-in page. We hope to see you again!";
 
-    $TEXT['page-error-404'] = "Page not found";
+    $TEXT['page-error-404'] = "Pagina non trovata";
 
-    $TEXT['label-location'] = "Location";
-    $TEXT['label-facebook-link'] = "Facebook page";
-    $TEXT['label-instagram-link'] = "Instagram page";
-    $TEXT['label-status'] = "Bio";
+    $TEXT['label-location'] = "Indirizzo";
+    $TEXT['label-facebook-link'] = "Pagina Facebook";
+    $TEXT['label-instagram-link'] = "Pagina Instagram";
+    $TEXT['label-status'] = "Inserisci una breve descrizione della tua azienda";
 
-    $TEXT['label-error-404'] = "Requested page was not found.";
+    $TEXT['label-error-404'] = "Pagina non trovata.";
 
-    $TEXT['label-account-disabled'] = "This user has disabled his account.";
+    $TEXT['label-account-disabled'] = "Questo user ha eliminato il suo account.";
 
-    $TEXT['label-account-blocked'] = "This account has been blocked by the administrator.";
+    $TEXT['label-account-blocked'] = "Profilo bloccato dall’amministratore della piattaforma.";
 
-    $TEXT['label-account-deactivated'] = "This account is not activated.";
+    $TEXT['label-account-deactivated'] = "Profilo non attivo.";
 
-    $TEXT['label-reposition-cover'] = "Drag to Reposition Cover";
+    $TEXT['label-reposition-cover'] = "Trascina per riposizionare l’immagine di copertina";
 
-    $TEXT['label-or'] = "or";
+    $TEXT['label-or'] = "o";
 
-    $TEXT['label-and'] = "and";
+    $TEXT['label-and'] = "e";
 
-    $TEXT['label-signup-confirm'] = "By clicking Sign up, you agree to our";
+    $TEXT['label-signup-confirm'] = "Cliccando Iscriviti accetti i termini e condizioni di utilizzo";
 
 
 
-    $TEXT['label-empty-page'] = "Here is empty.";
+    $TEXT['label-empty-page'] = "Qui è vuoto.";
 
-    $TEXT['label-empty-friends-header'] = "You have no friends.";
+    $TEXT['label-empty-friends-header'] = "Non hai amici.";
 
-    $TEXT['label-empty-likes-header'] = "You have no notifications.";
+    $TEXT['label-empty-likes-header'] = "Non ci sono notifiche.";
 
-    $TEXT['label-empty-list'] = "List is empty.";
+    $TEXT['label-empty-list'] = "Lista vuota.";
 
     $TEXT['label-empty-feeds'] = "Here you'll see updates your friends.";
 
-    $TEXT['label-search-result'] = "Search results";
+    $TEXT['label-search-result'] = "Risultati di ricerca";
 
-    $TEXT['label-search-empty'] = "Nothing found.";
+    $TEXT['label-search-empty'] = "Nessun risultato trovato.";
 
-    $TEXT['label-search-prompt'] = "Find items by title, text or location.";
+    $TEXT['label-search-prompt'] = "Cerca prodotti per keywords, range di prezzo e paese d’origine.";
 
     $TEXT['label-who-us'] = "See who with us";
 
-    $TEXT['label-thanks'] = "Thanks!";
+    $TEXT['label-thanks'] = "Grazie!";
 
 
 
 
 
-    $TEXT['label-messages-privacy'] = "Privacy settings for messages";
+    $TEXT['label-messages-privacy'] = "Impostazioni privacy per i messaggi";
 
-    $TEXT['label-messages-allow'] = "Receive messages from anyone.";
+    $TEXT['label-messages-allow'] = "Ricevi messaggi.";
 
-    $TEXT['label-messages-allow-desc'] = "You will be able to receive messages from any user";
+    $TEXT['label-messages-allow-desc'] = "Potrai ricevere messaggi da ogni utente";
 
-    $TEXT['label-settings-saved'] = "Settings saved.";
+    $TEXT['label-settings-saved'] = "Impostazioni salvate.";
 
-    $TEXT['label-password-saved'] = "Password successfully changed.";
+    $TEXT['label-password-saved'] = "Password aggiornata con successo.";
 
-    $TEXT['label-profile-settings-links'] = "And also you can";
+    $TEXT['label-profile-settings-links'] = "E puoi anche";
 
-    $TEXT['label-photo'] = "Photo";
+    $TEXT['label-photo'] = "Foto";
 
-    $TEXT['label-background'] = "Background";
+    $TEXT['label-background'] = "Sfondo";
 
-    $TEXT['label-username'] = "Username";
+    $TEXT['label-username'] = "Nome utente";
 
-    $TEXT['label-fullname'] = "Full name";
+    $TEXT['label-fullname'] = "Nome e cognome";
 
-    $TEXT['label-services'] = "Services";
+    $TEXT['label-services'] = "Servizi";
 
-    $TEXT['label-blacklist'] = "Blocked list";
+    $TEXT['label-blacklist'] = "Black list";
 
-    $TEXT['label-blacklist-desc'] = "View blocked list";
+    $TEXT['label-blacklist-desc'] = "Visualizza black list";
 
-    $TEXT['label-profile'] = "Profile";
+    $TEXT['label-profile'] = "Profilo";
 
     $TEXT['label-email'] = "Email";
 
     $TEXT['label-password'] = "Password";
 
-    $TEXT['label-old-password'] = "Current password";
+    $TEXT['label-old-password'] = "Password attuale";
 
-    $TEXT['label-new-password'] = "New password";
+    $TEXT['label-new-password'] = "Nuova password";
 
-    $TEXT['label-change-password'] = "Change password";
+    $TEXT['label-change-password'] = "Cambia password";
 
     $TEXT['label-facebook'] = "Facebook";
 
-    $TEXT['label-placeholder-message'] = "Write a message...";
+    $TEXT['label-placeholder-message'] = "Scrivi un messaggio...";
 
-    $TEXT['label-img-format'] = "Maximum size 3 Mb. JPG, PNG";
+    $TEXT['label-img-format'] = "Dimensione massima 3 Mb. JPG, PNG";
 
-    $TEXT['label-message'] = "Message";
+    $TEXT['label-message'] = "Messaggio";
 
-    $TEXT['label-subject'] = "Subject";
+    $TEXT['label-subject'] = "Oggetto";
 
-    $TEXT['label-support-message'] = "What are you contacting us about?";
+    $TEXT['label-support-message'] = "Per cosa ci stai contattando?";
 
-    $TEXT['label-support-sub-title'] = "We are glad to hear from you! ";
+    $TEXT['label-support-sub-title'] = "Siamo felici di sentirti! ";
 
-    $TEXT['label-profile-reported'] = "Profile reported!";
+    $TEXT['label-success'] = "Sucesso";
 
-    $TEXT['label-profile-report-reason-1'] = "This is spam.";
 
-    $TEXT['label-profile-report-reason-2'] = "Hate Speech or violence.";
+    $TEXT['label-verify'] = "Verifica";
 
-    $TEXT['label-profile-report-reason-3'] = "Nudity or Pornography.";
+    $TEXT['label-account-verified'] = "Profilo verificato";
 
-    $TEXT['label-profile-report-reason-4'] = "Fake profile.";
+    $TEXT['label-true'] = "vero";
 
-    $TEXT['label-profile-report-reason-5'] = "Piracy.";
+    $TEXT['label-false'] = "falso";
 
-    $TEXT['label-success'] = "Success";
+    $TEXT['label-state'] = "status profilo";
 
-    $TEXT['label-password-reset-success'] = "A new password has been successfully installed!";
-
-    $TEXT['label-verify'] = "verify";
-
-    $TEXT['label-account-verified'] = "Verified account";
-
-    $TEXT['label-true'] = "true";
-
-    $TEXT['label-false'] = "false";
-
-    $TEXT['label-state'] = "account status";
-
-    $TEXT['label-stats'] = "Statistics";
+    $TEXT['label-stats'] = "Statistiche";
 
     $TEXT['label-id'] = "Id";
 
-    $TEXT['label-count'] = "Count";
+    $TEXT['label-count'] = "Conta";
 
-    $TEXT['label-repeat-password'] = "repeat password";
+    $TEXT['label-repeat-password'] = "Ripeti password";
 
-    $TEXT['label-category'] = "Category";
+    $TEXT['label-category'] = "Categoria";
 
-    $TEXT['label-from-user'] = "from";
+    $TEXT['label-from-user'] = "da";
 
-    $TEXT['label-to-user'] = "to";
+    $TEXT['label-to-user'] = "a";
 
-    $TEXT['label-reason'] = "Reason";
+    $TEXT['label-reason'] = "Oggetto";
 
-    $TEXT['label-action'] = "Action";
+    $TEXT['label-action'] = "Azione";
 
-    $TEXT['label-warning'] = "Warning!";
+    $TEXT['label-warning'] = "Attenzione!";
+    $TEXT['action-signup-with'] = "Iscriviti con";
+    $TEXT['action-delete-profile-photo'] = "Cancella foto";
+    $TEXT['action-delete-profile-cover'] = "Rimuovi immagine di copertina";
+    $TEXT['action-change-photo'] = "Cambia foto";
+    $TEXT['action-change-password'] = "Cambia password";
 
-    $TEXT['label-connected-with-facebook'] = "Connected with Facebook";
+    $TEXT['action-more'] = "Visualizza altro";
 
-    $TEXT['label-authorization-with-facebook'] = "Authorization via Facebook.";
+    $TEXT['action-next'] = "Procedi";
 
-    $TEXT['label-services-facebook-connected'] = "You have successfully linked My Social Network with your account on Facebook!";
+    $TEXT['action-add-img'] = "Aggiungi un’immagine";
 
-    $TEXT['label-services-facebook-disconnected'] = "Connect with your Facebook account removed.";
+    $TEXT['action-remove-img'] = "Cancella immagine";
 
-    $TEXT['label-services-facebook-error'] = "Your account on Facebook is already associated with another account.";
+    $TEXT['action-close'] = "Chiudi";
 
-    $TEXT['action-login-with'] = "Login with";
+    $TEXT['action-go-to-conversation'] = "Vai alla conversazione";
 
-    $TEXT['action-signup-with'] = "Sign up with";
-    $TEXT['action-delete-profile-photo'] = "Delete photo";
-    $TEXT['action-delete-profile-cover'] = "Remove the cover image";
-    $TEXT['action-change-photo'] = "Change photo";
-    $TEXT['action-change-password'] = "Change password";
+    $TEXT['action-post'] = "Posta";
 
-    $TEXT['action-more'] = "View more";
+    $TEXT['action-remove'] = "Cancella";
 
-    $TEXT['action-next'] = "Next";
+    $TEXT['action-report'] = "Segnala";
 
-    $TEXT['action-add-img'] = "Add an image";
+    $TEXT['action-block'] = "Blocca";
 
-    $TEXT['action-remove-img'] = "Delete image";
+    $TEXT['action-unblock'] = "Sblocca";
 
-    $TEXT['action-close'] = "Close";
+    $TEXT['action-send-message'] = "Messaggio";
 
-    $TEXT['action-go-to-conversation'] = "Go to conversation";
+    $TEXT['action-change-cover'] = "Cambia immagine di copertina";
 
-    $TEXT['action-post'] = "Post";
+    $TEXT['action-change'] = "Cambia";
 
-    $TEXT['action-remove'] = "Delete";
+    $TEXT['action-change-image'] = "Cambia immagine";
 
-    $TEXT['action-report'] = "Report";
+    $TEXT['action-edit-profile'] = "Modifica profilo";
 
-    $TEXT['action-block'] = "Block";
+    $TEXT['action-edit'] = "Modifica";
 
-    $TEXT['action-unblock'] = "UnBlock";
+    $TEXT['action-restore'] = "Ripristina";
 
-    $TEXT['action-send-message'] = "Message";
+    $TEXT['action-accept'] = "Accetta";
 
-    $TEXT['action-change-cover'] = "Change cover";
+    $TEXT['action-reject'] = "Rifiuta";
 
-    $TEXT['action-change'] = "Change";
+    $TEXT['label-question-removed'] = "La domanda è stata rimossa.";
 
-    $TEXT['action-change-image'] = "Change image";
+    $TEXT['action-deactivation-profile'] = "Elimina profilo";
 
-    $TEXT['action-edit-profile'] = "Edit profile";
+    $TEXT['action-connect-profile'] = "Connetti Simpletail alle principali piattaforme social";
 
-    $TEXT['action-edit'] = "Edit";
+    $TEXT['action-connect-facebook'] = "Connettiti con Facebook";
 
-    $TEXT['action-restore'] = "Restore";
+    $TEXT['action-disconnect'] = "Rimuovi connessione";
 
-    $TEXT['action-accept'] = "Accept";
+    $TEXT['action-back-to-default-signup'] = "Torna al form di registrazione";
 
-    $TEXT['action-reject'] = "Reject";
+    $TEXT['action-back-to-main-page'] = "Torna alla pagina principale";
 
-    $TEXT['label-question-removed'] = "Question has been removed.";
+    $TEXT['action-back-to-previous-page'] = "Torna alla pagina precedente";
 
-    $TEXT['action-deactivation-profile'] = "Deactivate account";
+    $TEXT['action-forgot-password'] = "Hai dimenticato password o nome utente?";
 
-    $TEXT['action-connect-profile'] = "Connect with social network accounts";
+    $TEXT['action-full-profile'] = "Vedi profilo completo";
 
-    $TEXT['action-connect-facebook'] = "Connect with Facebook";
+    $TEXT['action-delete-image'] = "Elimina immagine";
 
-    $TEXT['action-disconnect'] = "Remove connection";
+    $TEXT['action-send'] = "Invia";
 
-    $TEXT['action-back-to-default-signup'] = "Back to the regular registration form";
+    $TEXT['action-cancel'] = "Elimina";
 
-    $TEXT['action-back-to-main-page'] = "Return to main page";
+    $TEXT['action-upload'] = "Carica";
 
-    $TEXT['action-back-to-previous-page'] = "Return to previous page";
+    $TEXT['action-search'] = "Cerca";
 
-    $TEXT['action-forgot-password'] = "Forgot your password or username?";
+    $TEXT['action-change'] = "Cambia";
 
-    $TEXT['action-full-profile'] = "View full user profile";
+    $TEXT['action-save'] = "Salva";
 
-    $TEXT['action-delete-image'] = "Delete post image";
+    $TEXT['action-login'] = "Accedi";
 
-    $TEXT['action-send'] = "Send";
+    $TEXT['action-signup'] = "Iscriviti";
 
-    $TEXT['action-cancel'] = "Cancel";
-
-    $TEXT['action-upload'] = "Upload";
-
-    $TEXT['action-search'] = "Search";
-
-    $TEXT['action-change'] = "Change";
-
-    $TEXT['action-save'] = "Save";
-
-    $TEXT['action-login'] = "Log in";
-
-    $TEXT['action-signup'] = "Sign up";
-
-    $TEXT['action-join'] = "JOIN NOW!";
+    $TEXT['action-join'] = "UNISCITI ORA!";
 //    $TEXT['action-join'] = "Регистрация";
 
-    $TEXT['action-forgot-password'] = "Forgot password?";
+    $TEXT['action-forgot-password'] = "Hai dimenticato la password?";
 
-    $TEXT['msg-loading'] = "Loading...";
-
-
-
-    $TEXT['msg-login-taken'] = "A user with that username already exists.";
-
-    $TEXT['msg-login-incorrect'] = "Username wrong format.";
-
-    $TEXT['msg-login-incorrect'] = "Username wrong format.";
-
-    $TEXT['msg-fullname-incorrect'] = "Fullname wrong format.";
-
-    $TEXT['msg-password-incorrect'] = "Password wrong format.";
-
-    $TEXT['msg-password-save-error'] = "Password not changed, wrong current password.";
-
-    $TEXT['msg-email-incorrect'] = "Email wrong format.";
-
-    $TEXT['msg-email-taken'] = "User with this email address is already registered.";
-
-    $TEXT['msg-email-not-found'] = "User with this email was not found in the database.";
-
-    $TEXT['msg-reset-password-sent'] = "A message with link to reset your password has been sent to your email.";
-
-    $TEXT['msg-error-unknown'] = "Error. Try again later.";
-
-    $TEXT['msg-error-authorize'] = "Incorrect username or password.";
-
-    $TEXT['msg-error-deactivation'] = "Wrong password.";
-
-    $TEXT['placeholder-users-search'] = "Find users by login. Minimum of 5 characters.";
-
-	$TEXT['ticket-send-success'] = 'In a short time we will review your request and send a response to your email.';
-
-	$TEXT['ticket-send-error'] = 'Please fill all fields.';
+    $TEXT['msg-loading'] = "Caricamento...";
 
 
 
-    $TEXT['action-show-all'] = "Show all";
+    $TEXT['msg-login-taken'] = "Nome utente già utilizzato da un altro utente.";
+
+    $TEXT['msg-login-incorrect'] = "Nome utente nel formato non corretto.";
+
+    $TEXT['msg-login-incorrect'] = "Nome utente nel formato non corretto.";
+
+    $TEXT['msg-fullname-incorrect'] = "Nome e cognome non corretti.";
+
+    $TEXT['msg-password-incorrect'] = "Password non corretta";
+
+    $TEXT['msg-password-save-error'] = "La password non è stata aggiornata, password attuale non corretta.";
+
+    $TEXT['msg-email-incorrect'] = "Formato email non corretto.";
+
+    $TEXT['msg-email-taken'] = "Mail già utilizzata da un altro utente.";
+
+    $TEXT['msg-email-not-found'] = "Non è stato trovato nessun utente con questa mail nel nostro database.";
+
+    $TEXT['msg-reset-password-sent'] = "Ti abbiamo inviato una mail con il link per resettare la tua password.";
+
+    $TEXT['msg-error-unknown'] = "Errore. Prova più tardi.";
+
+    $TEXT['msg-error-authorize'] = "Nome utente o password non corretti.";
+
+    $TEXT['msg-error-deactivation'] = "Password non corretta.";
+
+    $TEXT['placeholder-users-search'] = "Cerca utenti per nome utente. Minimo 5 caratteri.";
+
+    $TEXT['ticket-send-success'] = 'La tua richiesta è stata presa in carico, a breve riceverai una risposta al tuo indirizzo email';
+
+    $TEXT['ticket-send-error'] = 'Completa tutti i campi.';
 
 
-    $TEXT['label-image-upload-description'] = "We support JPG, PNG or GIF files.";
 
-    $TEXT['action-select-file-and-upload'] = "Select a file and upload";
-
-    $TEXT['fb-linking'] = "Connect with Facebook";
+    $TEXT['action-show-all'] = "Mostra tutto";
 
 
-    $TEXT['label-gender'] = "Gender";
-    $TEXT['label-birth-date'] = "Birth Date";
-    $TEXT['label-join-date'] = "Join Date";
+    $TEXT['label-image-upload-description'] = "JPG, PNG or GIF files sono supportati.";
 
-    $TEXT['gender-unknown'] = "Gender Unknown";
-    $TEXT['gender-male'] = "Gender Male";
-    $TEXT['gender-female'] = "Gender Female";
+    $TEXT['action-select-file-and-upload'] = "Seleziona un file e carica";
 
-    $TEXT['month-jan'] = "January";
-    $TEXT['month-feb'] = "February";
-    $TEXT['month-mar'] = "March";
-    $TEXT['month-apr'] = "April";
-    $TEXT['month-may'] = "May";
-    $TEXT['month-june'] = "June";
-    $TEXT['month-july'] = "July";
-    $TEXT['month-aug'] = "August";
-    $TEXT['month-sept'] = "September";
-    $TEXT['month-oct'] = "October";
-    $TEXT['month-nov'] = "November";
-    $TEXT['month-dec'] = "December";
+    $TEXT['fb-linking'] = "Connettiti con Facebook";
 
-    $TEXT['topbar-stream'] = "Recent Items";
-    $TEXT['page-categories'] = "Categories";
-    $TEXT['topbar-categories'] = "Categories";
-    $TEXT['page-favorites'] = "Favorites";
-    $TEXT['topbar-favorites'] = "Favorites";
 
-    $TEXT['msg-added-to-favorites'] = "Added to Favorites.";
-    $TEXT['msg-removed-from-favorites'] = "Removed from your favorites.";
+    $TEXT['label-gender'] = "Sesso";
+    $TEXT['label-birth-date'] = "Data di nascita";
+    $TEXT['label-join-date'] = "Data di registrazione";
 
-    $TEXT['page-create-item'] = "Create New Item";
-    $TEXT['page-edit-item'] = "Edit Item";
-    $TEXT['page-view-item'] = "View Item";
+    $TEXT['gender-unknown'] = "Non specificato";
+    $TEXT['gender-male'] = "Maschio";
+    $TEXT['gender-female'] = "Femmina";
 
-    $TEXT['action-create'] = "Create";
+    $TEXT['month-jan'] = "Gennaio";
+    $TEXT['month-feb'] = "Febbraio";
+    $TEXT['month-mar'] = "Marzo";
+    $TEXT['month-apr'] = "Aprile";
+    $TEXT['month-may'] = "Maggio";
+    $TEXT['month-june'] = "Giugno";
+    $TEXT['month-july'] = "Luglio";
+    $TEXT['month-aug'] = "Agosto";
+    $TEXT['month-sept'] = "Settembre";
+    $TEXT['month-oct'] = "Ottobre";
+    $TEXT['month-nov'] = "Novembre";
+    $TEXT['month-dec'] = "Dicembre";
 
-    $TEXT['label-title'] = "Title";
-    $TEXT['label-category'] = "Category";
-    $TEXT['label-category-choose'] = "Choose category";
-    $TEXT['label-subcategory-choose'] = "Choose subcategory";
-    $TEXT['label-price'] = "Price";
-    $TEXT['label-description'] = "Description";
-    $TEXT['label-description-placeholder'] = "Description for Item";
-    $TEXT['label-image'] = "Image";
-    $TEXT['label-image-placeholder'] = "Image for Item";
-    $TEXT['label-allow-comments'] = "Allows comments for this Item";
+    $TEXT['topbar-stream'] = "Items recenti";
+    $TEXT['page-categories'] = "Categorie";
+    $TEXT['topbar-categories'] = "Categorie";
+    $TEXT['page-favorites'] = "Preferiti";
+    $TEXT['topbar-favorites'] = "Preferiti";
+
+    $TEXT['msg-added-to-favorites'] = "Aggiunto ai Preferiti.";
+    $TEXT['msg-removed-from-favorites'] = "Eliminato dai Preferiti.";
+
+    $TEXT['page-create-item'] = "Crea un nuovo Item";
+    $TEXT['page-edit-item'] = "Modifica ";
+    $TEXT['page-view-item'] = "Visualizza Item";
+
+    $TEXT['action-create'] = "Crea";
+
+    $TEXT['label-title'] = "Titolo";
+    $TEXT['label-category'] = "Categoria";
+    $TEXT['label-category-choose'] = "Seleziona categoria";
+    $TEXT['label-subcategory-choose'] = "Seleziona Sottocategoria ";
+    $TEXT['label-price'] = "Prezzo";
+    $TEXT['label-description'] = "Descrizione";
+    $TEXT['label-description-placeholder'] = "Descrizione per item";
+    $TEXT['label-image'] = "immagine";
+    $TEXT['label-image-placeholder'] = "Immagine per item";
+    $TEXT['label-allow-comments'] = "autorizza commenti per questo item";
 
     $TEXT['label-items'] = "Items";
-    $TEXT['label-phone'] = "Mobile Phone number, example: +15417543010";
-    $TEXT['msg-phone-incorrect'] = "Phone wrong format.";
-    $TEXT['msg-phone-taken'] = "A user with this phone number is already registered.";
+    $TEXT['label-phone'] = "Numero di telefono, esempio: +15417543010";
+    $TEXT['msg-phone-incorrect'] = "Formato numero di telefono non corretto.";
+    $TEXT['msg-phone-taken'] = "Numero di telefono già utilizzato da un altro utente.";
 
-    $TEXT['msg-item-removed'] = "Item removed.";
-    $TEXT['msg-item-reported'] = "Item reported.";
+    $TEXT['msg-item-removed'] = "Item eliminato.";
+    $TEXT['msg-item-reported'] = "Item segnalato.";
 
-    $TEXT['notify-comment'] = "added new comment to your item.";
-    $TEXT['notify-comment-reply'] = "replied to your comment.";
+    $TEXT['notify-comment'] = "Commento aggiunto al tuo prodotto";
+    $TEXT['notify-comment-reply'] = "Risposto al tuo commento.";
 
-    $TEXT['label-placeholder-comment'] = "Write a comment...";
-    $TEXT['label-placeholder-comments'] = "Comments";
+    $TEXT['label-placeholder-comment'] = "Scrivi un commento...";
+    $TEXT['label-placeholder-comments'] = "Commenti";
 
     $TEXT['label-currency'] = "$";
 
@@ -723,276 +681,255 @@
 
     $TEXT['main-page-browser-title'] = "";
 
-    $TEXT['action-continue'] = "Continue";
+    $TEXT['action-continue'] = "Continua";
 
-    $TEXT['label-ad-title'] = "Ad title"; //Заголовок объявления
-    $TEXT['label-ad-category'] = "Category"; //Категория
-    $TEXT['label-ad-subcategory'] = "Subcategory"; //Категория
-    $TEXT['label-ad-currency'] = "Currency"; //Валюта
-    $TEXT['label-ad-price'] = "Price"; //Цена
-    $TEXT['label-ad-description'] = "Description"; //Описание
-    $TEXT['label-ad-photos'] = "Photos"; //Фотографии
-    $TEXT['label-ad-phone'] = "Phone number"; //Номер телефона
-    $TEXT['label-ad-location'] = "Location";
+    $TEXT['label-ad-title'] = "Inserisci il titolo del tuo prodotto"; 
+    $TEXT['label-ad-category'] = "Categoria"; 
+    $TEXT['label-ad-subcategory'] = "Sottocategoria"; 
+    $TEXT['label-ad-currency'] = "Valuta"; 
+    $TEXT['label-ad-price'] = "Prezzo"; 
+    $TEXT['label-ad-description'] = "Descrizione"; 
+    $TEXT['label-ad-photos'] = "Foto"; 
+    $TEXT['label-ad-phone'] = "Numero di telefono"; 
+    $TEXT['label-ad-location'] = "Indirizzo";
 
-    $TEXT['label-ad-sub-title'] = "from 5 to 70 characters"; //от 5 до 70 символов
-    $TEXT['label-ad-sub-price'] = "should not be 0"; //цена должна быть больше нуля
-    $TEXT['label-ad-sub-description'] = "from 10 to 500 characters"; //от 10 до 500 символов
-    $TEXT['label-ad-sub-photos'] = "at least one photo. up to 5 photos. formats: jpg, jpeg"; //минимум одна фотография. до 5 фотографий. форматы: JPG, JPEG
-    $TEXT['label-ad-sub-phone'] = "example: +14567189456"; //пример: +1456789456
-    $TEXT['label-ad-sub-location'] = "Drag the marker or double click on the desired location.";
+    $TEXT['label-ad-sub-title'] = "da 5 a 70 caratteri"; 
+    $TEXT['label-ad-sub-price'] = "Non deve essere 0";
+    $TEXT['label-ad-sub-description'] = "da 10 a 500 caratteri"; 
+    $TEXT['label-ad-sub-photos'] = "Almeno una foto. Fino a 5 foto. Formati:  jpg, jpeg"; 
+    $TEXT['label-ad-sub-phone'] = "esempio: +14567189456"; 
+    $TEXT['label-ad-sub-location'] = "Trascina l’indicatore o fai doppio click sulla location desderata.";
 
-    $TEXT['placeholder-ad-title'] = "Enter title for you product, object or service"; //Введите наименование товара, объекта или услуги.
-    $TEXT['placeholder-ad-description'] = "Add a description for your product/service, specify benefits and important details"; //Добавьте описание вашего товара/услуги, укажите преимущества и важные детали.
-    $TEXT['placeholder-ad-phone'] = "Enter your phone number";
+    $TEXT['placeholder-ad-title'] = "Inserisci il titolo del tuo prodotto"; 
+    $TEXT['placeholder-ad-description'] = "Inserisci la descrizione del tuo prodotto, specifica gli attributi principali"; 
+    $TEXT['placeholder-ad-phone'] = "Inserisci il tuo numero di telefono";
 
-    $TEXT['page-edit-ad-title'] = "Edit Product"; //Редактировать объявление
-    $TEXT['page-new-ad-title'] = "Create Product"; //Создать объявление
-    $TEXT['action-new-ad'] = "Create"; //Создать
+    $TEXT['page-edit-ad-title'] = "Modifica prodotto";
+    $TEXT['page-new-ad-title'] = "Crea Prodotto"; 
+    $TEXT['action-new-ad'] = "Crea"; 
 
-    $TEXT['msg-error-ad-title'] = "Enter ad title"; //Введите заголовок объявления
-    $TEXT['msg-error-ad-category'] = "Select a category for your product.";
-    $TEXT['msg-error-ad-subcategory'] = "Select a subcategory for your product.";
-    $TEXT['msg-error-ad-currency'] = "Choose a currency"; //Выберите валюту
-    $TEXT['msg-error-ad-price'] = "Enter the price"; //Введите цену
-    $TEXT['msg-error-ad-description'] = "Create a description for your product."; //Создайте описание для вашего продукта
-    $TEXT['msg-error-ad-photos'] = "You need to add a photo/image"; //Нужно добавить фотографию/картинку
-    $TEXT['msg-error-ad-phone'] = "Enter your phone number"; //Введите ваш номер телефона
-    $TEXT['msg-error-ad-phone-incorrect'] = "Invalid phone number format"; //Некорректный формат номера
-    $TEXT['msg-error-ad-length-title'] = "at least 5 characters"; //не менее 5 символов
-    $TEXT['msg-error-ad-length-description'] = "at least 10 characters"; //не менее 10 символов
+    $TEXT['msg-error-ad-title'] = "Inserisci il titolo del tuo prodotto"; 
+    $TEXT['msg-error-ad-category'] = "Seleziona la categoria di appartenenza del tuo prodotto.";
+    $TEXT['msg-error-ad-subcategory'] = "Seleziona la subcategoria di appartenenza del tuo prodotto.";
+    $TEXT['msg-error-ad-currency'] = "Seleziona la valuta di fatturazione"; 
+    $TEXT['msg-error-ad-price'] = "Inserisci il prezzo unitario del tuo prodotto"; 
+    $TEXT['msg-error-ad-description'] = "Inserisci la descrizione del tuo prodotto."; 
+    $TEXT['msg-error-ad-photos'] = "Aggiungi la foto del tuo prodotto"; 
+    $TEXT['msg-error-ad-phone'] = "Inserisci il tuo numero di telefono";
+    $TEXT['msg-error-ad-phone-incorrect'] = "Formato numero di telefono non valido"; 
+    $TEXT['msg-error-ad-length-title'] = "almeno 5 caratteri"; 
+    $TEXT['msg-error-ad-length-description'] = "almeno 10 caratteri";
 
     // Restore send
 
-    $TEXT['label-restore-sent-title'] = "A password reset email has been sent";
-    $TEXT['label-restore-sent-msg'] = "An email has been sent to you with instructions for changing your password.";
+    $TEXT['label-restore-sent-title'] = "Ti abbiamo inviato una mail con il link per resettare la tua password";
+    $TEXT['label-restore-sent-msg'] = "Ti abbiamo inviato una mail con le istruzioni e il link per cambiare la tua password.";
 
     // Restore success
 
-    $TEXT['label-restore-success-title'] = "Password recovery";
-    $TEXT['label-restore-success-msg'] = "Congratulations! You have successfully set a new password!";
+    $TEXT['label-restore-success-title'] = "Recupera password";
+    $TEXT['label-restore-success-msg'] = "Congratulazioni! La tua nuova password è stata impostata";
 
     // Restore new
 
-    $TEXT['label-restore-new-title'] = "Create new password"; // Создание нового пароля
-    $TEXT['label-restore-new-invalid-password-error-msg'] = "Invalid password format"; //Неверный формат пароля
-    $TEXT['label-restore-new-match-passwords-error-msg'] = "Passwords do not match"; //Пароли не совпадают
+    $TEXT['label-restore-new-title'] = "Crea nuova password"; 
+    $TEXT['label-restore-new-invalid-password-error-msg'] = "Formato password non valido"; 
+    $TEXT['label-restore-new-match-passwords-error-msg'] = "Password non corretta"; 
 
     // Login page
 
-    $TEXT['label-signup-promo'] = "Not registered? Join now!";
-    $TEXT['label-remember'] = "Remember me";
+    $TEXT['label-signup-promo'] = "Non sei registrato? Iscriviti ora!";
+    $TEXT['label-remember'] = "Ricorda le mie credenziali";
 
-    $TEXT['label-login-empty-field'] = "This field must not be empty"; //Это поле не должно быть пустым
+    $TEXT['label-login-empty-field'] = "Questo campo deve essere compilato"; 
 
     // Signup page
 
-    $TEXT['label-login-promo'] = "Do you have an account? Log in";
-    $TEXT['label-terms-start'] = "By clicking Sign up button, you confirm that you have read our";
-    $TEXT['label-terms-link'] = "Terms of Use";
-    $TEXT['label-terms-and'] = "and";
+    $TEXT['label-login-promo'] = "Hai già un profilo? Accedi";
+    $TEXT['label-terms-start'] = "Cliccando Iscriviti accetti i termini e condizioni di utilizzo";
+    $TEXT['label-terms-link'] = "Termini e condizioni di utilizzo";
+    $TEXT['label-terms-and'] = "e";
     $TEXT['label-terms-privacy-link'] = "Privacy policy";
-    $TEXT['label-terms-cookies-link'] = "Use of cookies";
+    $TEXT['label-terms-cookies-link'] = "Utilizzo dei cookies";
 
-    $TEXT['label-signup-sex'] = "Sex";
+    $TEXT['label-signup-sex'] = "Sesso";
 
-    $TEXT['label-signup-tooltip-username'] = "This is your login. Used for authorization and as name for your profile page. Only English letters and numbers. At least 5 characters";
-    $TEXT['label-signup-tooltip-fullname'] = "Your real name and surname. For example: displayed on your profile page and in messages. At least 2 characters";
-    $TEXT['label-signup-tooltip-password'] = "Password for your account. At least 6 characters";
-    $TEXT['label-signup-tooltip-email'] = "Your valid email. Used to recover your password and contact you (if necessary). We do not send promotional emails and spam!";
-    $TEXT['label-signup-tooltip-sex'] = "Specify your gender. This will make your profile more complete and informative.";
+    $TEXT['label-signup-tooltip-username'] = "Questo è il tuo accesso. Utilizzato come nome di profilo. Solo lettere e numeri. Al meno 5 caratteri";
+    $TEXT['label-signup-tooltip-fullname'] = "Il tuo nome e cognome. Esempio: mostrato nel tuo profilo e nei messaggi. Almeno 2 caratteri";
+    $TEXT['label-signup-tooltip-password'] = "Password del tuo profilo. Al meno 6 caratteri";
+    $TEXT['label-signup-tooltip-email'] = "Il tuo valido indirizzo emaill. Verrà utilizzato esclusivamente per la procedura di ripristino password, se necessario. Non utilizzeremo la tua email per inviarti pubblicità o posta indesiderata!";
+    $TEXT['label-signup-tooltip-sex'] = "Specifica il tuo sesso. Questa informazione renderà il tuo profilo maggiormente completo";
 
-    $TEXT['label-signup-placeholder-username'] = "Your login";
-    $TEXT['label-signup-placeholder-fullname'] = "What is your name?";
-    $TEXT['label-signup-placeholder-password'] = "Enter your password";
-    $TEXT['label-signup-placeholder-email'] = "E-mail address";
+    $TEXT['label-signup-placeholder-username'] = "Il tuo accesso";
+    $TEXT['label-signup-placeholder-fullname'] = "Come ti chiami?";
+    $TEXT['label-signup-placeholder-password'] = "Inserisci la password";
+    $TEXT['label-signup-placeholder-email'] = "Indirizzo e-mail";
 
-    $TEXT['label-signup-error-username'] = "Invalid format. Only English characters and numbers. At least 5 characters"; //Некорректный формат. Только английские символы и цифры. Минимум 5 символов
-    $TEXT['label-signup-error-fullname'] = "Invalid format. At least 2 characters"; //Некорректный формат. Минимум 2 символа
-    $TEXT['label-signup-error-password'] = "Invalid format. English letters and numbers. At least 6 characters"; //Некорректный формат. Английские буквы и цифры. Минимум 6 символов
-    $TEXT['label-signup-error-email'] = "Invalid format"; //Некорректный формат.
+    $TEXT['label-signup-error-username'] = "Formato non valido. Solo caratteri e numeri. Almeno 5 caratteri"; 
+    $TEXT['label-signup-error-fullname'] = "Formato non valido. Almeno 2 caratteri"; 
+    $TEXT['label-signup-error-password'] = "Formato non valido. Solo caratteri e numeri. Almeno 6 caratteri"; 
+    $TEXT['label-signup-error-email'] = "Formato non valido"; 
 
     // Footer
 
-    $TEXT['label-footer-about'] = "About";
-    $TEXT['label-footer-terms'] = "Terms of Use";
+    $TEXT['label-footer-about'] = "Chi siamo";
+    $TEXT['label-footer-terms'] = "Termini e condizioni di utilizzo";
     $TEXT['label-footer-privacy'] = "Privacy policy";
-    $TEXT['label-footer-cookies'] = "Use of cookies";
-    $TEXT['label-footer-help'] = "Help";
-    $TEXT['label-footer-support'] = "Support";
+    $TEXT['label-footer-cookies'] = "Utilizzo dei cookies";
+    $TEXT['label-footer-help'] = "Aiuto";
+    $TEXT['label-footer-support'] = "Assistenza e supporto";
 
     // Topbar
 
     $TEXT['label-topbar-home'] = "Home";
-    $TEXT['label-topbar-main'] = "Main";
-    $TEXT['label-topbar-messages'] = "Messages";
-    $TEXT['label-topbar-notifications'] = "Notifications";
-    $TEXT['label-topbar-help'] = "Support";
-    $TEXT['label-topbar-search'] = "Search";
-    $TEXT['label-topbar-favorites'] = "Favorites";
+    $TEXT['label-topbar-main'] = "Home";
+    $TEXT['label-topbar-messages'] = "Messaggi";
+    $TEXT['label-topbar-notifications'] = "Notifiche";
+    $TEXT['label-topbar-help'] = "Assistenza e supporto";
+    $TEXT['label-topbar-search'] = "Cerca";
+    $TEXT['label-topbar-favorites'] = "Preferiti";
 
     // Actions
 
-    $TEXT['action-favorites-promo-button'] = "Search now!"; //Ищите сейчас!
-    $TEXT['action-new-classified'] = "Add Product";
-    $TEXT['action-stores'] = "Nigozi";
-    $TEXT['action-see-classified'] = "See products";
-    $TEXT['action-find'] = "Search";
-    $TEXT['action-see-all'] = "See all";
-    $TEXT['action-show'] = "Show";
-    $TEXT['action-yes'] = "Yes";
+    $TEXT['action-favorites-promo-button'] = "Inizia la tua ricerca di nuovi prodotti!"; 
+    $TEXT['action-new-classified'] = "Aggiungi un nuovo prodotto";
+    $TEXT['action-see-classified'] = "Visualizza prodotti";
+    $TEXT['action-find'] = "Cerca";
+    $TEXT['action-see-all'] = "Visualizza tutti";
+    $TEXT['action-show'] = "Mostra";
+    $TEXT['action-yes'] = "Si";
     $TEXT['action-no'] = "No";
-    $TEXT['action-sold'] = "Sold";
-    $TEXT['action-remove-forever'] = "Delete forever";
-    $TEXT['action-item-inactivate'] = "Make inactive";
-    $TEXT['action-item-activate'] = "Make active";
-    $TEXT['action-show-map'] = "Show on map";
+    $TEXT['action-sold'] = "Venduto";
+    $TEXT['action-remove-forever'] = "Cancella per sempre";
+    $TEXT['action-item-inactivate'] = "Disabilita";
+    $TEXT['action-item-activate'] = "Attiva";
+    $TEXT['action-show-map'] = "Mostra su mappa";
 
     // Error messages
 
-    $TEXT['msg-photo-file-size-exceeded'] = "File size exceeded";
-    $TEXT['msg-photo-file-size-error'] = "File size too large. Max: 3mb";
-    $TEXT['msg-photo-format-error'] = "Invalid image file format";
-    $TEXT['msg-photo-width-height-error'] = "Height and width should be more than 300 pixels";
-    $TEXT['msg-photo-file-upload-limit'] = "Exceeded file limit for upload";
-    $TEXT['msg-empty-fields'] = "All fields are required";
-    $TEXT['msg-ad-published'] = "Product successfully published."; //Объявление успешно опубликовано.
-    $TEXT['msg-ad-saved'] = "Changes saved successfully"; //Изменения успешно сохранены
-    $TEXT['msg-selected-location-error'] = "Location not specified or incorrect location selection";
-    $TEXT['msg-contact-promo'] = "Want to contact %s? Join now!"; // Хотите связаться с %s? Присоединяйтесь!
-    $TEXT['msg-publish-ad-promo'] = "Post your first Product!";
-    $TEXT['msg-empty-profile-items'] = "No products.";
-    $TEXT['msg-search-empty'] = "No results found for your query :("; //По вашему запросу ничего не найдено :(
-    $TEXT['msg-search-success'] = "Found %d products"; //Найдено %d объявлений
-    $TEXT['msg-search-all'] = "Found %d products"; //Найдено %d объявлений
-    $TEXT['msg-confirm-delete'] = "Are you sure you want to delete it?"; //Вы уверены, что хотите удалить это?
-    $TEXT['msg-feature-disabled'] = "This feature is currently disabled by the administrator. Sorry for temporary inconvenience. Please try again later.";
-    $TEXT['msg-block-user-text'] = "User %s will be added to your blacklist. You will not receive personal messages and other notifications from %s. Do you confirm your action?";
-    $TEXT['msg-unblock-user-text'] = "User %s will be removed from your blacklist. Do you confirm your action?";
-    $TEXT['msg-unblock-user-text-2'] = "User will be removed from your blacklist. Do you confirm your action?";
-    $TEXT['msg-item-success-removed'] = "Your Product has been successfully removed"; // Ваше объявление было успешно удалено
-    $TEXT['msg-item-success-inactivated'] = "Your Product has been successfully inactivated"; // Ваше объявление было успешно деактивировано
-    $TEXT['msg-favorites-added'] = "Added to favorites";
-    $TEXT['msg-favorites-removed'] = "Removed from your favorites";
+    $TEXT['msg-photo-file-size-exceeded'] = "Dimensione file superata";
+    $TEXT['msg-photo-file-size-error'] = "Dimensione file troppo grande (3mb Max.)";
+    $TEXT['msg-photo-format-error'] = "Formato file non valido";
+    $TEXT['msg-photo-width-height-error'] = "Altezza e larghezza devono essere maggiori di 300 pixels";
+    $TEXT['msg-photo-file-upload-limit'] = "Superato limite file caricabile";
+    $TEXT['msg-empty-fields'] = "E’ richiesto il completamento di tutti i campi";
+    $TEXT['msg-ad-published'] = "Il prodotto è stato pubblicato con successo."; 
+    $TEXT['msg-ad-saved'] = "Modifiche salvate con successo"; 
+    $TEXT['msg-selected-location-error'] = "Indirizzo non specificato o indirizzo incorretto";
+    $TEXT['msg-contact-promo'] = "Vuoi contattarci %s? Unisciti ora!"; 
+    $TEXT['msg-publish-ad-promo'] = "Pubblica il tuo primo prodotto!";
+    $TEXT['msg-empty-profile-items'] = "Non ci sono prodotti.";
+    $TEXT['msg-search-empty'] = "Non abbiamo trovato risultati per la tua ricerca :("; 
+    $TEXT['msg-search-success'] = "Trovati %d prodotti"; 
+    $TEXT['msg-search-all'] = "Trovati %d prodotti"; 
+    $TEXT['msg-confirm-delete'] = "Sei sicuro vuoi cancellarlo?"; 
+    $TEXT['msg-feature-disabled'] = "Questa funzione è temporaneamente disabilitata dall’amministratore . Ci scusiamo per il temporaneo inconveniente. Riprova più tardi.";
+    $TEXT['msg-block-user-text'] = "Utente %s sarà aggiunto alla tua black list. Non riceverai più notifiche o messaggi da %s. Confermi di volerlo inserire nella tua black list?";
+    $TEXT['msg-unblock-user-text'] = "Utente %s sarà rimosso dalla tua black list. Confermi di volerlo rimuovere dalla tua black list?";
+    $TEXT['msg-unblock-user-text-2'] = "L’utente sarà rimosso dalla tua black list. Confermi di volerlo rimuovere dalla tua black list?";
+    $TEXT['msg-item-success-removed'] = "Il tuo prodotto è stato eliminato con successo"; 
+    $TEXT['msg-item-success-inactivated'] = "Il tuo prodotto è stato disattivato con successo";
+    $TEXT['msg-favorites-added'] = "Aggiunto alla tua lista preferiti";
+    $TEXT['msg-favorites-removed'] = "Rimosso dalla tua lista preferiti";
 
-    $TEXT['msg-item-not-active'] = "Product Ad is not active.";
-    $TEXT['msg-item-make-active-promo'] = "To make this ad active - you need to edit it.";
-    $TEXT['msg-item-make-active-description'] = "Please make your ad correct. Enter the correct title, category, description and images.";
+    $TEXT['msg-item-not-active'] = "Il  prodotto non è attivo.";
+    $TEXT['msg-item-make-active-promo'] = "Per attivare il tuo prodotto devi modificarlo.";
+    $TEXT['msg-item-make-active-description'] = "Correggi il tuo annuncio. Inserisci il titolo, categoria, descrizione e immagine corretti.";
 
-    $TEXT['msg-confirm-inactive-title'] = "Product will be marked as \"Inactive\". Product will not appear in search and in your profile. Your phone number will be hidden in Product."; //Объявление будет отмечено как "Не активно". Объявление не будет отображатся в поиске и в вашем профиле. В объявлении будет скрыт номер Вашего телефона.
-    $TEXT['msg-confirm-inactive-hint'] = "You will be able to delete, edit and make this Product active again at any time."; //Вы будете иметь возможность в любое время удалить, отредактировать и сделать это объявление снова активным.
-    $TEXT['msg-confirm-inactive-subtitle'] = "Are you sure you want to do it?"; //Вы уверены, что хотите сделать это?
+        $TEXT['msg-confirm-inactive-hint'] = "Potrai cancellare, modificare o attivare nuovamente questo prodotto in ogni momento."; 
+    $TEXT['msg-confirm-inactive-subtitle'] = "Sei sicuro di volerlo fare?"; 
 
     // Info messages
 
-    $TEXT['page-notifications-empty-list'] = "You have no new notifications";
-    $TEXT['page-messages-empty-list'] = "You have no conversations yet";
-    $TEXT['page-classified-items-empty-list'] = "You have no active products";
-    $TEXT['page-empty-list'] = "List is empty";
-    $TEXT['page-blacklist-empty-list'] = "You do not have users in your blacklist";
-    $TEXT['page-favorites-empty-list'] = "You haven't added anything to your favorites yet";
+    $TEXT['page-notifications-empty-list'] = "Non ci sono nuove notifiche";
+    $TEXT['page-messages-empty-list'] = "Non ci sono conversazioni attive";
+    $TEXT['page-classified-items-empty-list'] = "Non hai ancora prodotti attivi";
+    $TEXT['page-empty-list'] = "La lista è vuota";
+    $TEXT['page-blacklist-empty-list'] = "La tua black list è vuota";
+    $TEXT['page-favorites-empty-list'] = "Non ci sono ancora prodotti nella tua lista preferiti";
 
     // Item View
 
-    $TEXT['page-item-view-title'] = "Product"; //Объявление
-    $TEXT['msg-item-not-found'] = "Product does not exist or has been deleted."; //Объявление не существует или было удалено.
+    $TEXT['page-item-view-title'] = "Prodotto"; 
+    $TEXT['msg-item-not-found'] = "Il prodotto non esiste o è stato cancellato."; 
 
     // Pages
 
-    $TEXT['page-about'] = "About";
-    $TEXT['page-terms'] = "Terms of Use";
+    $TEXT['page-about'] = "Chi siamo";
+    $TEXT['page-terms'] = "Termini e condizioni di utilizzo";
     $TEXT['page-privacy'] = "Privacy policy";
-    $TEXT['page-cookies'] = "Use of cookies";
-    $TEXT['page-gdpr'] = "GDPR (General Data Protection Regulation) Privacy Rights"; //GDPR (Общий регламент по защите данных)
-    $TEXT['page-support'] = "Support";
-    $TEXT['page-profile'] = "Profile";
-    $TEXT['page-favorites'] = "Favorites";
-    $TEXT['page-notifications'] = "Notifications";
-    $TEXT['page-messages'] = "Messages";
+    $TEXT['page-cookies'] = "Utilizzo dei cookies";
+    $TEXT['page-gdpr'] = "GDPR (General Data Protection Regulation) Diritti Privacy"; 
+    $TEXT['page-support'] = "Assistenza e supporto";
+    $TEXT['page-profile'] = "Profilo";
+    $TEXT['page-favorites'] = "Preferiti";
+    $TEXT['page-notifications'] = "Notifiche";
+    $TEXT['page-messages'] = "Messaggi";
     $TEXT['page-chat'] = "Chat";
-    $TEXT['page-items'] = "Products";
+    $TEXT['page-items'] = "Prodotti";
 
-    $TEXT['page-404'] = "Page not found"; //Страница не найдена
-    $TEXT['page-404-description'] = "Requested page not found"; //Запрашиваемая страница не найдена
+    $TEXT['page-404'] = "Pagina non trovata"; 
+    $TEXT['page-404-description'] = "Pagina richiesta non trovata"; 
 
-    $TEXT['page-under-construction'] = "Coming Soon"; //Скоро
-    $TEXT['page-under-construction-description'] = "Our website is currently undergoing scheduled maintenance. We Should be back shortly. Thank you for your patience."; //Наш веб-сайт в настоящее время проходит плановое техническое обслуживание. Мы должны вернуться в ближайшее время. Спасибо за терпеливость.
+    $TEXT['page-under-construction'] = "Coming Soon"; 
+    $TEXT['page-under-construction-description'] = "Stiamo eseguendo una manutenzione programmata alla piattaforma, tra poche ore tornerà operativa. Vi ringraziamo per l’attesa";
 
     // Support
 
-    $TEXT['label-support-subject'] = "Subject"; //Тема
-    $TEXT['label-support-details'] = "Details"; //Подробнее
-    $TEXT['label-support-email-placeholder'] = "Your Email"; //Ваш Email
-    $TEXT['label-support-subject-placeholder'] = "What do you want to report? Message subject."; //О чем хотите сообщить? Тема сообщения.
-    $TEXT['label-support-details-placeholder'] = "Describe problem in detail"; //Опишите проблему детально
-    $TEXT['label-support-sent-title'] = "Your request has been received"; //Ваш запрос получен
-    $TEXT['label-support-sent-msg'] = "In the near future, we will process your request and contact you if necessary."; //В ближайшее время мы обработает Ваш запрос и свяжемся с Вами, если это будет необходимо.
+    $TEXT['label-support-subject'] = "Oggetto";
+    $TEXT['label-support-details'] = "Dettagli"; 
+    $TEXT['label-support-email-placeholder'] = "La tua Email"; 
+    $TEXT['label-support-subject-placeholder'] = "Cosa vuoi segnalarci? Oggetto del messaggio."; 
+    $TEXT['label-support-details-placeholder'] = "Descrivi il tuo problema"; 
+    $TEXT['label-support-sent-title'] = "La tua richiesta è stata ricevuta e presa in carico dal team Simpletail"; 
+    $TEXT['label-support-sent-msg'] = "A breve riceverai una risposta dal nostro team di supporto."; 
 
     // Labels
 
-    $TEXT['placeholder-login-username'] = "Enter your login or email";
-    $TEXT['placeholder-login-password'] = "Enter your password";
+    $TEXT['placeholder-login-username'] = "Inserisci il tuo nome utente o il tuo indirizzo email";
+    $TEXT['placeholder-login-password'] = "Inserisci la tua password";
 
-    $TEXT['label-username-or-email'] = "Username or Email";
+    $TEXT['label-username-or-email'] = "Nome utente o email";
 
-    $TEXT['label-search-query'] = "Search text"; //Текст поиска
-    $TEXT['placeholder-search-query'] = "What are you looking for?"; //Что вы ищите?
-    $TEXT['label-all-categories'] = "All categories"; //Все категории
-    $TEXT['label-all-profile-items'] = "%d products"; // %d объявлений
-    $TEXT['label-cookie-message'] = "We use tools, such as \"cookies\", to enable essential services and functionality on our site and to collect data on how visitors interact with our site, products and services. By using the website, you agree with our ";
+    $TEXT['label-search-query'] = "Cerca"; 
+    $TEXT['placeholder-search-query'] = "Inizia la tua ricerca di nuovi prodotti!?"; 
+    $TEXT['label-all-categories'] = "Tutte le categorie"; 
+    $TEXT['label-all-profile-items'] = "%d prodotti"; 
+    $TEXT['label-cookie-message'] = "Usiamo strumenti, come \"cookies\", per permettere servizi essenziali volti ad aumentare la funzionalità del nostro sito e raccogliamo dati sull’interazione degli utenti nel nostro sito, oltre che di prodotti e servizi. Usando la nostra piattaforma accetti i nostri termini e condizioni di utilizzo";
 
-    $TEXT['label-filters'] = "Filters"; //
-    $TEXT['label-filters-all'] = "All"; //
-    $TEXT['label-filters-comments'] = "Comments"; //
+    $TEXT['label-filters'] = "Filtri"; //
+    $TEXT['label-filters-all'] = "Tutti"; //
+    $TEXT['label-filters-comments'] = "Commenti"; //
     $TEXT['label-filters-likes'] = "Likes"; //
-    $TEXT['label-filters-replies'] = "Replies"; //
-    $TEXT['label-filters-approved'] = "Approved"; //
-    $TEXT['label-filters-rejected'] = "Rejected"; //
+    $TEXT['label-filters-replies'] = "Risposte"; //
+    $TEXT['label-filters-approved'] = "Approvato"; //
+    $TEXT['label-filters-rejected'] = "Rifiutato"; //
 
-    $TEXT['label-search-filters-moderation-type'] = "Moderation";
-    $TEXT['label-search-filters-moderation-only'] = "Only verified by moderators";
-    $TEXT['label-search-filters-sort-type'] = "Sort";
-    $TEXT['label-search-filters-sort-by-new'] = "From new to old";
-    $TEXT['label-search-filters-sort-by-old'] = "From old to new";
 
-    $TEXT['label-search-filters-location-type'] = "Where to looking for?";
-    $TEXT['label-search-filters-location-type-all'] = "Everywhere";
-    $TEXT['label-search-filters-location-type-selected'] = "Selected location";
-    $TEXT['label-search-filters-distance-type'] = "Distance";
-    $TEXT['label-search-filters-distance-type-all'] = "Everywhere";
-    $TEXT['label-search-filters-distance-type-5'] = "5km";
-    $TEXT['label-search-filters-distance-type-15'] = "15km";
-    $TEXT['label-search-filters-distance-type-30'] = "30km";
-    $TEXT['label-search-filters-distance-type-50'] = "50km";
-    $TEXT['label-search-filters-distance-type-100'] = "100km";
-    $TEXT['label-search-filters-distance-type-300'] = "300km";
-    $TEXT['label-search-filters-distance-type-500'] = "500km";
-    $TEXT['label-search-filters-distance-type-700'] = "700km";
+    $TEXT['label-optional'] = "Opzionale";
+    $TEXT['label-detail'] = "Dettaglio";
 
-    $TEXT['label-optional'] = "optional";
-    $TEXT['label-detail'] = "detail";
+    $TEXT['label-just-now'] = "Adesso";
 
-    $TEXT['label-just-now'] = "just now";
-
-    $TEXT['label-item-approved'] = "Verified";
-    $TEXT['label-item-approved-title'] = "Verified by moderator";
+    $TEXT['label-item-approved'] = "Verificato";
+    $TEXT['label-item-approved-title'] = "Verified dall’amministratore";
     $TEXT['label-item-rejected'] = "Rejected";
-    $TEXT['label-item-rejected-title'] = "Rejected by moderator";
+    $TEXT['label-item-rejected-title'] = "Rejected dall’amministratore";
 
-    $TEXT['label-item-active'] = "Active";
-    $TEXT['label-item-inactive'] = "Inactive";
+    $TEXT['label-item-active'] = "Attivo";
+    $TEXT['label-item-inactive'] = "Non attivo";
     $TEXT['label-item-hot'] = "Hot";
-    $TEXT['label-item-popular'] = "Popular";
-    $TEXT['label-item-new'] = "New";
+    $TEXT['label-item-popular'] = "Di tendenza";
+    $TEXT['label-item-new'] = "Nuovo";
 
-    $TEXT['label-favorites-add'] = "Add to favorites";
-    $TEXT['label-favorites-remove'] = "Remove from favorites";
+    $TEXT['label-favorites-add'] = "Aggiungi ai preferiti";
+    $TEXT['label-favorites-remove'] = "Rimuovi dai preferiti";
 
-    $TEXT['label-notify-item'] = "Product";
-    $TEXT['label-notify-item-approved'] = "Your %s is approved by a moderator.";
-    $TEXT['label-notify-item-rejected'] = "Your %s has been rejected by moderator.";
+    $TEXT['label-notify-item'] = "Prodotto";
+    $TEXT['label-notify-item-approved'] = "Il tuo %s è  stato approvato dall’amministratore.";
+    $TEXT['label-notify-item-rejected'] = "il tuo %s è stato rifiutato dall’amministratore.";
 
-    $TEXT['label-safety-tips-title'] = "Safety Tips for Buyers";
+    $TEXT['label-safety-tips-title'] = "Consigli per i Negozi";
     $TEXT['label-safety-tips-1'] = "Do not send money before receiving the goods";
     $TEXT['label-safety-tips-2'] = "Check the item before you buy";
     $TEXT['label-safety-tips-3'] = "Payment after receiving and check the goods";
@@ -1002,79 +939,82 @@
     $TEXT['label-created-by-android-app'] = "Posted from Android app";
     $TEXT['label-created-by-ios-app'] = "Posted from iOS app";
 
-    $TEXT['label-item-stats'] = "Statistics";
-    $TEXT['label-item-stats-views'] = "Views";
+    $TEXT['label-item-stats'] = "Statistiche";
+    $TEXT['label-item-stats-views'] = "Visualizzazioni";
     $TEXT['label-item-stats-likes'] = "Likes";
-    $TEXT['label-item-stats-favorites'] = "Added to favorites";
-    $TEXT['label-item-stats-phone-views'] = "Phone number views";
+    $TEXT['label-item-stats-favorites'] = "Aggiunto ai preferiti";
+    $TEXT['label-item-stats-phone-views'] = "Visualizzazioni numero di telefono";
 
-    $TEXT['label-item-disclaimer-title'] = "General Details";
-    $TEXT['label-item-disclaimer-desc'] = "If you need some extra info of the product, you can send a message to the product manufacturer / distributor, clicking on the envelope icon.";
+    $TEXT['label-item-disclaimer-title'] = "Informazioni generali";
+    $TEXT['label-item-disclaimer-desc'] = "Se hai bisogno di informazioni aggiuntive sul prodotto, puoi mandare un messaggio al produttore/distributore cliccando sull icona a forma di busta";
 
-    $TEXT['label-items-related'] = "Related products";
-    $TEXT['label-items-more-from-author'] = "More from %s";
-    $TEXT['label-items-latest'] = "Latest products";
-    $TEXT['label-items-featured'] = "Feature products";
-    $TEXT['label-items-popular'] = "Popular products";
+    $TEXT['label-items-related'] = "Prodotti correlati";
+    $TEXT['label-items-more-from-author'] = "Più da %s";
+    $TEXT['label-items-latest'] = "Prodotti pubblicati di recente";
+    $TEXT['label-items-featured'] = "Caratteristiche di prodotto";
+    $TEXT['label-items-popular'] = "Prodotti di tendenza";
 
     // Settings
 
-    $TEXT['page-settings'] = "Settings";
-    $TEXT['page-settings-account'] = "Settings";
-    $TEXT['page-settings-profile'] = "Profile";
+    $TEXT['page-settings'] = "Impostazioni";
+    $TEXT['page-settings-account'] = "Impostazioni";
+    $TEXT['page-settings-profile'] = "Profilo";
     $TEXT['page-settings-privacy'] = "Privacy";
-    $TEXT['page-settings-password'] = "Change password";
+    $TEXT['page-settings-password'] = "Cambia password";
     $TEXT['page-settings-blacklist'] = "Blacklist";
     $TEXT['page-settings-connections'] = "Social networks";
-    $TEXT['page-settings-deactivation'] = "Deactivate account";
+    $TEXT['page-settings-deactivation'] = "Elimina account";
 
-    $TEXT['label-privacy-messages'] = "Messages";
-    $TEXT['label-privacy-allow-messages'] = "Receive messages";
+    $TEXT['label-privacy-messages'] = "Messaggi";
+    $TEXT['label-privacy-allow-messages'] = "Ricevi messaggi";
 
-    $TEXT['label-sex'] = "Sex";
-    $TEXT['label-sex-unknown'] = "Not specified";
-    $TEXT['label-sex-male'] = "Male";
-    $TEXT['label-sex-female'] = "Female";
+    $TEXT['label-sex'] = "Sesso";
+    $TEXT['label-sex-unknown'] = "Non specificato";
+    $TEXT['label-sex-male'] = "Maschio";
+    $TEXT['label-sex-female'] = "Femmina";
 
-    $TEXT['label-bio'] = "Bio";
-    $TEXT['label-phone-number'] = "Phone number";
-    $TEXT['placeholder-phone-number'] = "Phone number, example: +15417543010";
+    $TEXT['label-bio'] = "Inserisci una breve descrizione della tua azienda";
+    $TEXT['label-phone-number'] = "Numero di telefono";
+    $TEXT['placeholder-phone-number'] = "Numero di telefono, esempio: +15417543010";
 
 
-    $TEXT['placeholder-bio'] = "Tell us a little about yourself";
-    $TEXT['placeholder-facebook-page'] = "Link to Facebook page";
-    $TEXT['placeholder-instagram-page'] = "Link to Instagram page";
+    $TEXT['placeholder-bio'] = "Descrivi brevemente la tua azienda";
+    $TEXT['placeholder-facebook-page'] = "Link alla pagina Facebook";
+    $TEXT['placeholder-instagram-page'] = "Link alla pagina instagram";
 
-    $TEXT['action-deactivate'] = "Deactivate";
+    $TEXT['action-deactivate'] = "Disattiva";
     $TEXT['label-password'] = "Password";
-    $TEXT['placeholder-password-current'] = "Current password";
-    $TEXT['label-password-current'] = "Current password";
-    $TEXT['label-password-new'] = "New password";
-    $TEXT['placeholder-password-new'] = "New password";
+    $TEXT['placeholder-password-current'] = "Password attuale";
+    $TEXT['label-password-current'] = "Password attuale";
+    $TEXT['label-password-new'] = "Nuova password";
+    $TEXT['placeholder-password-new'] = "Nuova password";
 
-    $TEXT['msg-deactivation-promo'] = "<strong>Warning!</strong><br>All your data, photos, messages and profile will be deleted! You cannot recover this data!";
-    $TEXT['msg-deactivation-error'] = "Wrong password.";
+    $TEXT['msg-deactivation-promo'] = "<strong>Warning!</strong><br>Tutti i dati legati al prfilo verranno eliminati. Non potrai più recuperare tali dati dalla piattaforma";
 
-    $TEXT['msg-settings-saved'] = "Settings saved.";
-    $TEXT['msg-password-saved'] = "Password successfully changed.";
+    $TEXT['msg-deactivation-error'] = "Password non corretta.";
 
-    $TEXT['msg-password-new-format-error'] = "Password not changed, wrong format for new password.";
-    $TEXT['msg-password-current-format-error'] = "Password not changed, wrong format for current password.";
-    $TEXT['msg-password-current-error'] = "Password not changed, wrong current password.";
+    $TEXT['msg-settings-saved'] = "Impostazioni salvate.";
+    $TEXT['msg-password-saved'] = "Password aggiornata con successo.";
+
+    $TEXT['msg-password-new-format-error'] = "Password non modificata, formato non corretto della nuova password.";
+    $TEXT['msg-password-current-format-error'] = "Password non modificata, formato non corretto della password attuale.";
+    $TEXT['msg-password-current-error'] = "Password non modificata, Password attuale non corretta";
 
     // Dialogs
 
-    $TEXT['dlg-confirm-block-title'] = "Block user"; //Заблокировать пользователя
-    $TEXT['dlg-confirm-unblock-title'] = "Unblock user"; //Разблокировать пользователя
-    $TEXT['dlg-confirm-action-title'] = "Confirm action";
+    $TEXT['dlg-confirm-block-title'] = "Blocca utente";
+    $TEXT['dlg-confirm-unblock-title'] = "Sblocca utente"; 
+    $TEXT['dlg-confirm-action-title'] = "Conferma azione";
     $TEXT['dlg-item-title'] = "Item";
-    $TEXT['dlg-message-title'] = "Message";
-    $TEXT['dlg-message-placeholder'] = "Enter your message...";
-    $TEXT['dlg-report-profile-title'] = "Report item";
+    $TEXT['dlg-message-title'] = "Messaggio";
+    $TEXT['dlg-message-placeholder'] = "Inserisci messaggio...";
+    $TEXT['dlg-report-profile-title'] = "Segnala Item";
     $TEXT['dlg-report-item-title'] = "Report";
-    $TEXT['dlg-report-sub-title'] = "Reason for your complaint";
-    $TEXT['dlg-report-description-label'] = "Description";
-    $TEXT['dlg-report-description-placeholder'] = "You can describe in detail the reason for the complaint...";
+    $TEXT['dlg-report-sub-title'] = "Motivo del tuo reclamo";
+    $TEXT['dlg-report-description-label'] = "Descrizione";
+    $TEXT['dlg-report-description-placeholder'] = "Descrivi nel dettaglio il motivo del tuo reclamo..";
+
+
 
     // Social connections
 
@@ -1085,9 +1025,9 @@
 
     //
 
-    $TEXT['label-currency-choose'] = "Choose a currency";
-    $TEXT['label-currency-free'] = "Free";
-    $TEXT['label-currency-negotiable'] = "Price negotiable";
+    $TEXT['label-currency-choose'] = "Seleziona una valuta";
+    $TEXT['label-currency-free'] = "Libero";
+    $TEXT['label-currency-negotiable'] = "Prezzo negoziabile";
 
 
     // New Content By Kendry
@@ -1162,6 +1102,78 @@ search for new brands";
 
     $TEXT['label-all-stores'] = "List Stores";
     $TEXT['msg-stores-empty'] = "There are no stores registered :(";
+
+
+
+    //desde 808 en italiano
+
+    
+    $TEXT['label-type-user'] = "Tipologia di utente";
+    $TEXT['label-type-user-option-value-1'] = "MARCHIO";
+    $TEXT['label-type-user-option-text-1'] = "Marchio";
+    $TEXT['label-type-user-option-value-2'] = "Negozio";
+    $TEXT['label-type-user-option-text-2'] = "Negozio";
+    $TEXT['label-signup-tooltip-type-user'] = "Seleziona se sei un Marchio o un Negozio.";
+    $TEXT['label-fullname-brand'] = "Nome del marchio";
+    $TEXT['label-signup-tooltip-fullname-brand'] = "The brand's real name";
+    $TEXT['label-signup-placeholder-fullname-brand'] = "Qual è il nome del tuo marchio?";
+
+    $TEXT['label-fullname-store'] = "Nome dell’azienda";
+    $TEXT['label-signup-tooltip-fullname-store'] = "The company's real name";
+    $TEXT['label-signup-placeholder-fullname-store'] = "Qual è il nome della tua azienda";
+
+    $TEXT['label-country-brand'] = "Paese d’origine del marchio";
+    $TEXT['label-signup-tooltip-country-brand'] = "Qual è il paese d’origine del tuo marchio?";
+    $TEXT['label-country-store'] = "Paese d’origine dell’azienda";
+    $TEXT['label-signup-tooltip-country-store'] = "Qual è il paese d’origine della tua azienda?";
+    $TEXT['select-country'] = "Seleziona un Paese";
+    $TEXT['label-date-incorporation'] = "Anno di costituzione della tua azienda";
+    $TEXT['label-category-brand'] = "Categoria Marchio";
+    $TEXT['label-category-store'] = "Categoria Azienda";
+    $TEXT['label-attributes-brand'] = "Inserisci gli attributi che meglio descrivono il tuo marchio (fino a 5 keywords)";
+    $TEXT['label-address-company'] = "Indirizzo azienda";
+    $TEXT['label-annual-turnover'] = "Range fatturato annuale";
+    $TEXT['label-type-business'] = "Tipologia business";
+    $TEXT['label-content-related'] = "Inserisci dei contenuti relativi al tuo marchio ";
+    $TEXT['label-number-stores'] = "Numero di punti vendita";
+    $TEXT['label-type-business'] = "Tipologia di business";
+    $TEXT['label-website-company'] = "Website negozio/i";
+    $TEXT['label-address-store'] = "Indirizzo/i Negozio/i";
+    $TEXT['label-cities-stores'] = "Inserisci le città dove sono ubicati i tuoi negozi";
+    $TEXT['label-attributes-essentials'] = "Inserisci gli attributi che ritieni essenziali nella ricerca di nuovi prodotti";
+
+
+
+
+
+    // ADD product
+
+    $TEXT['label-ad-country'] = "Paese d’origine";
+    $TEXT['label-ad-incoTerms'] = "Incoterms/Resa";
+    $TEXT['label-external-shipping-packing'] = "Dimensioni packaging esterno";
+    $TEXT['label-internal-shipping-packing-detail'] = "Descrizione packaging interno ";
+    $TEXT['placeholder-internal-shipping-packing-detail'] = "Descrizione packaging interno (inserire la tipologia del packaging e del materiale, esempio: scatola in cartone)";
+    $TEXT['label-external-shipping-packing-detail'] = "Descrizione packaging esterno s";
+    $TEXT['placeholder-external-shipping-packing-detail'] = "Descrizione packaging esterno (inserire la tipologia del packaging e del materiale, esempio: scatola in cartone)";
+    $TEXT['label-external-shipping-packing-grs'] = "Peso prodotto completo (packaging + prodotto) in grammi";
+    $TEXT['label-quantity-pieces-per-references'] = "Quantità di pezzi a referenza";
+    $TEXT['label-ean-code'] = "Codice EAN";
+    $TEXT['label-classified-certifications'] = "Certificazioni di prodotto";
+    $TEXT['label-classified-availability'] = "Disponibilità di prodotto";
+    $TEXT['label-ingredients'] = "Ingredienti";
+    $TEXT['label-keywords'] = "Parole chiave/Attributi che rendono il tuo prodotto distintivo";
+    $TEXT['label-unit-measure'] = "Unità di misura";
+    $TEXT['label-pdf-document'] = "Documento in PDF";
+
+
+    $TEXT['label-search-by'] = "Cerca per";
+    $TEXT['option-classified-name'] = "Nome prodotto";
+    $TEXT['option-keywords'] = "Parole chiave";
+    $TEXT['option-country-brand'] = "Paese d’origine del marchio";
+    $TEXT['option-range-prices'] = "Range di prezzo";
+    $TEXT['action-stores'] = "Nigozi";
+    $TEXT['text-see-pdf'] = "Vedi documento PDF";
+
 
 
 

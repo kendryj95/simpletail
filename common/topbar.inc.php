@@ -227,7 +227,7 @@ if (isset($_COOKIE['search-filters-visible'])) {
     $filters_visible = 1;
 }
 
-if (isset($page_id) && $page_id !== "main" && $page_id !== "login" && $page_id !== "signup" && (!auth::isSession() || auth::getTypeuser() === "STORE")) {
+if (isset($page_id) && $page_id !== "main" && $page_id !== "login" && $page_id !== "signup" && (!auth::isSession() || auth::getTypeuser() === "STORE") && auth::getCurrentUserVerified()) {
 
     ?>
 

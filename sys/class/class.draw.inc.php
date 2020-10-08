@@ -91,10 +91,12 @@ class draw extends db_connect
 
 		<div class="<?php echo $css_style; ?> list-view-item grid-item" data-id="<?php echo $item['id']; ?>">
 			<div class="card" data-id="<?php echo $item['id']; ?>">
-					<div class="card-img-top-wrapper d-flex justify-content-center">
-						<div class="loader"><i class="ic icon-spin icon-spin"></i></div>
-						<div class="card-img-top" style="background-image: url(<?php echo $item['normalPhotoUrl']; ?>);"></div>
-					</div>
+                <a href="#" class="item-image">
+                    <div class="card-img-top-wrapper d-flex justify-content-center">
+                        <div class="loader"><i class="ic icon-spin icon-spin"></i></div>
+                        <div class="card-img-top" style="background-image: url(<?php echo $item['normalPhotoUrl']; ?>);"></div>
+                    </div>
+                </a>
 
 
 				<div class="card-body d-flex flex-column">

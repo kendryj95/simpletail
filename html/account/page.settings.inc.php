@@ -188,6 +188,18 @@
 				}
 			}
 
+			if (isset($_FILES['pdf_document'])) {
+
+			    $currentFile = $account->getPdfDocument();
+			    if ($currentFile) {
+			        if (file_exists($currentFile)) unlink($currentFile);
+                }
+                $ext = pathinfo($_FILES['pdf_document']['name'], PATHINFO_EXTENSION);
+                $new_file_name = TEMP_PATH."pdf/".sha1_file($_FILES['pdf_document']['tmp_name']).".".$ext;
+                @move_uploaded_file($_FILES['pdf_document']['tmp_name'], $new_file_name);
+                $account->setPdfDocument($new_file_name);
+            }
+
 			header("Location: /account/settings?error=false");
 			exit;
 		}
@@ -314,7 +326,7 @@
 
                                         <?php endif ?>
 
-										<form id="profile-form" class="form-horizontal" action="/account/settings" method="post">
+										<form id="profile-form" class="form-horizontal" action="/account/settings" method="post" enctype="multipart/form-data">
 
 											<input autocomplete="off" type="hidden" name="authenticity_token" value="<?php echo auth::getAuthenticityToken(); ?>">
 
@@ -367,12 +379,11 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="form-label" for="type_business"><?php echo $LANG['label-type-business'] ?></label>
-                                                <select name="type_business" id="type_business"
-                                                        class="form-control">
-                                                    <option value="Manufacturer" <?php if ($accountInfo['type_business'] == "Manufacturer"): ?> selected <?php  endif ?>>Manufacturer</option>
-                                                    <option value="Distributor" <?php if ($accountInfo['type_business'] == "Distributor"): ?> selected <?php  endif ?>>Distributor</option>
-                                                </select>
+                                                <label class="form-label d-inline-block" for="type_business"><?php echo $LANG['label-pdf-document'] ?></label>
+                                                <?php if ($accountInfo['pdf_document'] != ""): ?>
+                                                    <a class="text-muted-dark" href="<?= APP_URL.'/'.$accountInfo['pdf_document'] ?>" target="_blank"><i class="fa fa-eye"></i></a>
+                                                <?php endif ?>
+                                                <input type="file" name="pdf_document" id="pdf_document" accept="application/pdf" class="form-control">
 
                                                 <div class="help-block"></div>
                                             </div>

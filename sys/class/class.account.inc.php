@@ -90,6 +90,7 @@ class account extends db_connect
                     "instagram_page" => stripcslashes($row['my_page']),
                     "website" => stripcslashes($row['website']),
                     "dateIncorporation" => $row['dateIncorporation'],
+                    "pdf_document" => $row['pdf_document'],
                     "category_id" => $row['category_id'],
                     "attributes" => $row['attributes'],
                     "cities_stores" => $row['cities_stores'],
@@ -139,18 +140,18 @@ class account extends db_connect
     {
 
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN,
-                        "error_type" => 0,
-                        "error_description" => "");
+            "error_code" => ERROR_UNKNOWN,
+            "error_type" => 0,
+            "error_description" => "");
 
         $helper = new helper($this->db);
 
         if (!helper::isCorrectLogin($username)) {
 
             $result = array("error" => true,
-                            "error_code" => ERROR_UNKNOWN,
-                            "error_type" => 0,
-                            "error_description" => "Incorrect login");
+                "error_code" => ERROR_UNKNOWN,
+                "error_type" => 0,
+                "error_description" => "Incorrect login");
 
             return $result;
         }
@@ -158,9 +159,9 @@ class account extends db_connect
         if ($helper->isLoginExists($username)) {
 
             $result = array("error" => true,
-                            "error_code" => ERROR_LOGIN_TAKEN,
-                            "error_type" => 0,
-                            "error_description" => "Login already taken");
+                "error_code" => ERROR_LOGIN_TAKEN,
+                "error_type" => 0,
+                "error_description" => "Login already taken");
 
             return $result;
         }
@@ -168,9 +169,9 @@ class account extends db_connect
         if (empty($fullname)) {
 
             $result = array("error" => true,
-                            "error_code" => ERROR_UNKNOWN,
-                            "error_type" => 3,
-                            "error_description" => "Empty user full name");
+                "error_code" => ERROR_UNKNOWN,
+                "error_type" => 3,
+                "error_description" => "Empty user full name");
 
             return $result;
         }
@@ -178,9 +179,9 @@ class account extends db_connect
         if (!helper::isCorrectPassword($password)) {
 
             $result = array("error" => true,
-                            "error_code" => ERROR_UNKNOWN,
-                            "error_type" => 1,
-                            "error_description" => "Incorrect password");
+                "error_code" => ERROR_UNKNOWN,
+                "error_type" => 1,
+                "error_description" => "Incorrect password");
 
             return $result;
         }
@@ -188,9 +189,9 @@ class account extends db_connect
         if (!helper::isCorrectEmail($email)) {
 
             $result = array("error" => true,
-                            "error_code" => ERROR_UNKNOWN,
-                            "error_type" => 2,
-                            "error_description" => "Wrong email");
+                "error_code" => ERROR_UNKNOWN,
+                "error_type" => 2,
+                "error_description" => "Wrong email");
 
             return $result;
         }
@@ -198,9 +199,9 @@ class account extends db_connect
         if ($helper->isEmailExists($email)) {
 
             $result = array("error" => true,
-                            "error_code" => ERROR_EMAIL_TAKEN,
-                            "error_type" => 2,
-                            "error_description" => "User with this email is already registered");
+                "error_code" => ERROR_EMAIL_TAKEN,
+                "error_type" => 2,
+                "error_description" => "User with this email is already registered");
 
             return $result;
         }
@@ -216,7 +217,7 @@ class account extends db_connect
         }
 
         $salt = helper::generateSalt(3);
-        $passw_hash = md5(md5($password).$salt);
+        $passw_hash = md5(md5($password) . $salt);
         $currentTime = time();
 
         $ip_addr = helper::ip_addr();
@@ -249,11 +250,11 @@ class account extends db_connect
             $this->setLanguage("en");
 
             $result = array("error" => false,
-                            'accountId' => $this->id,
-                            'username' => $username,
-                            'password' => $password,
-                            'error_code' => ERROR_SUCCESS,
-                            'error_description' => 'SignUp Success!');
+                'accountId' => $this->id,
+                'username' => $username,
+                'password' => $password,
+                'error_code' => ERROR_SUCCESS,
+                'error_description' => 'SignUp Success!');
 
             return $result;
         }
@@ -264,7 +265,7 @@ class account extends db_connect
     public function signin($username, $password)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $username = helper::clearText($username);
         $password = helper::clearText($password);
@@ -276,7 +277,7 @@ class account extends db_connect
         if ($stmt->rowCount() > 0) {
 
             $row = $stmt->fetch();
-            $passw_hash = md5(md5($password).$row['salt']);
+            $passw_hash = md5(md5($password) . $row['salt']);
 
             $stmt2 = $this->db->prepare("SELECT id, state, login, fullname, lowPhotoUrl, verify, last_notify_view, typeuser FROM users WHERE (login = (:username) OR email = (:username)) AND passw = (:password) LIMIT 1");
             $stmt2->bindParam(":username", $username, PDO::PARAM_STR);
@@ -288,18 +289,18 @@ class account extends db_connect
                 $row2 = $stmt2->fetch();
 
                 $result = array("error" => false,
-                                "error_code" => ERROR_SUCCESS,
-                                "id" => $row2['id'],
-                                "accountId" => $row2['id'],
-                                "state" => $row2['state'],
-                                "login" => $row2['login'],
-                                "username" => $row2['login'],
-                                "fullname" => $row2['fullname'],
-                                "photoUrl" => $row2['lowPhotoUrl'],
-                                "verify" => $row2['verify'],
-                                "verified" => $row2['verify'],
-                                "typeuser" => $row2['typeuser'],
-                                "lastNotifyView" => $row2['last_notify_view']);
+                    "error_code" => ERROR_SUCCESS,
+                    "id" => $row2['id'],
+                    "accountId" => $row2['id'],
+                    "state" => $row2['state'],
+                    "login" => $row2['login'],
+                    "username" => $row2['login'],
+                    "fullname" => $row2['fullname'],
+                    "photoUrl" => $row2['lowPhotoUrl'],
+                    "verify" => $row2['verify'],
+                    "verified" => $row2['verify'],
+                    "typeuser" => $row2['typeuser'],
+                    "lastNotifyView" => $row2['last_notify_view']);
             }
         }
 
@@ -341,7 +342,7 @@ class account extends db_connect
     public function setPassword($password, $newPassword)
     {
         $result = array('error' => true,
-                        'error_code' => ERROR_UNKNOWN);
+            'error_code' => ERROR_UNKNOWN);
 
         if (!helper::isCorrectPassword($password)) {
 
@@ -360,7 +361,7 @@ class account extends db_connect
         if ($stmt->rowCount() > 0) {
 
             $row = $stmt->fetch();
-            $passw_hash = md5(md5($password).$row['salt']);
+            $passw_hash = md5(md5($password) . $row['salt']);
 
             $stmt2 = $this->db->prepare("SELECT id FROM users WHERE id = (:accountId) AND passw = (:password) LIMIT 1");
             $stmt2->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -372,7 +373,7 @@ class account extends db_connect
                 $this->newPassword($newPassword);
 
                 $result = array("error" => false,
-                                "error_code" => ERROR_SUCCESS);
+                    "error_code" => ERROR_SUCCESS);
             }
         }
 
@@ -382,7 +383,7 @@ class account extends db_connect
     public function newPassword($password)
     {
         $newSalt = helper::generateSalt(3);
-        $newHash = md5(md5($password).$newSalt);
+        $newHash = md5(md5($password) . $newSalt);
 
         $stmt = $this->db->prepare("UPDATE users SET passw = (:newHash), salt = (:newSalt) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -394,7 +395,7 @@ class account extends db_connect
     public function setPhoneNumber($phone_number)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET phone = (:phone) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -403,7 +404,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -427,7 +428,7 @@ class account extends db_connect
     public function setSex($sex)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET sex = (:sex) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -436,7 +437,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -460,7 +461,7 @@ class account extends db_connect
     public function setBirth($year, $month, $day)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET bYear = (:bYear), bMonth = (:bMonth), bDay = (:bDay) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -471,7 +472,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -480,7 +481,7 @@ class account extends db_connect
     public function setDateIncorporation($date)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET dateIncorporation = :dateIncorporation WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -489,7 +490,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -498,7 +499,7 @@ class account extends db_connect
     public function setAdmob($admob)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET admob = (:mode) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -507,7 +508,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -531,7 +532,7 @@ class account extends db_connect
     public function setGhost($ghost)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET ghost = (:ghost) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -540,7 +541,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -564,7 +565,7 @@ class account extends db_connect
     public function setFacebookId($fb_id)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $fb_id_hash = "";
 
@@ -581,7 +582,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -590,7 +591,7 @@ class account extends db_connect
     public function setFacebookPage($fb_page)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET fb_page = (:fb_page) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -599,7 +600,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -623,7 +624,7 @@ class account extends db_connect
     public function setInstagramPage($instagram_page)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET my_page = (:my_page) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -632,7 +633,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -653,10 +654,44 @@ class account extends db_connect
         return '';
     }
 
+    public function getPdfDocument()
+    {
+        $stmt = $this->db->prepare("SELECT pdf_document FROM users WHERE id = (:accountId) LIMIT 1");
+        $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+
+            $row = $stmt->fetch();
+
+            return $row['pdf_document'];
+        }
+
+        return '';
+    }
+
+    public function setPdfDocument($file)
+    {
+        $result = array("error" => true,
+            "error_code" => ERROR_UNKNOWN);
+
+        $stmt = $this->db->prepare("UPDATE users SET pdf_document = (:file) WHERE id = (:accountId)");
+        $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(":file", $file, PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+
+            $result = array('error' => false,
+                'error_code' => ERROR_SUCCESS);
+        }
+
+        return $result;
+    }
+
+
     public function setEmail($email)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $helper = new helper($this->db);
 
@@ -677,7 +712,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -701,7 +736,7 @@ class account extends db_connect
     public function setUsername($username)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $helper = new helper($this->db);
 
@@ -722,7 +757,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -746,7 +781,7 @@ class account extends db_connect
     public function setLocation($location)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET country = (:country) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -755,7 +790,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -764,7 +799,7 @@ class account extends db_connect
     public function setCategory($category_id)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET category_id = (:category_id) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -773,7 +808,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -782,7 +817,7 @@ class account extends db_connect
     public function setAttributes($attributes)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET attributes = (:attributes) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -791,7 +826,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -800,7 +835,7 @@ class account extends db_connect
     public function setAddress($address)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET address = (:address) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -809,7 +844,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -818,7 +853,7 @@ class account extends db_connect
     public function setAnnualTurnover($annual_turnover)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET annual_turnover = (:annual_turnover) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -827,7 +862,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -836,7 +871,7 @@ class account extends db_connect
     public function setTypeBusiness($type_business)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET type_business = (:type_business) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -845,7 +880,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -854,7 +889,7 @@ class account extends db_connect
     public function setUrlCompany($url_content_company)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET url_content_company = (:url_content_company) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -863,7 +898,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -872,7 +907,7 @@ class account extends db_connect
     public function setNumberStores($number_stores)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET number_stores = (:number_stores) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -881,7 +916,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -890,7 +925,7 @@ class account extends db_connect
     public function setCitiesStores($cities_stores)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET cities_stores = (:cities_stores) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -899,7 +934,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -908,7 +943,7 @@ class account extends db_connect
     public function setWebsite($website)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET website = (:website) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -917,7 +952,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -941,7 +976,7 @@ class account extends db_connect
     public function setGeoLocation($lat, $lng)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET lat = (:lat), lng = (:lng) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -951,7 +986,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -960,7 +995,7 @@ class account extends db_connect
     public function getGeoLocation()
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("SELECT lat, lng FROM users WHERE id = (:accountId) LIMIT 1");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -970,9 +1005,9 @@ class account extends db_connect
             $row = $stmt->fetch();
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS,
-                            'lat' => $row['lat'],
-                            'lng' => $row['lng']);
+                'error_code' => ERROR_SUCCESS,
+                'lat' => $row['lat'],
+                'lng' => $row['lng']);
         }
 
         return $result;
@@ -981,7 +1016,7 @@ class account extends db_connect
     public function setBio($bio)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET status = (:status) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -990,7 +1025,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -1014,7 +1049,7 @@ class account extends db_connect
     public function restorePointCreate($email, $clientId)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $restorePointInfo = $this->restorePointInfo();
 
@@ -1023,7 +1058,7 @@ class account extends db_connect
             return $restorePointInfo;
         }
 
-        $currentTime = time();	// Current time
+        $currentTime = time();    // Current time
 
         $u_agent = helper::u_agent();
         $ip_addr = helper::ip_addr();
@@ -1042,10 +1077,10 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS,
-                            'accountId' => $this->id,
-                            'hash' => $hash,
-                            'email' => $email);
+                'error_code' => ERROR_SUCCESS,
+                'accountId' => $this->id,
+                'hash' => $hash,
+                'email' => $email);
         }
 
         return $result;
@@ -1054,7 +1089,7 @@ class account extends db_connect
     public function restorePointInfo()
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("SELECT * FROM restore_data WHERE accountId = (:accountId) AND removeAt = 0 LIMIT 1");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -1065,10 +1100,10 @@ class account extends db_connect
             $row = $stmt->fetch();
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS,
-                            'accountId' => $row['accountId'],
-                            'hash' => $row['hash'],
-                            'email' => $row['email']);
+                'error_code' => ERROR_SUCCESS,
+                'accountId' => $row['accountId'],
+                'hash' => $row['hash'],
+                'email' => $row['email']);
         }
 
         return $result;
@@ -1077,7 +1112,7 @@ class account extends db_connect
     public function restorePointRemove()
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $removeAt = time();
 
@@ -1088,7 +1123,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array("error" => false,
-                            "error_code" => ERROR_SUCCESS);
+                "error_code" => ERROR_SUCCESS);
         }
 
         return $result;
@@ -1098,7 +1133,7 @@ class account extends db_connect
     {
 
         $result = array('error' => true,
-                        'error_code' => ERROR_UNKNOWN);
+            'error_code' => ERROR_UNKNOWN);
 
         if (!helper::isCorrectPassword($password)) {
 
@@ -1134,7 +1169,7 @@ class account extends db_connect
                     "normalCoverUrl" => ""));
 
                 $result = array("error" => false,
-                                "error_code" => ERROR_SUCCESS);
+                    "error_code" => ERROR_SUCCESS);
             }
         }
 
@@ -1144,7 +1179,7 @@ class account extends db_connect
     public function setLanguage($language)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET language = (:language) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -1153,7 +1188,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array("error" => false,
-                            "error_code" => ERROR_SUCCESS);
+                "error_code" => ERROR_SUCCESS);
         }
 
         return $result;
@@ -1177,7 +1212,7 @@ class account extends db_connect
     public function setVerified($verified)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET verify = (:verified) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -1186,7 +1221,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -1209,7 +1244,7 @@ class account extends db_connect
     public function setBalance($balance)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET balance = (:balance) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -1218,7 +1253,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;
@@ -1343,7 +1378,7 @@ class account extends db_connect
     public function setItemsCount($itemsCount)
     {
         $result = array("error" => true,
-                        "error_code" => ERROR_UNKNOWN);
+            "error_code" => ERROR_UNKNOWN);
 
         $stmt = $this->db->prepare("UPDATE users SET items_count = (:items_count) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
@@ -1352,7 +1387,7 @@ class account extends db_connect
         if ($stmt->execute()) {
 
             $result = array('error' => false,
-                            'error_code' => ERROR_SUCCESS);
+                'error_code' => ERROR_SUCCESS);
         }
 
         return $result;

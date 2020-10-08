@@ -156,6 +156,7 @@ class profile extends db_connect
             "category" => stripcslashes($row['category']),
             "annual_turnover" => $row['annual_turnover'],
             "verify" => $row['verify'],
+            "pdf_document" => $row['pdf_document'],
             "verified" => $row['verify'],
             "number_stores" => $row['number_stores'],
             "lat" => $row['lat'],

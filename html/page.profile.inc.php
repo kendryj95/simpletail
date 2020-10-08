@@ -430,6 +430,15 @@
                                                                 </div>
                                                             </div>
 
+                                                            <?php if ($profileInfo['pdf_document'] != ""): ?>
+                                                                <div class="addon-line d-flex align-content-center flex-column flex-sm-row">
+                                                                    <div class="user-link mt-2 mt-sm-0 ml-0">
+                                                                        <i class="fa fa-file-pdf"></i>
+                                                                        <a target="_blank" rel="nofollow" href="<?= APP_URL."/".$profileInfo['pdf_document'] ?>"><?= $LANG['text-see-pdf'] ?></a>
+                                                                    </div>
+                                                                </div>
+                                                            <?php endif ?>
+
 														</div>
 
 													</div>
