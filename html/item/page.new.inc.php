@@ -69,7 +69,7 @@
 
     // ADDED BY KENDRY
     $ad_countryId = null;
-    $ad_incoterms = null;
+    $ad_logistic_costs = null;
     $ad_externalShippingPacking1 = null;
     $ad_externalShippingPacking2 = null;
     $ad_externalShippingPacking3 = null;
@@ -83,7 +83,6 @@
     $ad_productAvailability = null;
     $ad_ingredients = null;
     $ad_keywordsProduct = null;
-    $luogo = null;
     $amount_product = null;
     $amount_product_value = null;
     $total_weight = null;
@@ -154,7 +153,7 @@
 
         // ADDED BY KENDRY
         $ad_countryId = $itemInfo['countryId'];
-        $ad_incoterms = $itemInfo['incoterms'];
+        $ad_logistic_costs = $itemInfo['incoterms'];
         $ad_externalShippingPacking1 = $itemInfo['externalShippingPacking1'];
         $ad_externalShippingPacking2 = $itemInfo['externalShippingPacking2'];
         $ad_externalShippingPacking3 = $itemInfo['externalShippingPacking3'];
@@ -168,7 +167,6 @@
         $ad_productAvailability = $itemInfo['productAvailability'];
         $ad_ingredients = $itemInfo['ingredients'];
         $ad_keywordsProduct = $itemInfo['keywordsProduct'];
-        $luogo = $itemInfo['luogo'];
         $amount_product = $itemInfo['amount_product'];
         $amount_product_value = $itemInfo['amount_product_value'];
         $total_weight = $itemInfo['total_weight'];
@@ -205,7 +203,7 @@
 
         // ADDED BY KENDRY
         $ad_countryId = isset($_POST['countryId']) ? $_POST['countryId'] : null;
-        $ad_incoterms = isset($_POST['incoterms']) ? $_POST['incoterms'] : array();
+        $ad_logistic_costs = isset($_POST['logistic_costs']) ? $_POST['logistic_costs'] : array();
         $ad_externalShippingPacking1 = isset($_POST['externalShippingPacking1']) ? $_POST['externalShippingPacking1'] : null;
         $ad_externalShippingPacking2 = isset($_POST['externalShippingPacking2']) ? $_POST['externalShippingPacking2'] : null;
         $ad_externalShippingPacking3 = isset($_POST['externalShippingPacking3']) ? $_POST['externalShippingPacking3'] : null;
@@ -219,7 +217,6 @@
         $ad_productAvailability = isset($_POST['productAvailability']) ? $_POST['productAvailability'] : null;
         $ad_ingredients = isset($_POST['ingredients']) ? $_POST['ingredients'] : null;
         $ad_keywordsProduct = isset($_POST['keywordsProduct']) ? $_POST['keywordsProduct'] : null;
-        $luogo = isset($_POST['luogo']) ? $_POST['luogo'] : null;
         $amount_product = isset($_POST['amount_product']) ? $_POST['amount_product'] : null;
         $amount_product_value = isset($_POST['amount_product_value']) ? $_POST['amount_product_value'] : null;
         $total_weight = isset($_POST['total_weight']) ? $_POST['total_weight'] : null;
@@ -270,7 +267,6 @@
         $ad_productAvailability = helper::clearText($ad_productAvailability);
         $ad_ingredients = trim(helper::clearText($ad_ingredients),",");
         $ad_keywordsProduct = trim(helper::clearText($ad_keywordsProduct),",");
-        $luogo = helper::clearText($luogo);
         $amount_product = helper::clearFloat($amount_product);
         $total_weight = helper::clearFloat($total_weight);
         $quantity_items_per_case = helper::clearInt($quantity_items_per_case);
@@ -396,7 +392,7 @@
 
                 if (!$edit_mode) {
 
-                    $result = $items->add(APP_TYPE_WEB, $ad_category, $ad_subcategory, $ad_title, $ad_title, $ad_description, $images_links[0], 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number, $ad_countryId, $ad_incoterms, $ad_externalShippingPacking1, $ad_externalShippingPacking2, $ad_externalShippingPacking2, $ad_externalShippingPacking3, $ad_externalShippingPackingDetail, $ad_externalShippingPackingGrs, $ad_unitMeasure, $ad_quantityPiecesReferences, $ad_eanCode, $ad_productCertifications, $ad_productAvailability, $ad_ingredients, $ad_keywordsProduct, $luogo, $amount_product, $amount_product_value, $total_weight, $quantity_items_per_case);
+                    $result = $items->add(APP_TYPE_WEB, $ad_category, $ad_subcategory, $ad_title, $ad_title, $ad_description, $images_links[0], 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number, $ad_countryId, $ad_logistic_costs, $ad_externalShippingPacking1, $ad_externalShippingPacking2, $ad_externalShippingPacking2, $ad_externalShippingPacking3, $ad_externalShippingPackingDetail, $ad_externalShippingPackingGrs, $ad_unitMeasure, $ad_quantityPiecesReferences, $ad_eanCode, $ad_productCertifications, $ad_productAvailability, $ad_ingredients, $ad_keywordsProduct, $amount_product, $amount_product_value, $total_weight, $quantity_items_per_case);
 
                     if (!$result['error'] && count($images_links) > 1) {
 
@@ -413,7 +409,7 @@
 
                 } else {
 
-                    $result = $items->edit($itemInfo['id'], $ad_category, $ad_subcategory, $ad_title, $images_links[0], $ad_description, 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number, $ad_countryId, $ad_incoterms, $ad_externalShippingPacking1, $ad_externalShippingPacking2, $ad_externalShippingPacking2, $ad_externalShippingPacking3, $ad_externalShippingPackingDetail, $ad_externalShippingPackingGrs, $ad_unitMeasure, $ad_quantityPiecesReferences, $ad_eanCode, $ad_productCertifications, $ad_productAvailability, $ad_ingredients, $ad_keywordsProduct, $luogo, $amount_product, $amount_product_value, $total_weight, $quantity_items_per_case);
+                    $result = $items->edit($itemInfo['id'], $ad_category, $ad_subcategory, $ad_title, $images_links[0], $ad_description, 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number, $ad_countryId, $ad_logistic_costs, $ad_externalShippingPacking1, $ad_externalShippingPacking2, $ad_externalShippingPacking2, $ad_externalShippingPacking3, $ad_externalShippingPackingDetail, $ad_externalShippingPackingGrs, $ad_unitMeasure, $ad_quantityPiecesReferences, $ad_eanCode, $ad_productCertifications, $ad_productAvailability, $ad_ingredients, $ad_keywordsProduct, $amount_product, $amount_product_value, $total_weight, $quantity_items_per_case);
 
                     if (!$result['error'] && count($images_links) > 1) {
 
@@ -660,6 +656,20 @@
                                                     </div>
                                                 </div>
 
+                                                <?php
+
+                                                if (strlen($ad_description) != 0) $ad_description = preg_replace("/<br>/", "\n", $ad_description);
+                                                ?>
+
+                                                <div class="col-sm-12">
+                                                    <div class="form-group group-description">
+                                                        <label class="form-label noselect" for="description"><?php echo $LANG['label-ad-description']; ?> <small>(<?php echo $LANG['label-ad-sub-description']; ?>)</small></label>
+                                                        <textarea maxlength="500" placeholder="<?php echo $LANG['placeholder-ad-description']; ?>" style="min-height: 100px;" id="description" class="form-control" name="description"><?php echo $ad_description; ?></textarea>
+
+                                                        <div class="help-block"></div>
+                                                    </div>
+                                                </div>
+
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                                     <div class="form-group group-country">
                                                         <label class="form-label noselect" for="country_id"><?php echo $LANG['label-ad-country']; ?></label>
@@ -699,50 +709,16 @@
                                                     </div>
                                                 </div>
 
-                                                <div class=" col-sm-12">
+                                                <div class="col-sm-6 col-md-5 col-lg-5 price-container">
 
-                                                    <div class="row">
+                                                    <!-- 4 = EUR -->
+                                                    <input type="hidden" name="currency" value="4">
 
-                                                    <div class="col-sm-12 col-md-6 col-lg-4">
-                                                        <div class="form-group group-currency">
-                                                            <label class="form-label noselect" for="currency"><?php echo $LANG['label-ad-currency']; ?></label>
-                                                            <select id="currency" class="form-control" name="currency">
-                                                                <?php
+                                                    <div class="form-group group-price">
+                                                        <label class="form-label noselect" for="price"><?php echo $LANG['label-ad-price']; ?> <small>(<?php echo $LANG['label-ad-sub-price']; ?>)</small></label>
+                                                        <input type="number" id="price" min="1" step="0.01" class="form-control" name="price" value="<?php echo $ad_price; ?>">
 
-                                                                    for ($i = 0; $i < count($CURRENCY_ARRAY); $i++) {
-
-                                                                        $currency_string = $CURRENCY_ARRAY[$i]['name'];
-
-                                                                        if (strlen($CURRENCY_ARRAY[$i]['code']) != 0) {
-
-                                                                            $currency_string = $CURRENCY_ARRAY[$i]['code']." (".$CURRENCY_ARRAY[$i]['name'].")";
-                                                                        }
-
-                                                                        if ($CURRENCY_ARRAY[$i]['code'] !== "EUR")
-                                                                            continue;
-
-                                                                        ?>
-                                                                       <!--     <option <?php if ($i == $ad_currency) echo "selected"; ?> <?php if ($i == 0) echo "disabled"; ?> value="<?php echo $i; ?>"><?php echo $currency_string; ?></option> -->
-                                                                            <!-- 4 = EUR -->
-                                                                            <option value="4"><?php echo $currency_string; ?></option>
-                                                                        <?php
-                                                                    }
-                                                                ?>
-                                                            </select>
-
-                                                            <div class="help-block"></div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-sm-6 col-md-3 col-lg-3 price-container">
-                                                        <div class="form-group group-price">
-                                                            <label class="form-label noselect" for="price"><?php echo $LANG['label-ad-price']; ?> <small>(<?php echo $LANG['label-ad-sub-price']; ?>)</small></label>
-                                                            <input type="number" id="price" min="1" step="0.01" class="form-control" name="price" value="<?php echo $ad_price; ?>">
-
-                                                            <div class="help-block"></div>
-                                                        </div>
-                                                    </div>
-
+                                                        <div class="help-block"></div>
                                                     </div>
 
                                                 </div>
@@ -751,7 +727,7 @@
 
                                                     <div class="row">
 
-                                                        <div class="col-sm-6 col-md-3 col-lg-3 price-container">
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label class="form-label noselect" for="amount_product"><?php echo $LANG['label-ad-amount-product']; ?> </label>
                                                                 <input type="number" id="amount_product" min="1" step="0.01" class="form-control" name="amount_product" value="<?php echo $amount_product; ?>">
@@ -760,7 +736,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-sm-12 col-md-6 col-lg-4">
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label class="form-label noselect" for="amount_product_value"><?php echo $LANG['label-ad-amount-product-value']; ?></label>
                                                                 <select id="amount_product_value" class="form-control" name="amount_product_value">
@@ -775,7 +751,7 @@
                                                                     ];
                                                                     foreach ($AMOUNT_PRODUCT_ARRAY as $item):
                                                                     ?>
-                                                                    <option value="<?= $item ?>" <?php if ($item == $amount_product_value): ?> selected <?php endif ?>><?= $item ?></option>
+                                                                    <option value="<?= $item ?>" <?php if ($item == $amount_product_value): ?> selected <?php endif ?>><?= $item == "UNITA" ? "UNITÀ" : $item ?></option>
 
                                                                     <?php endforeach; ?>
                                                                 </select>
@@ -792,19 +768,19 @@
 
                                                     <div class="row">
 
-                                                        <div class="col-sm-6 col-md-3 col-lg-3">
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label class="form-label noselect" for="total_weight"><?php echo $LANG['label-ad-total-weight']; ?> </label>
-                                                                <input type="number" id="total_weight" min="1" step="0.01" class="form-control" name="total_weight" value="<?php echo $total_weight; ?>">
+                                                                <input type="number" id="total_weight" min="1" step="0.01" placeholder="IN KG" class="form-control" name="total_weight" value="<?php echo $total_weight; ?>">
 
                                                                 <div class="help-block"></div>
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-sm-12 col-md-6 col-lg-4">
+                                                        <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
                                                                 <label class="form-label noselect" for="quantity_items_per_case"><?php echo $LANG['label-ad-quantity-items-per-case']; ?></label>
-                                                                <input type="number" id="quantity_items_per_case" min="1" step="0.01" class="form-control" name="quantity_items_per_case" value="<?php echo $quantity_items_per_case; ?>">
+                                                                <input type="number" id="quantity_items_per_case" min="1" step="1" class="form-control" name="quantity_items_per_case" value="<?php echo $quantity_items_per_case; ?>">
 
 
                                                                 <div class="help-block"></div>
@@ -817,41 +793,18 @@
 
                                                 <?php
 
-                                                    if (strlen($ad_description) != 0) $ad_description = preg_replace("/<br>/", "\n", $ad_description);
-                                                ?>
-
-                                                <div class="col-sm-12">
-                                                    <div class="form-group group-description">
-                                                        <label class="form-label noselect" for="description"><?php echo $LANG['label-ad-description']; ?> <small>(<?php echo $LANG['label-ad-sub-description']; ?>)</small></label>
-                                                        <textarea maxlength="500" placeholder="<?php echo $LANG['placeholder-ad-description']; ?>" style="min-height: 100px;" id="description" class="form-control" name="description"><?php echo $ad_description; ?></textarea>
-
-                                                        <div class="help-block"></div>
-                                                    </div>
-                                                </div>
-
-                                                <?php
-
-                                                $optionsIncoterms1 = ["Exworks","DDP","DAP","DDU","FOB","CFR","CIP","CPT"];
+                                                $optionsLogisticCosts = ["Mittente","Destinatario"];
 
                                                 ?>
 
                                                 <div class="col-sm-12 col-md-6 col-lg-6">
-                                                    <div class="form-group group-incoTerms">
-                                                        <label class="form-label noselect"><?php echo $LANG['label-ad-incoTerms']; ?></label>
-                                                        <select name="incoterms" id="incoterms" class="form-control">
-                                                        <?php foreach ($optionsIncoterms1 as $item): ?>
-                                                            <option value="<?= $item ?>" <?php if ($ad_incoterms == $item): ?> selected <?php endif ?>><?= $item ?></option>
+                                                    <div class="form-group">
+                                                        <label class="form-label noselect"><?php echo $LANG['label-ad-logistic-costs']; ?></label>
+                                                        <select name="logistic_costs" id="logistic_costs" class="form-control">
+                                                        <?php foreach ($optionsLogisticCosts as $item): ?>
+                                                            <option value="<?= $item ?>" <?php if ($ad_logistic_costs == $item): ?> selected <?php endif ?>><?= $item ?></option>
                                                         <?php endforeach; ?>
                                                         </select>
-
-                                                        <div class="help-block"></div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-12 col-md-6 col-lg-6">
-                                                    <div class="form-group group-title">
-                                                        <label class="form-label noselect" for="title"><?php echo $LANG['label-ad-luogo']; ?></label>
-                                                        <input type="text" id="luogo" class="form-control" name="luogo" value="<?php echo $luogo; ?>">
 
                                                         <div class="help-block"></div>
                                                     </div>
@@ -903,37 +856,6 @@
                                                     </div>
                                                 </div>
 
-
-                                                <div class="col-sm-12 col-md-6 col-lg-4">
-                                                    <div class="form-group group-external-shipping-packing-grs">
-                                                        <label class="form-label noselect" for="externalShippingPackingGrs"><?php echo $LANG['label-external-shipping-packing-grs']; ?> </label>
-                                                        <input type="number" name="externalShippingPackingGrs" id="externalShippingPackingGrs" value="<?= $ad_externalShippingPackingGrs ?>" step="0.01"
-                                                               class="form-control">
-
-                                                        <div class="help-block"></div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-12 col-md-6 col-lg-4">
-                                                    <div class="form-group group-unit-measure">
-                                                        <label class="form-label noselect" for="unitMeasure"><?php echo $LANG['label-unit-measure']; ?> </label>
-                                                        <input type="text" name="unitMeasure" id="unitMeasure" value="<?= $ad_unitMeasure ?>"
-                                                               class="form-control">
-
-                                                        <div class="help-block"></div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-12 col-md-6 col-lg-4">
-                                                    <div class="form-group group-quantity-pieces-per-references">
-                                                        <label class="form-label noselect" for="quantityPiecesReferences"><?php echo $LANG['label-quantity-pieces-per-references']; ?> </label>
-                                                        <input type="number" name="quantityPiecesReferences" value="<?= $ad_quantityPiecesReferences ?>" id="quantityPiecesReferences" step="1"
-                                                               class="form-control">
-
-                                                        <div class="help-block"></div>
-                                                    </div>
-                                                </div>
-
                                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                                     <div class="form-group group-ean-code">
                                                         <label class="form-label noselect" for="eanCode"><?php echo $LANG['label-ean-code']; ?> </label>
@@ -944,11 +866,11 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                                <div class="col-sm-12">
                                                     <div class="form-group group-product-certifications">
                                                         <label class="form-label noselect" for="productCertifications"><?php echo $LANG['label-classified-certifications']; ?> </label>
                                                         <input type="text" name="productCertifications" id="productCertifications" value="<?= $ad_productCertifications ?>"
-                                                               class="form-control">
+                                                               class="other-input-tags" data-role="tagsinput">
 
                                                         <div class="help-block"></div>
                                                     </div>
@@ -959,8 +881,8 @@
                                                         <label class="form-label noselect" for="productAvailability"><?php echo $LANG['label-classified-availability']; ?> </label>
                                                         <select name="productAvailability" id="productAvailability"
                                                                class="form-control">
-                                                            <option value="No immediate" <?php if ($ad_productAvailability === "No immediate"): echo 'selected'; endif; ?>>No immediate</option>
-                                                            <option value="Immediate" <?php if ($ad_productAvailability === "Immediate"): echo 'selected'; endif; ?>>Immediate</option>
+                                                            <option value="Non immediata" <?php if ($ad_productAvailability === "Non immediata"): echo 'selected'; endif; ?>>Non immediata</option>
+                                                            <option value="Immediata" <?php if ($ad_productAvailability === "Immediata"): echo 'selected'; endif; ?>>Immediata</option>
                                                         </select>
 
                                                         <div class="help-block"></div>

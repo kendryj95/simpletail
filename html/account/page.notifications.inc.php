@@ -152,44 +152,7 @@
 
                     <div class="row">
 
-                        <div class="col-sm-12 col-md-4 col-lg-3 order-0 order-md-1">
-                            <div class="card">
-
-                                <div class="card-header">
-                                    <h3 class="card-title"><?php echo $LANG['label-filters']; ?></h3>
-                                </div>
-
-                                <div class="card-body">
-                                    <div class="notification-categories custom-controls-stacked">
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input filter-main-checkbox" name="filter_type_all" value="1" checked="" disabled>
-                                            <span class="custom-control-label"><?php echo $LANG['label-filters-all']; ?></span>
-                                        </label>
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input filter-checkbox" name="filter_type_comments" value="1" checked="">
-                                            <span class="custom-control-label"><?php echo $LANG['label-filters-comments']; ?></span>
-                                        </label>
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input filter-checkbox" name="filter_type_replies" value="1" checked="">
-                                            <span class="custom-control-label"><?php echo $LANG['label-filters-replies']; ?></span>
-                                        </label>
-
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input filter-checkbox" name="filter_type_approved" value="1" checked="">
-                                            <span class="custom-control-label"><?php echo $LANG['label-filters-approved']; ?></span>
-                                        </label>
-
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input filter-checkbox" name="filter_type_rejected" value="1" checked="">
-                                            <span class="custom-control-label"><?php echo $LANG['label-filters-rejected']; ?></span>
-                                        </label>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="col-sm-12 col-md-8 col-lg-9 order-1 order-md-0">
+                        <div class="col-sm-12 col-md-8 col-lg-8 offset-md-2 offset-lg-2">
 
                             <div class="card">
 

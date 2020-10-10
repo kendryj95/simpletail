@@ -136,7 +136,7 @@ class account extends db_connect
         return $result;
     }
 
-    public function signup($username, $fullname, $password, $email, $phone, $sex, $typeuser, $country_id, $year, $month, $day, $language = '')
+    public function signup($username, $fullname, $password, $email, $phone, $sex, $typeuser, $country_id, $company_name, $year, $month, $day, $language = '')
     {
 
         $result = array("error" => true,
@@ -224,7 +224,7 @@ class account extends db_connect
 
         $accountState = ACCOUNT_STATE_ENABLED;
 
-        $stmt = $this->db->prepare("INSERT INTO users (state, login, fullname, passw, email, typeuser, country_id, phone, sex, salt, last_authorize, regtime, ip_addr) value (:state, :username, :fullname, :password, :email, :typeuser, :country_id, :phone, :sex, :salt, :last_authorize, :createAt, :ip_addr)");
+        $stmt = $this->db->prepare("INSERT INTO users (state, login, fullname, passw, email, typeuser, country_id, company_name, phone, sex, salt, last_authorize, regtime, ip_addr) value (:state, :username, :fullname, :password, :email, :typeuser, :country_id, :company_name, :phone, :sex, :salt, :last_authorize, :createAt, :ip_addr)");
         $stmt->bindParam(":state", $accountState, PDO::PARAM_INT);
         $stmt->bindParam(":username", $username, PDO::PARAM_STR);
         $stmt->bindParam(":fullname", $fullname, PDO::PARAM_STR);
@@ -232,6 +232,7 @@ class account extends db_connect
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
         $stmt->bindParam(":typeuser", $typeuser, PDO::PARAM_STR);
         $stmt->bindParam(":country_id", $country_id, PDO::PARAM_INT);
+        $stmt->bindParam(":company_name", $company_name, PDO::PARAM_STR);
         $stmt->bindParam(":phone", $phone, PDO::PARAM_STR);
         $stmt->bindParam(":sex", $sex, PDO::PARAM_INT);
         $stmt->bindParam(":salt", $salt, PDO::PARAM_STR);

@@ -705,7 +705,7 @@
     $TEXT['placeholder-ad-phone'] = "Inserisci il tuo numero di telefono";
 
     $TEXT['page-edit-ad-title'] = "Modifica prodotto";
-    $TEXT['page-new-ad-title'] = "Crea Prodotto"; 
+    $TEXT['page-new-ad-title'] = "Grazie! Il tuo prodotto è stato salvato con successo. A breve riceverai nella tua sezione notifiche la conferma di approvazione da parte del team Simple tail. Una volta approvato il tuo prodotto sarà visibile ai negozi.";
     $TEXT['action-new-ad'] = "Crea"; 
 
     $TEXT['msg-error-ad-title'] = "Inserisci il titolo del tuo prodotto"; 
@@ -722,7 +722,7 @@
 
     // Restore send
 
-    $TEXT['label-restore-sent-title'] = "Ti abbiamo inviato una mail con il link per resettare la tua password";
+    $TEXT['label-restore-sent-title'] = "Email inviata con successo.";
     $TEXT['label-restore-sent-msg'] = "Ti abbiamo inviato una mail con le istruzioni e il link per cambiare la tua password.";
 
     // Restore success
@@ -975,7 +975,7 @@
 
     $TEXT['label-bio'] = "Inserisci una breve descrizione della tua azienda";
     $TEXT['label-phone-number'] = "Numero di telefono";
-    $TEXT['placeholder-phone-number'] = "Numero di telefono, esempio: +15417543010";
+    $TEXT['placeholder-phone-number'] = "Numero di telefono, esempio: +395417543010";
 
 
     $TEXT['placeholder-bio'] = "Descrivi brevemente la tua azienda";
@@ -1039,11 +1039,11 @@
     $TEXT['label-type-user-option-text-2'] = "Store";
     $TEXT['label-signup-tooltip-type-user'] = "Choose if you are a Store or Brand.";
     $TEXT['label-fullname-brand'] = "Brand name";
-    $TEXT['label-signup-tooltip-fullname-brand'] = "The brand's real name";
+    $TEXT['label-signup-tooltip-fullname-brand'] = "Il vero nome del marchio";
     $TEXT['label-signup-placeholder-fullname-brand'] = "What is your brand's name?";
 
     $TEXT['label-fullname-store'] = "Company name";
-    $TEXT['label-signup-tooltip-fullname-store'] = "The company's real name";
+    $TEXT['label-signup-tooltip-fullname-store'] = "Il vero nome della società";
     $TEXT['label-signup-placeholder-fullname-store'] = "What is your company's name?";
 
     $TEXT['label-country-brand'] = "Brand country of origin";
@@ -1115,11 +1115,11 @@ search for new brands";
     $TEXT['label-type-user-option-text-2'] = "Negozio";
     $TEXT['label-signup-tooltip-type-user'] = "Seleziona se sei un Marchio o un Negozio.";
     $TEXT['label-fullname-brand'] = "Nome del marchio";
-    $TEXT['label-signup-tooltip-fullname-brand'] = "The brand's real name";
+    $TEXT['label-signup-tooltip-fullname-brand'] = "Il vero nome del marchio";
     $TEXT['label-signup-placeholder-fullname-brand'] = "Qual è il nome del tuo marchio?";
 
     $TEXT['label-fullname-store'] = "Nome dell’azienda";
-    $TEXT['label-signup-tooltip-fullname-store'] = "The company's real name";
+    $TEXT['label-signup-tooltip-fullname-store'] = "Il vero nome dell'azienda";
     $TEXT['label-signup-placeholder-fullname-store'] = "Qual è il nome della tua azienda";
 
     $TEXT['label-country-brand'] = "Paese d’origine del marchio";
@@ -1141,6 +1141,9 @@ search for new brands";
     $TEXT['label-address-store'] = "Indirizzo/i Negozio/i";
     $TEXT['label-cities-stores'] = "Inserisci le città dove sono ubicati i tuoi negozi";
     $TEXT['label-attributes-essentials'] = "Inserisci gli attributi che ritieni essenziali nella ricerca di nuovi prodotti";
+    $TEXT['label-company-name'] = "Ragione sociale dell'azienda";
+    $TEXT['label-signup-tooltip-company-name'] = "Inserisci la ragione sociale dell'azienda";
+    $TEXT['label-signup-placeholder-company-name'] = "Come si chiama la vostra azienda?";
 
 
 
@@ -1153,7 +1156,7 @@ search for new brands";
     $TEXT['label-external-shipping-packing'] = "Dimensioni packaging esterno";
     $TEXT['label-internal-shipping-packing-detail'] = "Descrizione packaging interno ";
     $TEXT['placeholder-internal-shipping-packing-detail'] = "Descrizione packaging interno (inserire la tipologia del packaging e del materiale, esempio: scatola in cartone)";
-    $TEXT['label-external-shipping-packing-detail'] = "Descrizione packaging esterno s";
+    $TEXT['label-external-shipping-packing-detail'] = "Descrizione packaging esterno";
     $TEXT['placeholder-external-shipping-packing-detail'] = "Descrizione packaging esterno (inserire la tipologia del packaging e del materiale, esempio: scatola in cartone)";
     $TEXT['label-external-shipping-packing-grs'] = "Peso prodotto completo (packaging + prodotto) in grammi";
     $TEXT['label-quantity-pieces-per-references'] = "Quantità di pezzi a referenza";
@@ -1170,9 +1173,11 @@ search for new brands";
     $TEXT['option-classified-name'] = "Nome prodotto";
     $TEXT['option-keywords'] = "Parole chiave";
     $TEXT['option-country-brand'] = "Paese d’origine del marchio";
-    $TEXT['option-range-prices'] = "Range di prezzo";
-    $TEXT['action-stores'] = "Nigozi";
+    $TEXT['option-range-prices'] = "Range di prezzo in EURO";
+    $TEXT['action-stores'] = "Negozi";
     $TEXT['text-see-pdf'] = "Vedi documento PDF";
+    $TEXT['placeholder-text-url'] = "Copia e incolla il link comprendendo la dicitura http://";
+    $TEXT['label-ad-logistic-costs'] = "Costi logistici a carico di";
 
 
 

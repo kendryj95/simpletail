@@ -24,6 +24,7 @@
     $user_type = '';
     $user_country = '';
     $user_username = '';
+    $user_company_name = '';
     $user_email = '';
     $user_fullname = '';
     $user_phone = '';
@@ -38,6 +39,7 @@
 
         $user_username = isset($_POST['username']) ? $_POST['username'] : '';
         $user_fullname = isset($_POST['fullname']) ? $_POST['fullname'] : '';
+        $user_company_name = isset($_POST['company_name']) ? $_POST['company_name'] : '';
         $user_password = isset($_POST['password']) ? $_POST['password'] : '';
         $user_email = isset($_POST['email']) ? $_POST['email'] : '';
         $user_type = isset($_POST['typeuser']) ? $_POST['typeuser'] : '';
@@ -48,6 +50,7 @@
 
         $user_username = helper::clearText($user_username);
         $user_fullname = helper::clearText($user_fullname);
+        $user_company_name = helper::clearText($user_company_name);
         $user_password = helper::clearText($user_password);
         $user_email = helper::clearText($user_email);
 
@@ -112,7 +115,8 @@
             $account = new account($dbo);
 
             $result = array();
-            $result = $account->signup($user_username, $user_fullname, $user_password, $user_email, "", $sex, $user_type, $user_country, 2000, 1, 1, $LANG['lang-code']);
+            $result = $account->signup($user_username, $user_fullname, $user_password, $user_email, "", $sex, $user_type, $user_country,
+                $user_company_name,2000, 1, 1, $LANG['lang-code']);
 
             if ($result['error'] === false) {
 
@@ -337,6 +341,13 @@
                                             <div class="help-block"></div>
                                         </div>
 
+                                        <div class="form-group field-signup-form-company_name required noselect">
+                                            <label class="form-label" for="company_name"><?php echo $LANG['label-company-name']; ?> <i class="far fa-question-circle" title="<?php echo $LANG['label-signup-tooltip-company-name']; ?>" rel="tooltip"></i></label>
+                                            <input placeholder="<?php echo $LANG['label-signup-placeholder-company-name']; ?>" type="text" required id="company_name" class="form-control" name="company_name" value="<?php echo $user_company_name; ?>" aria-required="true">
+
+                                            <div class="help-block"></div>
+                                        </div>
+
                                         <div class="form-group field-signup-form-country required noselect">
                                             <label class="form-label brand-field" for="country_id"><?php echo $LANG['label-country-brand']; ?> <i class="far fa-question-circle" title="<?php echo $LANG['label-signup-tooltip-country-brand']; ?>" rel="tooltip"></i></label>
                                             <label style="display:none;" class="form-label store-field" for="country_id"><?php echo $LANG['label-country-store']; ?> <i class="far fa-question-circle" title="<?php echo $LANG['label-signup-tooltip-country-store']; ?>" rel="tooltip"></i></label>
@@ -359,7 +370,7 @@
 
                                         <div class="form-group field-signup-form-email required noselect">
                                             <label class="form-label" for="email"><?php echo $LANG['label-email']; ?> <i class="far fa-question-circle" title="<?php echo $LANG['label-signup-tooltip-email']; ?>" rel="tooltip"></i></label>
-                                            <input placeholder="<?php echo $LANG['label-signup-placeholder-email']; ?>" maxlength="32" type="email" required id="email" class="form-control" name="email" value="<?php echo $user_email; ?>" aria-required="true">
+                                            <input placeholder="<?php echo $LANG['label-signup-placeholder-email']; ?>" type="email" required id="email" class="form-control" name="email" value="<?php echo $user_email; ?>" aria-required="true">
 
                                             <div class="help-block"></div>
                                         </div>

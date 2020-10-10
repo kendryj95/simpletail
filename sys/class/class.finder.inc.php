@@ -143,6 +143,9 @@ class finder extends db_connect
                 case 3:
                     $searchSql = " AND c.name LIKE (:query)";
                     break;
+                case 4:
+                    $searchSql = " AND productCertifications LIKE (:query)";
+                    break;
                 default:
                     $searchSql = "";
                     break;
@@ -287,6 +290,9 @@ class finder extends db_connect
                     break;
                 case 3:
                     $searchSql = " AND c.name LIKE (:query)";
+                    break;
+                case 4:
+                    $searchSql = " AND productCertifications LIKE (:query)";
                     break;
                 default:
                     $searchSql = "";

@@ -20,7 +20,7 @@
 			<div class="container">
 				<div class="d-flex">
 
-					<a class="header-brand" href="/">
+					<a class="header-brand" href="<?= auth::isSession() ? "/" : "http://simpletail.com" ?>">
 						<img class="header-brand-img" src="/img/topbar_logo.png" alt="<?php echo APP_NAME; ?>" title="<?php echo APP_TITLE; ?>">
 					</a>
 
@@ -52,7 +52,7 @@
                                 }
 					        ?>
 
-                            <?php if (isset($page_id) && $page_id !== "login" && $page_id !== "signup"): ?>
+                            <?php if (isset($page_id) && $page_id !== "login" && $page_id !== "signup" && $page_id !== "restore" && $page_id !== "restore_new" && $page_id !== "restore_sent"): ?>
 
                                 <div class="nav-item">
                                     <a href="/login?continue=/item/new" class="btn btn-add-item" title="<?php echo $LANG['action-new-classified']; ?>" rel="tooltip">
@@ -202,12 +202,12 @@
                     <div class="header header-message" id="cookie-message">
                         <div class="container">
                             <div class="d-flex">
-                                <span class="mb-0 w-100 header-text-message">
-                                    <?php echo $LANG['label-cookie-message']; ?> <a href="/terms"><?php echo $LANG['label-terms-link']; ?></a>, <a href="/privacy"><?php echo $LANG['label-terms-privacy-link']; ?></a> <?php echo $LANG['label-terms-and']; ?> <a href="/cookie"><?php echo $LANG['label-terms-cookies-link']; ?></a>
+                                <span class="mb-0 w-100 header-text-message text-white">
+                                    <?php echo $LANG['label-cookie-message']; ?> <a class="text-white-50" href="/terms"><?php echo $LANG['label-terms-link']; ?></a>, <a class="text-white-50" href="/privacy"><?php echo $LANG['label-terms-privacy-link']; ?></a> <?php echo $LANG['label-terms-and']; ?> <a class="text-white-50" href="/cookie"><?php echo $LANG['label-terms-cookies-link']; ?></a>
                                 </span>
                                 <div class="d-flex align-items-center order-lg-2 ml-auto">
                                     <div class="nav-item d-sm-block">
-                                        <button class="close close-message-button close-privacy-message" title="<?php echo $LANG['action-close']; ?>" rel="tooltip"></button>
+                                        <button class="close close-message-button close-privacy-message text-white" title="<?php echo $LANG['action-close']; ?>" rel="tooltip"></button>
                                     </div>
                                 </div>
                             </div>
@@ -262,6 +262,7 @@ if (isset($page_id) && $page_id !== "main" && $page_id !== "login" && $page_id !
                                         <option value="1"><?= $LANG['option-classified-name'] ?></option>
                                         <option value="2"><?= $LANG['option-keywords'] ?></option>
                                         <option value="3"><?= $LANG['option-country-brand'] ?></option>
+                                        <option value="4"><?= $LANG['label-classified-certifications'] ?></option>
                                     </select>
                                 </div>
                             </div>

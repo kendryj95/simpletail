@@ -260,6 +260,7 @@
                                                         <option value="1" <?php if ($search_by == 1): echo 'selected'; endif; ?>><?= $LANG['option-classified-name'] ?></option>
                                                         <option value="2" <?php if ($search_by == 2): echo 'selected'; endif; ?>><?= $LANG['option-keywords'] ?></option>
                                                         <option value="3" <?php if ($search_by == 3): echo 'selected'; endif; ?>><?= $LANG['option-country-brand'] ?></option>
+                                                        <option value="4" <?php if ($search_by == 4): echo 'selected'; endif; ?>><?= $LANG['label-classified-certifications'] ?></option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -325,6 +326,33 @@
                                                         <input type="number" name="range_2" placeholder="Range max" id="range_2" step="0.01" value="<?= $range_2 ?>" class="form-control">
                                                     </div>
                                                 </div>
+                                            </div>
+
+                                            <input type="hidden" name="moderationType" value="1">
+
+                                        </div>
+
+                                        <div class="col-sm-12 col-md-4 col-lg-4">
+
+                                            <div class="form-group field-query">
+                                                <div class="form-label noselect"><?php echo $LANG['label-ad-category']; ?></div>
+                                                <select id="category" class="form-control" name="category">
+                                                    <option <?php if ($categoryId == 0) echo "selected"; ?> value="0"><?php echo $LANG['label-all-categories']; ?></option>
+                                                    <?php
+
+                                                    $category = new category($dbo);
+                                                    $category->setLanguage($LANG['lang-code']);
+                                                    $categories = $category->getItems(0);
+
+                                                    foreach ($categories['items'] as $key => $item) {
+
+                                                        ?>
+                                                        <option <?php if ($categoryId == $item['id']) echo "selected"; ?> value="<?php echo $item['id']; ?>"><?php echo $item['title']; ?></option>
+                                                        <?php
+                                                    }
+
+                                                    ?>
+                                                </select>
                                             </div>
 
                                             <input type="hidden" name="moderationType" value="1">

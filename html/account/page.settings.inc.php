@@ -379,7 +379,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="form-label d-inline-block" for="type_business"><?php echo $LANG['label-pdf-document'] ?></label>
+                                                <label class="form-label d-inline-block" for="pdf_document"><?php echo $LANG['label-pdf-document'] ?></label>
                                                 <?php if ($accountInfo['pdf_document'] != ""): ?>
                                                     <a class="text-muted-dark" href="<?= APP_URL.'/'.$accountInfo['pdf_document'] ?>" target="_blank"><i class="fa fa-eye"></i></a>
                                                 <?php endif ?>
@@ -403,9 +403,9 @@
                                                     <label class="form-label" for="type_business"><?php echo $LANG['label-type-business'] ?></label>
                                                     <select name="type_business" id="type_business"
                                                             class="form-control">
-                                                        <option value="Distributor" <?php if ($accountInfo['type_business'] == "Distributor"): ?> selected <?php  endif ?>>Distributor</option>
-                                                        <option value="Single shop" <?php if ($accountInfo['type_business'] == "Single shop"): ?> selected <?php  endif ?>>Single shop</option>
-                                                        <option value="Chain of retail stores" <?php if ($accountInfo['type_business'] == "Chain of retail stores"): ?> selected <?php  endif ?>>Chain of retail stores</option>
+                                                        <option value="Distributore" <?php if ($accountInfo['type_business'] == "Distributore"): ?> selected <?php  endif ?>>Distributore</option>
+                                                        <option value="Negozio singolo" <?php if ($accountInfo['type_business'] == "Negozio singolo"): ?> selected <?php  endif ?>>Negozio singolo</option>
+                                                        <option value="Catena di negozi al dettaglio" <?php if ($accountInfo['type_business'] == "Catena di negozi al dettaglio"): ?> selected <?php  endif ?>>Catena di negozi al dettaglio</option>
                                                     </select>
 
                                                     <div class="help-block"></div>
@@ -456,13 +456,13 @@
                                             <?php if ($accountInfo['typeuser'] === "BRAND"): ?>
                                                 <div class="form-group">
                                                     <label class="form-label" for="website"><?php echo $LANG['label-website-company-brand'] ?></label>
-                                                    <input type="text" maxlength="96" id="website" placeholder="http://yourwebsite.com" class="form-control" name="website" value="<?php echo $accountInfo['website']; ?>">
+                                                    <input type="text" maxlength="96" id="website" placeholder="<?= $LANG['placeholder-text-url'] ?>" class="form-control" name="website" value="<?php echo $accountInfo['website']; ?>">
 
                                                     <div class="help-block"></div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="form-label" for="url_youtube_company"><?php echo $LANG['label-youtube-company-brand'] ?></label>
-                                                    <input type="text" maxlength="96" id="url_content_company" placeholder="http://youtube.com/yourchannel" class="form-control" name="url_content_company" value="<?php echo $accountInfo['url_content_company']; ?>">
+                                                    <input type="text" maxlength="96" id="url_content_company" placeholder="<?= $LANG['placeholder-text-url'] ?>" class="form-control" name="url_content_company" value="<?php echo $accountInfo['url_content_company']; ?>">
 
                                                     <div class="help-block"></div>
                                                 </div>
@@ -470,14 +470,14 @@
 
 											<div class="form-group field-facebook-page">
 												<label class="form-label" for="facebook-page"><?php echo $LANG['label-facebook-link']; ?></label>
-												<input type="text" maxlength="256" placeholder="<?php echo $LANG['placeholder-facebook-page']; ?>" id="facebook-page" class="form-control" name="facebook_page" value="<?php echo $accountInfo['fb_page']; ?>">
+												<input type="text" maxlength="256" placeholder="<?php echo $LANG['placeholder-text-url']; ?>" id="facebook-page" class="form-control" name="facebook_page" value="<?php echo $accountInfo['fb_page']; ?>">
 
 												<div class="help-block"></div>
 											</div>
 
 											<div class="form-group field-instagram-page">
 												<label class="form-label" for="instagram-page"><?php echo $LANG['label-instagram-link']; ?></label>
-												<input type="text" maxlength="256" placeholder="<?php echo $LANG['placeholder-instagram-page']; ?>" id="instagram-page" class="form-control" name="instagram_page" value="<?php echo $accountInfo['instagram_page']; ?>">
+												<input type="text" maxlength="256" placeholder="<?php echo $LANG['placeholder-text-url']; ?>" id="instagram-page" class="form-control" name="instagram_page" value="<?php echo $accountInfo['instagram_page']; ?>">
 
 												<div class="help-block"></div>
 											</div>
