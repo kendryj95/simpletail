@@ -10,17 +10,14 @@
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
+    <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9f208d7-215f-445c-9e3c-bf5610a01949" name="Default Changelist" comment="Quemando texto de tipo usuario en signup">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="d9f208d7-215f-445c-9e3c-bf5610a01949" name="Default Changelist" comment="Mejoras en el sistema completo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/item/page.new.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/item/page.new.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.auth.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.auth.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sys/class/class.profile.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.profile.inc.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,11 +74,6 @@
       <workItem from="1601471912964" duration="27167000" />
       <workItem from="1601574137916" duration="29000" />
       <workItem from="1601644846083" duration="1872000" />
-      <workItem from="1601756771826" duration="12000" />
-      <workItem from="1602122833143" duration="5707000" />
-      <workItem from="1602165033186" duration="110000" />
-      <workItem from="1602209801428" duration="3866000" />
-      <workItem from="1602264695893" duration="12350000" />
     </task>
     <task id="LOCAL-00001" summary="Mejoras en el proyecto">
       <created>1599676707457</created>
@@ -139,35 +131,7 @@
       <option name="project" value="LOCAL" />
       <updated>1601525143691</updated>
     </task>
-    <task id="LOCAL-00009" summary="Ajuste al crear y/o editar un producto">
-      <created>1601651751229</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1601651751229</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Quemando texto de tipo usuario en signup">
-      <created>1601667692328</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1601667692328</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Mejoras en la web">
-      <created>1602165111413</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1602165111413</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Mejoras en la plataforma">
-      <created>1602297407881</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1602297407881</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,19 +142,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -205,56 +157,48 @@
     <MESSAGE value="Mejoras en seccion de BRANDS" />
     <MESSAGE value="Mejoras en seccion de PERFIL" />
     <MESSAGE value="Mejoras en el sistema completo" />
-    <MESSAGE value="Ajuste al crear y/o editar un producto" />
-    <MESSAGE value="Quemando texto de tipo usuario en signup" />
-    <MESSAGE value="Mejoras en la web" />
-    <MESSAGE value="Mejoras en la plataforma" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mejoras en la plataforma" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mejoras en el sistema completo" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1601651770732">
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1601483451465">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1601651770732" />
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1601483451465" />
     <state x="486" y="87" key="NewPhpClassDialog" timestamp="1598916341210">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="486" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1598916341210" />
-    <state x="517" y="66" key="RollbackChangesDialog" timestamp="1601651473869">
+    <state x="517" y="66" key="RollbackChangesDialog" timestamp="1601512581044">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="517" y="66" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1601651473869" />
+    <state x="517" y="66" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1601512581044" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1600118023708">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1600118023708" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1602281858456">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1601516031881">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1602281858456" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1601516031881" />
     <state x="569" y="278" key="VCS.EditChangelistDialog" timestamp="1599417308716">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="569" y="278" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1599417308716" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1602165127065">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1601525152880">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602165127065" />
-    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601649294713">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1601525152880" />
+    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1601646093289">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1601649294713" />
-    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1602269379708">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1602269379708" />
+    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1601646093289" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1599512703313">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1599512703313" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1602280383528">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1601645190570">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1602280383528" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1601645190570" />
   </component>
 </project>
