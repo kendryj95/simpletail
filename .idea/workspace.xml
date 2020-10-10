@@ -20,17 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9f208d7-215f-445c-9e3c-bf5610a01949" name="Default Changelist" comment="Quemando texto de tipo usuario en signup">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/topbar.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/topbar.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/account/page.notifications.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/account/page.notifications.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/account/page.settings.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/account/page.settings.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/item/page.new.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/item/page.new.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/page.main.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/page.main.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/page.signup.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/page.signup.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sys/class/class.account.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.account.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sys/class/class.finder.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.finder.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sys/class/class.items.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/class/class.items.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sys/lang/en.php" beforeDir="false" afterPath="$PROJECT_DIR$/sys/lang/en.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +81,7 @@
       <workItem from="1602122833143" duration="5707000" />
       <workItem from="1602165033186" duration="110000" />
       <workItem from="1602209801428" duration="3866000" />
-      <workItem from="1602264695893" duration="11574000" />
+      <workItem from="1602264695893" duration="12350000" />
     </task>
     <task id="LOCAL-00001" summary="Mejoras en el proyecto">
       <created>1599676707457</created>
@@ -170,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602165111413</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Mejoras en la plataforma">
+      <created>1602297407881</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1602297407881</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +208,8 @@
     <MESSAGE value="Ajuste al crear y/o editar un producto" />
     <MESSAGE value="Quemando texto de tipo usuario en signup" />
     <MESSAGE value="Mejoras en la web" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mejoras en la web" />
+    <MESSAGE value="Mejoras en la plataforma" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mejoras en la plataforma" />
   </component>
   <component name="WindowStateProjectService">
     <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1601651770732">
