@@ -24,14 +24,15 @@
     $error = false;
     $error_message = '';
     $query = '';
-    $result = array();
-    $result['users'] = array();
 
     $stats = new stats($dbo);
     $settings = new settings($dbo);
     $admin = new admin($dbo);
 
-    if (isset($_GET['query'])) {
+    $result = $stats->getAllUsers();
+
+
+if (isset($_GET['query'])) {
 
         $query = isset($_GET['query']) ? $_GET['query'] : '';
 
@@ -141,6 +142,7 @@
                                                 <tr>
                                                     <th colspan="2"><?php echo $LANG['apanel-profile']; ?></th>
                                                     <th>State</th>
+                                                    <th>Verified?</th>
                                                     <th>Facebook</th>
                                                     <th>Email</th>
                                                     <th>SignUp Date</th>
@@ -257,6 +259,7 @@
                 <td>
                     <h6><?php if ($user['state'] == 0) {echo "Enabled";} else {echo "Blocked";} ?></h6>
                 </td>
+                <td><?= $user['verify'] == 1 ? 'Yes' : 'No' ?></td>
                 <td>
                     <h6><?php if (strlen($user['fb_id']) < 2) {echo "Not connected to facebook.";} else {echo "<a target=\"_blank\" href=\"https://www.facebook.com/app_scoped_user_id/{$user['fb_id']}\">Facebook account link</a>";} ?></h6>
                 </td>

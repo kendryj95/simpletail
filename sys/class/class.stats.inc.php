@@ -287,6 +287,33 @@ class stats extends db_connect
 		return $users;
 	}
 
+	public function getAllUsers()
+	{
+		$users = array("error" => false,
+						"error_code" => ERROR_SUCCESS,
+						"users" => array());
+
+		$stmt = $this->db->prepare("SELECT * FROM users");
+
+		if ($stmt->execute()) {
+
+			while ($row = $stmt->fetch()) {
+
+				$account = new account($this->db, $row['id']);
+
+				$accountInfo = $account->get();
+
+				array_push($users['users'], $accountInfo);
+
+				$users['userId'] = $accountInfo['id'];
+
+				unset($accountInfo);
+			}
+		}
+
+		return $users;
+	}
+
 	public function getAuthData($accountId, $authId = 0)
 	{
 		if ($authId == 0) {
