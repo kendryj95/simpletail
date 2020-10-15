@@ -153,7 +153,7 @@
 
         // ADDED BY KENDRY
         $ad_countryId = $itemInfo['countryId'];
-        $ad_logistic_costs = $itemInfo['incoterms'];
+        $ad_logistic_costs = $itemInfo['logistic_costs'];
         $ad_externalShippingPacking1 = $itemInfo['externalShippingPacking1'];
         $ad_externalShippingPacking2 = $itemInfo['externalShippingPacking2'];
         $ad_externalShippingPacking3 = $itemInfo['externalShippingPacking3'];
@@ -1091,43 +1091,21 @@
                         $('div.group-category').find('div.help-block').html('');
                     }
 
-                    // Check currency
+                    // Check price
 
-                    if ($('select[name=currency]').val() == 0 || $('select[name=currency]').val() == null) {
+                    if ($("#price").val() > 0) {
 
-                        $("select#currency").focus();
-
-                        $('div.group-currency').addClass('has-error');
-                        $('div.group-currency').find('div.help-block').html(strings.szCurrencyError);
-
-                        return false;
+                        $('div.group-price').removeClass('has-error');
+                        $('div.group-price').find('div.help-block').html('');
 
                     } else {
 
-                        $('div.group-currency').removeClass('has-error');
-                        $('div.group-currency').find('div.help-block').html('');
-                    }
+                        $("#price").focus();
 
-                    // Check price
+                        $('div.group-price').addClass('has-error');
+                        $('div.group-price').find('div.help-block').html(strings.szPriceError);
 
-                    if ($('select[name=currency]').val() > 2) {
-
-                        $('div.price-container').css("display", "");
-
-                        if ($("#price").val() > 0) {
-
-                            $('div.group-price').removeClass('has-error');
-                            $('div.group-price').find('div.help-block').html('');
-
-                        } else {
-
-                            $("#price").focus();
-
-                            $('div.group-price').addClass('has-error');
-                            $('div.group-price').find('div.help-block').html(strings.szPriceError);
-
-                            return false
-                        }
+                        return false
                     }
 
                     // Check description

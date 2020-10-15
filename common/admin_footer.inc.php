@@ -63,7 +63,7 @@ if (!defined("APP_SIGNATURE")) {
 <script type="text/javascript">
     var admin_url_panel = "<?php echo APP_ADMIN_PANEL; ?>";
 </script>
-<script src="/apanel/js/unread_support.js"></script>
+<script src="/apanel/js/unread_notifications.js"></script>
 <!-- ============================================================== -->
 <!-- This page plugins -->
 <!-- ============================================================== -->

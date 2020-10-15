@@ -705,8 +705,8 @@
     $TEXT['placeholder-ad-phone'] = "Inserisci il tuo numero di telefono";
 
     $TEXT['page-edit-ad-title'] = "Modifica prodotto";
-    $TEXT['page-new-ad-title'] = "Grazie! Il tuo prodotto è stato salvato con successo. A breve riceverai nella tua sezione notifiche la conferma di approvazione da parte del team Simple tail. Una volta approvato il tuo prodotto sarà visibile ai negozi.";
-    $TEXT['action-new-ad'] = "Crea"; 
+    $TEXT['page-new-ad-title'] = "Crea Prodotto";
+    $TEXT['action-new-ad'] = "Crea";
 
     $TEXT['msg-error-ad-title'] = "Inserisci il titolo del tuo prodotto"; 
     $TEXT['msg-error-ad-category'] = "Seleziona la categoria di appartenenza del tuo prodotto.";
@@ -813,7 +813,7 @@
     $TEXT['msg-photo-width-height-error'] = "Altezza e larghezza devono essere maggiori di 300 pixels";
     $TEXT['msg-photo-file-upload-limit'] = "Superato limite file caricabile";
     $TEXT['msg-empty-fields'] = "E’ richiesto il completamento di tutti i campi";
-    $TEXT['msg-ad-published'] = "Il prodotto è stato pubblicato con successo."; 
+    $TEXT['msg-ad-published'] = "Il tuo prodotto è stato salvato con successo. A breve riceverai nella tua sezione notifiche la conferma di approvazione da parte del team Simple tail. Una volta approvato il tuo prodotto sarà visibile ai negozi.";
     $TEXT['msg-ad-saved'] = "Modifiche salvate con successo"; 
     $TEXT['msg-selected-location-error'] = "Indirizzo non specificato o indirizzo incorretto";
     $TEXT['msg-contact-promo'] = "Vuoi contattarci %s? Unisciti ora!"; 
