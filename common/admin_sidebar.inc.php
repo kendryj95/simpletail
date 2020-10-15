@@ -39,7 +39,7 @@ if (!defined("APP_SIGNATURE")) {
                         <span class="hide-menu"><?php echo $LANG['apanel-categories']; ?></span>
                     </a>
                 </li>
-                    <li>
+                    <!--li>
                         <a class="waves-effect waves-dark <?php if (isset($page_id) && $page_id === "adsense") { echo "active";} ?>" href="/<?php echo APP_ADMIN_PANEL; ?>/adsense" aria-expanded="false">
                             <i class="ti-layout-media-overlay"></i>
                             <span class="hide-menu">Adsense</span>
@@ -56,7 +56,7 @@ if (!defined("APP_SIGNATURE")) {
                             <i class="ti-bell"></i>
                             <span class="hide-menu"><?php echo $LANG['apanel-fcm']; ?></span>
                         </a>
-                    </li>
+                    </li-->
 
                     <li>
                         <a class="waves-effect waves-dark <?php if (isset($page_id) && $page_id === "users") { echo "active";} ?>" href="/<?php echo APP_ADMIN_PANEL; ?>/users" aria-expanded="false">
@@ -90,14 +90,14 @@ if (!defined("APP_SIGNATURE")) {
                         </a>
                     </li>
 
-                    <li>
+                    <!--li>
                         <a class="waves-effect waves-dark <?php if (isset($page_id) && $page_id === "reports") { echo "active";} ?>" href="/<?php echo APP_ADMIN_PANEL; ?>/reports" aria-expanded="false">
                             <i class="ti-face-sad"></i>
                             <span class="hide-menu"><?php echo $LANG['apanel-reports']; ?></span>
                         </a>
-                    </li>
+                    </li-->
 
-                <li class="nav-devider"></li>
+                <!--li class="nav-devider"></li>
 
                 <li class="nav-small-cap"><?php echo $LANG['apanel-label-moderation']; ?></li>
 
@@ -113,7 +113,7 @@ if (!defined("APP_SIGNATURE")) {
                         <i class="ti-gallery"></i>
                         <span class="hide-menu"><?php echo $LANG['apanel-label-moderation-covers']; ?></span>
                     </a>
-                </li>
+                </li-->
 
 
 
