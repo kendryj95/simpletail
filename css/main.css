@@ -1846,6 +1846,7 @@ body.fixed-header .page {
   padding-bottom: .75rem;
   background: #fff;
   border-bottom: 1px solid rgba(0, 40, 100, 0.12);
+  background-color: #2a4194;
 }
 
 .header .dropdown-menu {
@@ -1857,8 +1858,8 @@ body.fixed-header .page {
   top: .25rem;
   right: .25rem;
   background: #cd201f;
-  width: .5rem;
-  height: .5rem;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
 }
 
@@ -1883,9 +1884,9 @@ body.fixed-header .page {
 
 .header-brand-img {
 
-  min-width: 96px;
+  min-width: 186px;
   margin-top: .2rem;
-  height: 2rem;
+  height: 4rem;
   line-height: 2rem;
   vertical-align: bottom;
   margin-right: .5rem;
@@ -1949,7 +1950,8 @@ body.fixed-header .page {
 }
 
 .text-default {
-  color: #495057 !important;
+  color: #fff !important;
+  font-weight: bold;
 }
 
 .text-muted-dark {
@@ -5140,7 +5142,7 @@ h4, .h4 {
   padding: 0;
 }
 
-.field-signup-form-username i, .field-signup-form-fullname i, .field-signup-form-password i, .field-signup-form-email, .field-signup-form-typeuser, .field-signup-form-country i {
+.field-signup-form-username i, .field-signup-form-fullname i, .field-signup-form-password i, .field-signup-form-email i {
 
   cursor: pointer;
 }
@@ -5279,6 +5281,7 @@ h4, .h4 {
   border: 1px solid #f3f3f3;
   border-radius: 3px;
   padding: 0;
+  height: 40px;
 }
 
 .navbar-form .form-group {
@@ -5309,7 +5312,7 @@ h4, .h4 {
 
 img.form-logo {
 
-  max-height: 40px
+  max-height: 80px
 }
 
 footer .col-auto {
@@ -5747,15 +5750,15 @@ h1 .currency-label {
 
 .btn-add-item {
   color: #fff;
-  background-color: #ff983b;
+  background-color: #37c8d5;
   background-image: none;
-  border-color: #ff983b;
+  border-color: #37c8d5;
 }
 
 .btn-add-item:hover {
   color: #fff;
-  background-color: #ff8300;
-  border-color: #ff8300;
+  background-color: #2facb7;
+  border-color: #2facb7;
 }
 
 .btn-add-item:focus, .btn-add-item.focus {
@@ -5770,8 +5773,8 @@ h1 .currency-label {
 .btn-add-item:not(:disabled):not(.disabled):active, .btn-add-item:not(:disabled):not(.disabled).active,
 .show > .btn-add-item.dropdown-toggle {
   color: #fff;
-  background-color: #ff983b;
-  border-color: #ff983b;
+  background-color: #37c8d5;
+  border-color: #37c8d5;
 }
 
 .btn-add-item:not(:disabled):not(.disabled):active:focus, .btn-add-item:not(:disabled):not(.disabled).active:focus,

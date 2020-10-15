@@ -90,6 +90,48 @@ class support extends db_connect
         return $result;
     }
 
+    public function markRead($itemId)
+    {
+        $result = array(
+            "error" => true,
+            "error_code" => ERROR_UNKNOWN);
+
+        $currentTime = time();
+
+        $stmt = $this->db->prepare("UPDATE support SET unread = 0 WHERE id = (:itemId)");
+        $stmt->bindParam(":itemId", $itemId, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+
+            $result = array(
+                "error" => false,
+                "error_code" => ERROR_SUCCESS);
+        }
+
+        return $result;
+    }
+
+    public function markUnread($itemId)
+    {
+        $result = array(
+            "error" => true,
+            "error_code" => ERROR_UNKNOWN);
+
+        $currentTime = time();
+
+        $stmt = $this->db->prepare("UPDATE support SET unread = 1 WHERE id = (:itemId)");
+        $stmt->bindParam(":itemId", $itemId, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+
+            $result = array(
+                "error" => false,
+                "error_code" => ERROR_SUCCESS);
+        }
+
+        return $result;
+    }
+
     // Get items list
 
     public function getItems($pageId = 0)
@@ -189,6 +231,7 @@ class support extends db_connect
             "replyFrom" => $row['replyFrom'],
             "removeAt" => $row['removeAt'],
             "createAt" => $row['createAt'],
+            "unread" => $row['unread'],
             "date" => date("Y-m-d H:i:s", $row['createAt']),
             "timeAgo" => $time->timeAgo($row['createAt']),
             "u_agent" => $row['u_agent'],
@@ -205,6 +248,16 @@ class support extends db_connect
     public function getRequestFrom()
     {
         return $this->requestFrom;
+    }
+
+    public function countMsgUnread()
+    {
+        $sql = "SELECT count(*) FROM $this->tableName WHERE removeAt = 0 AND unread = 1";
+        $stmt = $this->db->prepare($sql);
+
+        $stmt->execute();
+
+        return $number_of_rows = $stmt->fetchColumn();
     }
 }
 

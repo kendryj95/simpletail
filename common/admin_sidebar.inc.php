@@ -68,7 +68,7 @@ if (!defined("APP_SIGNATURE")) {
                     <li>
                         <a class="waves-effect waves-dark <?php if (isset($page_id) && $page_id === "support") { echo "active";} ?>" href="/<?php echo APP_ADMIN_PANEL; ?>/support" aria-expanded="false">
                             <i class="ti-help-alt"></i>
-                            <span class="hide-menu"><?php echo $LANG['apanel-support']; ?></span>
+                            <span class="hide-menu" id="nav-support"><?php echo $LANG['apanel-support']; ?></span>
                         </a>
                     </li>
 

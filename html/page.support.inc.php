@@ -115,12 +115,21 @@
                                         </ul>
                                     </div>
 
-                                <div class="form-group field-support-form-email required">
-                                    <label class="form-label" for="user-email">Email</label>
-                                    <input maxlength="100" placeholder="<?php echo $LANG['label-support-email-placeholder']; ?>" type="email" id="user-email" class="form-control" name="user_email" autofocus="" value="<?php echo $user_email; ?>">
+                                <?php if (auth::isSession()): ?>
+                                    <div class="form-group field-support-form-email required">
+                                        <label class="form-label" for="user-email">Email</label>
+                                        <input maxlength="100" placeholder="<?php echo $LANG['label-support-email-placeholder']; ?>" type="email" id="user-email" class="form-control" name="user_email" autofocus="" value="<?= auth::getEmail(auth::getCurrentUserId()) ?>" readonly>
 
-                                    <div class="help-block"></div>
-                                </div>
+                                        <div class="help-block"></div>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="form-group field-support-form-email required">
+                                        <label class="form-label" for="user-email">Email</label>
+                                        <input maxlength="100" placeholder="<?php echo $LANG['label-support-email-placeholder']; ?>" type="email" id="user-email" class="form-control" name="user_email" autofocus="" value="<?php echo $user_email; ?>">
+
+                                        <div class="help-block"></div>
+                                    </div>
+                                <?php endif ?>
 
                                 <div class="form-group field-support-form-subject required">
                                     <label class="form-label" for="subject"><?php echo $LANG['label-support-subject']; ?></label>

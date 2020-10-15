@@ -60,6 +60,10 @@ if (!defined("APP_SIGNATURE")) {
 <script src="/apanel/js/sticky-kit.min.js"></script>
 <!--Custom JavaScript -->
 <script src="/apanel/js/custom.min.js"></script>
+<script type="text/javascript">
+    var admin_url_panel = "<?php echo APP_ADMIN_PANEL; ?>";
+</script>
+<script src="/apanel/js/unread_support.js"></script>
 <!-- ============================================================== -->
 <!-- This page plugins -->
 <!-- ============================================================== -->

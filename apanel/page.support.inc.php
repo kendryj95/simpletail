@@ -43,6 +43,22 @@
                     break;
                 }
 
+                case "mark-read" : {
+
+                    $support->markRead($itemId);
+
+                    header("Location: /".APP_ADMIN_PANEL."/support");
+                    break;
+                }
+
+                case "mark-unread" : {
+
+                    $support->markUnread($itemId);
+
+                    header("Location: /".APP_ADMIN_PANEL."/support");
+                    break;
+                }
+
                 default: {
 
                     header("Location: /".APP_ADMIN_PANEL."/support");
@@ -326,7 +342,14 @@
             <td class="text-left" style="word-break: break-all;"><?php echo $value['subject']; ?></td>
             <td class="text-left" style="word-break: break-all;"><?php echo $value['text']; ?></td>
             <td class="text-left" style="white-space: nowrap;"><?php echo date("Y-m-d H:i:s", $value['createAt']); ?></td>
-            <td><a href="/<?php echo APP_ADMIN_PANEL; ?>/support?itemId=<?php echo $value['id']; ?>&act=delete&access_token=<?php echo admin::getAccessToken(); ?>"><?php echo $LANG['apanel-action-delete']; ?></a></td>
+            <td>
+                <a href="/<?php echo APP_ADMIN_PANEL; ?>/support?itemId=<?php echo $value['id']; ?>&act=delete&access_token=<?php echo admin::getAccessToken(); ?>" title="Delete" rel="tooltip"><i class="fa fa-trash"></i></a>
+                <?php if ($value['unread'] == 1): ?>
+                    <a href="/<?php echo APP_ADMIN_PANEL; ?>/support?itemId=<?php echo $value['id']; ?>&act=mark-read&access_token=<?php echo admin::getAccessToken(); ?>" title="Mark as read" rel="tooltip"><i class="fa fa-envelope-open"></i></a>&nbsp;
+                <?php else: ?>
+                    <a href="/<?php echo APP_ADMIN_PANEL; ?>/support?itemId=<?php echo $value['id']; ?>&act=mark-unread&access_token=<?php echo admin::getAccessToken(); ?>" title="Mark as unread" rel="tooltip"><i class="fa fa-envelope"></i></a>
+                <?php endif ?>
+            </td>
         </tr>
 
         <?php

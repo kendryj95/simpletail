@@ -232,6 +232,11 @@ class auth extends db_connect
         return 0;
     }
 
+    static function getEmail($id)
+    {
+        return (new auth)->getUserEmail($id);
+    }
+
     static function isSession()
     {
         if (isset($_SESSION) && isset($_SESSION['user_id'])) {
