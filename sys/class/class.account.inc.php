@@ -1443,5 +1443,15 @@ class account extends db_connect
     {
         return $this->id;
     }
+
+    public function usersNotVerified()
+    {
+        $sql = "SELECT count(*) FROM users WHERE verify = 0";
+        $stmt = $this->db->prepare($sql);
+
+        $stmt->execute();
+
+        return $number_of_rows = $stmt->fetchColumn();
+    }
 }
 

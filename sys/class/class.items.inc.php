@@ -996,5 +996,15 @@ class items extends db_connect
     {
         return $this->requestFrom;
     }
+
+    public function itemsNotApproved()
+    {
+        $sql = "SELECT count(*) FROM items WHERE removeAt = 0 AND moderatedAt = 0";
+        $stmt = $this->db->prepare($sql);
+
+        $stmt->execute();
+
+        return $number_of_rows = $stmt->fetchColumn();
+    }
 }
 

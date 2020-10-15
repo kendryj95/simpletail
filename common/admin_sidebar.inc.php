@@ -61,7 +61,7 @@ if (!defined("APP_SIGNATURE")) {
                     <li>
                         <a class="waves-effect waves-dark <?php if (isset($page_id) && $page_id === "users") { echo "active";} ?>" href="/<?php echo APP_ADMIN_PANEL; ?>/users" aria-expanded="false">
                             <i class=" ti-search"></i>
-                            <span class="hide-menu"><?php echo $LANG['apanel-users']; ?></span>
+                            <span class="hide-menu" id="nav-users"><?php echo $LANG['apanel-users']; ?></span>
                         </a>
                     </li>
 
@@ -79,7 +79,7 @@ if (!defined("APP_SIGNATURE")) {
                     <li>
                         <a class="waves-effect waves-dark <?php if (isset($page_id) && $page_id === "market") { echo "active";} ?>" href="/<?php echo APP_ADMIN_PANEL; ?>/market" aria-expanded="false">
                             <i class="fa fa-shopping-cart"></i>
-                            <span class="hide-menu"><?php echo $LANG['apanel-market']; ?></span>
+                            <span class="hide-menu" id="nav-market"><?php echo $LANG['apanel-market']; ?></span>
                         </a>
                     </li>
 
