@@ -120,6 +120,8 @@
 <script type="text/javascript" src="/js/app.js?x=45"></script>
 <script type="text/javascript" src="/js/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js"></script>
+
 
     <script type="text/javascript">
 
@@ -177,6 +179,12 @@
                 e.preventDefault();
             }
         });
+
+        setTimeout(function () {
+            $( "#category_id" ).select2({
+                theme: "bootstrap"
+            });
+        }, 200)
 
     </script>
 

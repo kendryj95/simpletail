@@ -75,7 +75,7 @@ if (!empty($_POST)) {
         $imglib = new imglib($dbo);
         $imglib->setRequestFrom($accountId);
 
-        if (!$error && !$imglib->isImageFile($_FILES['uploaded_file']['tmp_name'], false, false)) {
+        if (!$error && !$imglib->isImageFile($_FILES['uploaded_file']['tmp_name'], true, false)) {
 
             $error = true;
             $error_code = ERROR_IMAGE_FILE_FORMAT;

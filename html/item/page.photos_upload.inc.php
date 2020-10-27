@@ -78,7 +78,7 @@
 
                 $imglib = new imglib($dbo);
 
-                if (!$error && !$imglib->isImageFile($_FILES['images-upload-input']['tmp_name'][$i], false, false)) {
+                if (!$error && !$imglib->isImageFile($_FILES['images-upload-input']['tmp_name'][$i], true, false)) {
 
                     $error = true;
                     $error_code = ERROR_IMAGE_FILE_FORMAT;

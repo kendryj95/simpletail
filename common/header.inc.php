@@ -90,6 +90,10 @@ if (!defined("APP_SIGNATURE")) {
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" media="screen">
     <link rel="stylesheet" href="/css/main.css?x=5" type="text/css" media="screen">
     <link rel="stylesheet" href="/js/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css">
+
 
     <?php
     foreach($css_files as $css): ?>

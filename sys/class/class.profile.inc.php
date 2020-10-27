@@ -37,7 +37,7 @@ class profile extends db_connect
             "error" => true,
             "error_code" => ERROR_ACCOUNT_ID);
 
-        $stmt = $this->db->prepare("SELECT users.*, countries.name AS country, category.title AS category FROM users LEFT JOIN countries ON users.country_id = countries.id LEFT JOIN category ON category.id = users.category_id WHERE users.id = (:id) LIMIT 1");
+        $stmt = $this->db->prepare("SELECT users.*, countries.name AS country FROM users LEFT JOIN countries ON users.country_id = countries.id WHERE users.id = (:id) LIMIT 1");
         $stmt->bindParam(":id", $this->id, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
@@ -96,7 +96,7 @@ class profile extends db_connect
             "error" => true,
             "error_code" => ERROR_ACCOUNT_ID);
 
-        $stmt = $this->db->prepare("SELECT users.*, countries.name AS country, category.title AS category FROM users LEFT JOIN countries ON users.country_id = countries.id LEFT JOIN category ON category.id = users.category_id WHERE users.id = (:id) LIMIT 1");
+        $stmt = $this->db->prepare("SELECT users.*, countries.name AS country FROM users LEFT JOIN countries ON users.country_id = countries.id WHERE users.id = (:id) LIMIT 1");
         $stmt->bindParam(":id", $this->id, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
@@ -153,11 +153,11 @@ class profile extends db_connect
             "fb_page" => stripcslashes($row['fb_page']),
             "instagram_page" => stripcslashes($row['my_page']),
             "my_page" => stripcslashes($row['my_page']),
-            "category" => stripcslashes($row['category']),
             "annual_turnover" => $row['annual_turnover'],
             "verify" => $row['verify'],
             "pdf_document" => $row['pdf_document'],
             "verified" => $row['verify'],
+            "categories" => $row['category_id'],
             "number_stores" => $row['number_stores'],
             "lat" => $row['lat'],
             "lng" => $row['lng'],

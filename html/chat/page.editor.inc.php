@@ -899,8 +899,8 @@
 				multiple: false,
 				maxNumberOfFiles: 1,
 				maxFileSize: FILE_PHOTO_MAX_SIZE,
-				acceptFileTypes: "", // or regex: /(jpeg)|(jpg)|(png)$/i
-				"files":null,
+                acceptFileTypes: /(jpeg)|(jpg)|(png)$/i, // or regex: /(jpeg)|(jpg)|(png)$/i
+                "files":null,
 				minFileSize: null,
 				messages: {
 					"maxNumberOfFiles":"Maximum number of files exceeded",

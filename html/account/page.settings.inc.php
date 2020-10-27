@@ -73,7 +73,7 @@
 		$instagram_page = filter_var($instagram_page, FILTER_SANITIZE_URL);
 		$instagram_page = helper::clearText($instagram_page);
 		$instagram_page = helper::escapeText($instagram_page);
-		$category_id = isset($_POST['category_id']) ? $_POST['category_id'] : null;
+		$category_id = isset($_POST['category_id']) ? implode(",",$_POST['category_id']) : null;
 		$attributes = isset($_POST['attributes']) ? $_POST['attributes'] : null;
 		$address = isset($_POST['address']) ? $_POST['address'] : null;
 		$annual_turnover = isset($_POST['annual_turnover']) ? $_POST['annual_turnover'] : null;
@@ -308,7 +308,12 @@
 
 														?>
 
+                                                         <?php if ($accountInfo['verify'] == 1): ?>
                                                         <div class="alert alert-success"><strong><?php echo $LANG['label-thanks']; ?></strong> <?php echo $LANG['label-settings-saved']; ?></div>
+                                                        <?php else: ?>
+                                                            <div class="alert alert-success"><strong><?php echo $LANG['label-thanks']; ?></strong> <?php echo $LANG['label-settings-saved-not-verify']; ?></div>
+
+                                                        <?php endif ?>
 
 														<?php
 
@@ -337,8 +342,9 @@
 												<div class="help-block"></div>
 											</div>
 
+                                            <?php if ($accountInfo['typeuser'] === "BRAND"): ?>
                                             <div class="form-group">
-												<label class="form-label" for="category_id"><?php echo $accountInfo['typeuser'] === "BRAND" ? $LANG['label-category-brand'] : $LANG['label-category-store'] ?></label>
+												<label class="form-label" for="category_id"><?php echo $LANG['label-category-brand'] ?></label>
                                                 <select name="category_id" id="category_id"
                                                         class="form-control" required>
                                                     <?php foreach ($categories['items'] as $item): ?>
@@ -348,9 +354,32 @@
 
 												<div class="help-block"></div>
 											</div>
+                                            <?php else: ?>
+                                                <div class="form-group">
+                                                    <label class="form-label" for="category_id"><?php echo $LANG['label-category-store'] ?></label>
+                                                    <select name="category_id[]" id="category_id"
+                                                            class="form-control select2-multiple" multiple required>
+                                                        <?php foreach ($categories['items'] as $item): ?>
+                                                            <option value="<?= $item['id'] ?>" <?php if(in_array($item['id'],explode(",",$accountInfo['category_id']))): ?> selected <?php endif ?>><?= $item['title'] ?></option>
+                                                        <?php endforeach ?>
+                                                    </select>
+
+                                                    <div class="help-block"></div>
+                                                </div>
+                                            <?php endif ?>
 
                                             <?php if ($accountInfo['typeuser'] === "BRAND"): ?>
 
+                                                <div class="form-group">
+                                                    <label class="form-label" for="type_business"><?php echo $LANG['label-type-business'] ?></label>
+                                                    <select name="type_business" id="type_business"
+                                                            class="form-control">
+                                                        <option value="Produttore" <?php if ($accountInfo['type_business'] == "Produttore"): ?> selected <?php  endif ?>>Produttore</option>
+                                                        <option value="Distributore" <?php if ($accountInfo['type_business'] == "Distributore"): ?> selected <?php  endif ?>>Distributore</option>
+                                                    </select>
+
+                                                    <div class="help-block"></div>
+                                                </div>
                                             <div class="form-group">
 												<label class="form-label" for="attributes"><?php echo $LANG['label-attributes-brand'] ?></label>
                                                 <input type="text" class="attributes" name="attributes" id="attributes" value="<?= $accountInfo['attributes'] ?>" data-role="tagsinput">
@@ -369,10 +398,10 @@
                                                 <label class="form-label" for="annual_turnover"><?php echo $LANG['label-annual-turnover'] ?></label>
                                                 <select name="annual_turnover" id="annual_turnover"
                                                         class="form-control">
-                                                    <option value="0 millioni € - 1 millioni €" <?php if ($accountInfo['annual_turnover'] == "0 millioni € - 1 millioni €"): ?> selected <?php endif ?> >0 millioni € - 1 millioni €</option>
-                                                    <option value="1 milione € - 2 millioni €" <?php if ($accountInfo['annual_turnover'] == "1 milione € - 2 millioni €"): ?> selected <?php endif ?> >1 milione € - 2 millioni €</option>
-                                                    <option value="2 millioni € - 4 millioni €" <?php if ($accountInfo['annual_turnover'] == "2 millioni € - 4 millioni €"): ?> selected <?php endif ?> >2 millioni € - 4 millioni €</option>
-                                                    <option value="+ 5 millioni €" <?php if ($accountInfo['annual_turnover'] == "+ 5 millioni €"): ?> selected <?php endif ?> >+ 5 millioni €</option>
+                                                    <option value="0 milioni € - 1 milione €" <?php if ($accountInfo['annual_turnover'] == "0 milioni € - 1 milioni €"): ?> selected <?php endif ?> >0 milioni € - 1 milioni €</option>
+                                                    <option value="1 milione € - 2 milioni €" <?php if ($accountInfo['annual_turnover'] == "1 milione € - 2 milioni €"): ?> selected <?php endif ?> >1 milione € - 2 milioni €</option>
+                                                    <option value="2 milioni € - 4 milioni €" <?php if ($accountInfo['annual_turnover'] == "2 milioni € - 4 milioni €"): ?> selected <?php endif ?> >2 milioni € - 4 milioni €</option>
+                                                    <option value="+ 5 milioni €" <?php if ($accountInfo['annual_turnover'] == "+ 5 milioni €"): ?> selected <?php endif ?> >+ 5 milioni €</option>
                                                 </select>
 
                                                 <div class="help-block"></div>
@@ -406,6 +435,7 @@
                                                         <option value="Distributore" <?php if ($accountInfo['type_business'] == "Distributore"): ?> selected <?php  endif ?>>Distributore</option>
                                                         <option value="Negozio singolo" <?php if ($accountInfo['type_business'] == "Negozio singolo"): ?> selected <?php  endif ?>>Negozio singolo</option>
                                                         <option value="Catena di negozi al dettaglio" <?php if ($accountInfo['type_business'] == "Catena di negozi al dettaglio"): ?> selected <?php  endif ?>>Catena di negozi al dettaglio</option>
+                                                        <option value="Negozio online" <?php if ($accountInfo['type_business'] == "Negozio online"): ?> selected <?php  endif ?>>Negozio online</option>
                                                     </select>
 
                                                     <div class="help-block"></div>
@@ -413,7 +443,7 @@
 
                                                 <div class="form-group">
                                                     <label class="form-label" for="website"><?php echo $LANG['label-website-company'] ?></label>
-                                                    <input type="text" maxlength="96" id="website" class="form-control" name="website" value="<?php echo $accountInfo['website']; ?>">
+                                                    <input type="text" maxlength="96" placeholder="<?php echo $LANG['placeholder-text-url']; ?>" id="website" class="form-control" name="website" value="<?php echo $accountInfo['website']; ?>">
 
                                                     <div class="help-block"></div>
                                                 </div>
@@ -487,7 +517,7 @@
 												<div class="col-sm-4">
 													<div class="form-group field-phone-number">
 														<label class="form-label" for="phone-number"><?php echo $LANG['label-phone-number']; ?></label>
-														<input type="text" maxlength="16" placeholder="<?php echo $LANG['placeholder-phone-number']; ?>" id="phone-number" class="form-control" name="phone_number" value="<?php echo $accountInfo['phone']; ?>">
+														<input type="text" maxlength="16" style="min-width: 350px;" placeholder="<?php echo $LANG['placeholder-phone-number']; ?>" id="phone-number" class="form-control" name="phone_number" value="<?php echo $accountInfo['phone']; ?>">
 
 														<div class="help-block"></div>
 													</div>

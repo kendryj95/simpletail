@@ -400,6 +400,8 @@
 
     $TEXT['label-settings-saved'] = "Impostazioni salvate.";
 
+    $TEXT['label-settings-saved-not-verify'] = "Il tuo negozio è stato salvato con successo. A breve riceverai nella tua sezione notifiche la conferma di approvazione da parte del team Simpletail. Una volta approvato potrai iniziare la tua ricerca di nuovi marchi.";
+
     $TEXT['label-password-saved'] = "Password aggiornata con successo.";
 
     $TEXT['label-profile-settings-links'] = "E puoi anche";
@@ -687,7 +689,8 @@
     $TEXT['label-ad-category'] = "Categoria"; 
     $TEXT['label-ad-subcategory'] = "Sottocategoria"; 
     $TEXT['label-ad-currency'] = "Valuta"; 
-    $TEXT['label-ad-price'] = "Prezzo"; 
+    $TEXT['label-ad-price'] = "PREZZO AL PUBBLICO SUGGERITO IN EURO (€)"; 
+    $TEXT['label-wholesale_price'] = "PREZZO D'ACQUISTO AL DETTAGLIANTE IN EURO (€)"; 
     $TEXT['label-ad-description'] = "Descrizione"; 
     $TEXT['label-ad-photos'] = "Foto"; 
     $TEXT['label-ad-phone'] = "Numero di telefono"; 
@@ -695,8 +698,9 @@
 
     $TEXT['label-ad-sub-title'] = "da 5 a 70 caratteri"; 
     $TEXT['label-ad-sub-price'] = "Non deve essere 0";
+    $TEXT['label-ad-sub-wholesale_price'] = "Non deve essere 0";
     $TEXT['label-ad-sub-description'] = "da 10 a 500 caratteri"; 
-    $TEXT['label-ad-sub-photos'] = "Almeno una foto. Fino a 5 foto. Formati:  jpg, jpeg"; 
+    $TEXT['label-ad-sub-photos'] = "Almeno una foto. Fino a 5 foto. Formati:  jpg, jpeg, png";
     $TEXT['label-ad-sub-phone'] = "esempio: +14567189456"; 
     $TEXT['label-ad-sub-location'] = "Trascina l’indicatore o fai doppio click sulla location desderata.";
 
@@ -757,7 +761,7 @@
     $TEXT['label-signup-tooltip-username'] = "Questo è il tuo accesso. Utilizzato come nome di profilo. Solo lettere e numeri. Al meno 5 caratteri";
     $TEXT['label-signup-tooltip-fullname'] = "Il tuo nome e cognome. Esempio: mostrato nel tuo profilo e nei messaggi. Almeno 2 caratteri";
     $TEXT['label-signup-tooltip-password'] = "Password del tuo profilo. Al meno 6 caratteri";
-    $TEXT['label-signup-tooltip-email'] = "Il tuo valido indirizzo emaill. Verrà utilizzato esclusivamente per la procedura di ripristino password, se necessario. Non utilizzeremo la tua email per inviarti pubblicità o posta indesiderata!";
+    $TEXT['label-signup-tooltip-email'] = " Inserisci il tuo indirizzo email. Verrà utilizzato per la procedura di ripristino password.";
     $TEXT['label-signup-tooltip-sex'] = "Specifica il tuo sesso. Questa informazione renderà il tuo profilo maggiormente completo";
 
     $TEXT['label-signup-placeholder-username'] = "Il tuo accesso";
@@ -1120,7 +1124,7 @@ search for new brands";
 
     $TEXT['label-fullname-store'] = "Nome dell’azienda";
     $TEXT['label-signup-tooltip-fullname-store'] = "Il vero nome dell'azienda";
-    $TEXT['label-signup-placeholder-fullname-store'] = "Qual è il nome della tua azienda";
+    $TEXT['label-signup-placeholder-fullname-store'] = "Qual è il nome della tua azienda?";
 
     $TEXT['label-country-brand'] = "Paese d’origine del marchio";
     $TEXT['label-signup-tooltip-country-brand'] = "Qual è il paese d’origine del tuo marchio?";
@@ -1143,7 +1147,7 @@ search for new brands";
     $TEXT['label-attributes-essentials'] = "Inserisci gli attributi che ritieni essenziali nella ricerca di nuovi prodotti";
     $TEXT['label-company-name'] = "Ragione sociale dell'azienda";
     $TEXT['label-signup-tooltip-company-name'] = "Inserisci la ragione sociale dell'azienda";
-    $TEXT['label-signup-placeholder-company-name'] = "Come si chiama la vostra azienda?";
+    $TEXT['label-signup-placeholder-company-name'] = "Qual è la ragione sociale della tua azienda?";
 
 
 

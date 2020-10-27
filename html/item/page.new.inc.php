@@ -87,6 +87,7 @@
     $amount_product_value = null;
     $total_weight = null;
     $quantity_items_per_case = null;
+    $wholesale_price = null;
 
     $ad_area = "";
     $ad_country = "";
@@ -171,6 +172,7 @@
         $amount_product_value = $itemInfo['amount_product_value'];
         $total_weight = $itemInfo['total_weight'];
         $quantity_items_per_case = $itemInfo['quantity_items_per_case'];
+        $wholesale_price = $itemInfo['wholesale_price'];
 
         if ($ad_price < 1) $ad_price = 1;
 
@@ -221,6 +223,7 @@
         $amount_product_value = isset($_POST['amount_product_value']) ? $_POST['amount_product_value'] : null;
         $total_weight = isset($_POST['total_weight']) ? $_POST['total_weight'] : null;
         $quantity_items_per_case = isset($_POST['quantity_items_per_case']) ? $_POST['quantity_items_per_case'] : null;
+        $wholesale_price = isset($_POST['wholesale_price']) ? $_POST['wholesale_price'] : null;
 
         $ajax_mode = helper::clearInt($ajax_mode);
 
@@ -270,6 +273,7 @@
         $amount_product = helper::clearFloat($amount_product);
         $total_weight = helper::clearFloat($total_weight);
         $quantity_items_per_case = helper::clearInt($quantity_items_per_case);
+        $wholesale_price = helper::clearInt($wholesale_price);
 
         if (!helper::isFloat($ad_lat) || !helper::isFloat($ad_lng)) {
 
@@ -392,7 +396,7 @@
 
                 if (!$edit_mode) {
 
-                    $result = $items->add(APP_TYPE_WEB, $ad_category, $ad_subcategory, $ad_title, $ad_title, $ad_description, $images_links[0], 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number, $ad_countryId, $ad_logistic_costs, $ad_externalShippingPacking1, $ad_externalShippingPacking2, $ad_externalShippingPacking2, $ad_externalShippingPacking3, $ad_externalShippingPackingDetail, $ad_externalShippingPackingGrs, $ad_unitMeasure, $ad_quantityPiecesReferences, $ad_eanCode, $ad_productCertifications, $ad_productAvailability, $ad_ingredients, $ad_keywordsProduct, $amount_product, $amount_product_value, $total_weight, $quantity_items_per_case);
+                    $result = $items->add(APP_TYPE_WEB, $ad_category, $ad_subcategory, $ad_title, $ad_title, $ad_description, $images_links[0], 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number, $ad_countryId, $ad_logistic_costs, $ad_externalShippingPacking1, $ad_externalShippingPacking2, $ad_externalShippingPacking2, $ad_externalShippingPacking3, $ad_externalShippingPackingDetail, $ad_externalShippingPackingGrs, $ad_unitMeasure, $ad_quantityPiecesReferences, $ad_eanCode, $ad_productCertifications, $ad_productAvailability, $ad_ingredients, $ad_keywordsProduct, $amount_product, $amount_product_value, $total_weight, $quantity_items_per_case, $wholesale_price);
 
                     if (!$result['error'] && count($images_links) > 1) {
 
@@ -409,7 +413,7 @@
 
                 } else {
 
-                    $result = $items->edit($itemInfo['id'], $ad_category, $ad_subcategory, $ad_title, $images_links[0], $ad_description, 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number, $ad_countryId, $ad_logistic_costs, $ad_externalShippingPacking1, $ad_externalShippingPacking2, $ad_externalShippingPacking2, $ad_externalShippingPacking3, $ad_externalShippingPackingDetail, $ad_externalShippingPackingGrs, $ad_unitMeasure, $ad_quantityPiecesReferences, $ad_eanCode, $ad_productCertifications, $ad_productAvailability, $ad_ingredients, $ad_keywordsProduct, $amount_product, $amount_product_value, $total_weight, $quantity_items_per_case);
+                    $result = $items->edit($itemInfo['id'], $ad_category, $ad_subcategory, $ad_title, $images_links[0], $ad_description, 0, $ad_price, $ad_area, $ad_country, $ad_city, $ad_lat, $ad_lng, $ad_currency, $ad_phone_number, $ad_countryId, $ad_logistic_costs, $ad_externalShippingPacking1, $ad_externalShippingPacking2, $ad_externalShippingPacking2, $ad_externalShippingPacking3, $ad_externalShippingPackingDetail, $ad_externalShippingPackingGrs, $ad_unitMeasure, $ad_quantityPiecesReferences, $ad_eanCode, $ad_productCertifications, $ad_productAvailability, $ad_ingredients, $ad_keywordsProduct, $amount_product, $amount_product_value, $total_weight, $quantity_items_per_case, $wholesale_price);
 
                     if (!$result['error'] && count($images_links) > 1) {
 
@@ -723,6 +727,20 @@
 
                                                 </div>
 
+                                                <div class="col-sm-6 col-md-5 col-lg-5 price-container">
+
+                                                    <!-- 4 = EUR -->
+                                                    <input type="hidden" name="currency" value="4">
+
+                                                    <div class="form-group group-price">
+                                                        <label class="form-label noselect" for="price"><?php echo $LANG['label-wholesale_price']; ?> <small>(<?php echo $LANG['label-ad-sub-wholesale_price']; ?>)</small></label>
+                                                        <input type="number" id="wholesale_price" min="1" step="0.01" class="form-control" name="wholesale_price" value="<?php echo $wholesale_price; ?>">
+
+                                                        <div class="help-block"></div>
+                                                    </div>
+
+                                                </div>
+
                                                 <div class=" col-sm-12">
 
                                                     <div class="row">
@@ -770,7 +788,7 @@
 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
-                                                                <label class="form-label noselect" for="total_weight"><?php echo $LANG['label-ad-total-weight']; ?> </label>
+                                                                <label class="form-label noselect" for="total_weight"><?php echo $LANG['label-ad-total-weight']; ?> in KG </label>
                                                                 <input type="number" id="total_weight" min="1" step="0.01" placeholder="IN KG" class="form-control" name="total_weight" value="<?php echo $total_weight; ?>">
 
                                                                 <div class="help-block"></div>
@@ -779,7 +797,7 @@
 
                                                         <div class="col-sm-12 col-md-6 col-lg-6">
                                                             <div class="form-group">
-                                                                <label class="form-label noselect" for="quantity_items_per_case"><?php echo $LANG['label-ad-quantity-items-per-case']; ?></label>
+                                                                <label class="form-label noselect" for="quantity_items_per_case"><?php echo $LANG['label-ad-quantity-items-per-case']; ?> </label> <br>
                                                                 <input type="number" id="quantity_items_per_case" min="1" step="1" class="form-control" name="quantity_items_per_case" value="<?php echo $quantity_items_per_case; ?>">
 
 
@@ -1383,7 +1401,7 @@
                     multiple: true,
                     maxNumberOfFiles: 5,
                     maxFileSize: 3145728,
-                    acceptFileTypes: "", // or regex: /(jpeg)|(jpg)|(png)$/i
+                    acceptFileTypes: /^image\/(jpe?g|png)$/i, // or regex: /(jpeg)|(jpg)|(png)$/i
                     "files":null,
                     minFileSize: null,
                     messages: {

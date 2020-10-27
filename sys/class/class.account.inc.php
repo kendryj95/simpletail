@@ -804,7 +804,7 @@ class account extends db_connect
 
         $stmt = $this->db->prepare("UPDATE users SET category_id = (:category_id) WHERE id = (:accountId)");
         $stmt->bindParam(":accountId", $this->id, PDO::PARAM_INT);
-        $stmt->bindParam(":category_id", $category_id, PDO::PARAM_INT);
+        $stmt->bindParam(":category_id", $category_id, PDO::PARAM_STR);
 
         if ($stmt->execute()) {
 
