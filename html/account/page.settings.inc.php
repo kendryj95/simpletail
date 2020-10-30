@@ -73,7 +73,7 @@
 		$instagram_page = filter_var($instagram_page, FILTER_SANITIZE_URL);
 		$instagram_page = helper::clearText($instagram_page);
 		$instagram_page = helper::escapeText($instagram_page);
-		$category_id = isset($_POST['category_id']) ? implode(",",$_POST['category_id']) : null;
+		$category_id = isset($_POST['category_id']) ? (is_array($_POST['category_id']) ? implode(",",$_POST['category_id']) : $_POST['category_id']) : null;
 		$attributes = isset($_POST['attributes']) ? $_POST['attributes'] : null;
 		$address = isset($_POST['address']) ? $_POST['address'] : null;
 		$annual_turnover = isset($_POST['annual_turnover']) ? $_POST['annual_turnover'] : null;
@@ -398,7 +398,7 @@
                                                 <label class="form-label" for="annual_turnover"><?php echo $LANG['label-annual-turnover'] ?></label>
                                                 <select name="annual_turnover" id="annual_turnover"
                                                         class="form-control">
-                                                    <option value="0 milioni € - 1 milione €" <?php if ($accountInfo['annual_turnover'] == "0 milioni € - 1 milioni €"): ?> selected <?php endif ?> >0 milioni € - 1 milioni €</option>
+                                                    <option value="0 milioni € - 1 milione €" <?php if ($accountInfo['annual_turnover'] == "0 milioni € - 1 milione €"): ?> selected <?php endif ?> >0 milioni € - 1 milione €</option>
                                                     <option value="1 milione € - 2 milioni €" <?php if ($accountInfo['annual_turnover'] == "1 milione € - 2 milioni €"): ?> selected <?php endif ?> >1 milione € - 2 milioni €</option>
                                                     <option value="2 milioni € - 4 milioni €" <?php if ($accountInfo['annual_turnover'] == "2 milioni € - 4 milioni €"): ?> selected <?php endif ?> >2 milioni € - 4 milioni €</option>
                                                     <option value="+ 5 milioni €" <?php if ($accountInfo['annual_turnover'] == "+ 5 milioni €"): ?> selected <?php endif ?> >+ 5 milioni €</option>
